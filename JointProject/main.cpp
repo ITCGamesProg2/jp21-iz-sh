@@ -1,8 +1,3 @@
-// platform game
-// Author :Noel O' Hara
-// Extra Code: Izabela Zelek 
-// Robot Animation: Stephen Hurley
-//Link: https://instituteoftechnol663-my.sharepoint.com/:v:/g/personal/c00247865_itcarlow_ie/ETTFY8tC4AhBvVlpaJAAtgEBsAP_AF4om9dFaxYXrbspDg?e=wI9KHc
 
 #ifdef _DEBUG 
 #pragma comment(lib,"sfml-graphics-d.lib") 

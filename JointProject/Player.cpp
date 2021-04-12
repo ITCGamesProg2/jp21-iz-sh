@@ -24,52 +24,95 @@ void Player::Draw(sf::RenderWindow& win)
 {
 	animSheet.nextFrame();
 	spriteSheet.setTextureRect(animSheet.GetFrame());
+
+	spriteSheet.setOrigin(spriteSheet.getGlobalBounds().width / 2, spriteSheet.getGlobalBounds().height / 2);
+
 	win.draw(spriteSheet);
 }
 
 void Player::Update()
 {
-
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
+	if (m_hidden == false)
 	{
-		animationState = PlayerAnimationState::walk;
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
+		{
+			animationState = PlayerAnimationState::walk;
 
-		spriteSheet.move(0, -2);
+			spriteSheet.move(0, -2);
+		}
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+		{
+			animationState = PlayerAnimationState::walk;
+
+			spriteSheet.move(0, 2);
+		}
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+		{
+			animationState = PlayerAnimationState::walk;
+
+			spriteSheet.move(-2, 0);
+		}
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+		{
+			animationState = PlayerAnimationState::walk;
+
+			spriteSheet.move(2, 0);
+		}
+
+		boundaryCheck();
 	}
-	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+
+}
+
+void Player::interactWithBox()
+{
+	// check if E press delay is finished
+	if (m_canPressE)
 	{
-		animationState = PlayerAnimationState::walk;
+		// check if player pressed E
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::E))
+		{
+			// m_hidden bool flip flop
+			if (m_hidden)
+			{
+				m_hidden = false;
+			}
+			else
+			{
+				m_hidden = true;
 
-		spriteSheet.move(0, 2);
+			}
+
+			// disable ability to press E
+			m_canPressE = false;
+			// reset E input delay counter
+			m_EInputDelayCounter = m_EInputDelay;
+		}
 	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+	else // if there currently is a delay
 	{
-		animationState = PlayerAnimationState::walk;
+		m_EInputDelayCounter--;
 
-		spriteSheet.move(-2, 0);
+		if (m_EInputDelayCounter <= 0)
+		{
+			m_canPressE = true;
+		}
 	}
-	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
-	{
-		animationState = PlayerAnimationState::walk;
-
-		spriteSheet.move(2, 0);
-	}
-	boundaryCheck();
 }
 
 void Player::boundaryCheck()
 {
-	if (spriteSheet.getPosition().x > 700)
+	if (spriteSheet.getPosition().x > 800)
 	{
-		spriteSheet.setPosition(700, spriteSheet.getPosition().y);
+		spriteSheet.setPosition(800, spriteSheet.getPosition().y);
 	}
 	else if (spriteSheet.getPosition().x < 0)
 	{
 		spriteSheet.setPosition(0, spriteSheet.getPosition().y);
 	}
-	if (spriteSheet.getPosition().y > 450)
+	if (spriteSheet.getPosition().y > 600)
 	{
-		spriteSheet.setPosition(spriteSheet.getPosition().x,450);
+		spriteSheet.setPosition(spriteSheet.getPosition().x, 600);
 	}
 	else if (spriteSheet.getPosition().y < 0)
 	{
