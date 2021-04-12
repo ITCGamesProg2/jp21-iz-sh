@@ -1,0 +1,12 @@
+﻿  Player.cpp
+C:\Users\viole\Desktop\JointProject\JointProject\Player.cpp(14,83): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\viole\Desktop\JointProject\JointProject\Player.cpp(14,46): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+  JointProject.vcxproj -> C:\Users\viole\Desktop\JointProject\Debug\JointProject.exe
