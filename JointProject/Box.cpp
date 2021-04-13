@@ -19,7 +19,6 @@ void Box::initSprite()
 	}
 
 	m_boxSprite.setTexture(m_boxTexture);
-	m_boxSprite.setScale(0.1, 0.1);
 	m_boxSprite.setOrigin(m_boxSprite.getGlobalBounds().width / 2, m_boxSprite.getGlobalBounds().height / 2);
 }
 

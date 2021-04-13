@@ -25,7 +25,7 @@ void Player::Draw(sf::RenderWindow& win)
 	animSheet.nextFrame();
 	spriteSheet.setTextureRect(animSheet.GetFrame());
 
-	spriteSheet.setOrigin(spriteSheet.getGlobalBounds().width / 2, spriteSheet.getGlobalBounds().height / 2);
+	spriteSheet.setOrigin(spriteSheet.getGlobalBounds().width / 2, (spriteSheet.getGlobalBounds().height / 2) + 15);
 
 	win.draw(spriteSheet);
 }
@@ -117,5 +117,17 @@ void Player::boundaryCheck()
 	else if (spriteSheet.getPosition().y < 0)
 	{
 		spriteSheet.setPosition(spriteSheet.getPosition().x,0);
+	}
+}
+
+void Player::collisionBetweenPlayerAndBox(sf::Sprite &boxSprite)
+{
+	if (boxSprite.getGlobalBounds().intersects(spriteSheet.getGlobalBounds()))
+	{
+		spriteSheet.setPosition(previousPosition);
+	}
+	else
+	{
+		previousPosition = spriteSheet.getPosition();
 	}
 }

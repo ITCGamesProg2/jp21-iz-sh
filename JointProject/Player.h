@@ -12,6 +12,7 @@ public:
 	Animation animations[4];
 	AnimationSheet animSheet;
 	sf::Vector2f position;
+	sf::Vector2f previousPosition;
 	sf::Sprite& spriteSheet;
 
 	/// <summary>
@@ -27,7 +28,7 @@ public:
 	/// <summary>
 	/// The delay on E button presses and a countdown until E can be pressed or processed again
 	/// </summary>
-	int m_EInputDelay = 30;
+	int m_EInputDelay = 50;
 	int m_EInputDelayCounter = m_EInputDelay;
 
 	Player(sf::Sprite& spheet);
@@ -52,4 +53,10 @@ public:
 	/// Stops the player from leaving the screen
 	/// </summary>
 	void boundaryCheck();
+
+	/// <summary>
+	/// check for collisions between player and boxes
+	/// </summary>
+	/// <param name="boxSprite"></param>
+	void collisionBetweenPlayerAndBox(sf::Sprite &boxSprite);
 };

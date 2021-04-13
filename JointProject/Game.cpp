@@ -2,7 +2,7 @@
 
 Game::Game() : player(playerSpriteSheet)
 {
-	window.create(sf::VideoMode(800, 600), "Endless Runner Game");
+	window.create(sf::VideoMode(800, 600), "Joint Project");
 }
 
 void Game::init()
@@ -23,7 +23,7 @@ void Game::init()
 		boxes[i].initSprite();
 	}
 
-	// set positions of the boxes
+	// set temp positions of the boxes
 	boxes[0].setPosition({ 100, 200 });
 	boxes[1].setPosition({ 250, 300 });
 	boxes[2].setPosition({ 400, 400 });
@@ -70,18 +70,18 @@ void Game::draw()
 {
 	window.clear();
 
+	// draw boxes
+	for (int i = 0; i < NUM_BOXES; i++)
+	{
+		boxes[i].draw(window);
+	}
+
 	// draw player if they are not hiding in a box
 	if (player.m_hidden == false)
 	{
 		player.Draw(window);
 	}
 
-	// draw boxes
-	for (int i = 0; i < NUM_BOXES; i++)
-	{
-		boxes[i].draw(window);
-	}
-	
 	// draw E button prompt on the active box when player is close to it
 	if (m_drawInteractPrompt)
 	{
@@ -98,13 +98,17 @@ void Game::update()
 
 	// store player pos
 	sf::Vector2f playerPos = player.spriteSheet.getPosition();
-
+	
 	for (int i = 0; i < NUM_BOXES; i++)
 	{
 		// store box pos currently being checked
 		sf::Vector2f boxPos = boxes[i].getPosition();
 
-		if (distanceBetween(playerPos, boxPos) <= 80) // close enough to current box
+		sf::Sprite temp = boxes[i].getSprite();
+
+		player.collisionBetweenPlayerAndBox(temp);
+
+		if (distanceBetween(playerPos, boxPos) <= 100) // close enough to current box
 		{
 			// store this close box as the active box
 			m_activeBox = i;
@@ -122,7 +126,8 @@ void Game::update()
 			}
 			
 			// set the position of the E button prompt above the active Box
-			m_interactPromptText.setPosition(boxes[m_activeBox].getPosition() + sf::Vector2f{ 15, 0 });
+			m_interactPromptText.setPosition(boxes[m_activeBox].getPosition().x - m_interactPromptText.getGlobalBounds().width ,
+				boxes[m_activeBox].getPosition().y - m_interactPromptText.getGlobalBounds().height);
 
 			// check if player interacts with the box
 			player.interactWithBox();
@@ -150,6 +155,7 @@ void Game::initText()
 	m_interactPromptText.setStyle(sf::Text::Bold | sf::Text::Underlined);
 	m_interactPromptText.setFillColor(sf::Color::Red);
 }
+
 
 float Game::distanceBetween(sf::Vector2f entity, sf::Vector2f secondEntity)
 {

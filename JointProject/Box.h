@@ -31,6 +31,11 @@ public:
 	/// <returns> m_position </returns>
 	sf::Vector2f getPosition();
 
+	sf::Sprite getSprite() const
+	{
+		return m_boxSprite;
+	}
+
 private:
 
 	sf::Vector2f m_position;

@@ -1,9 +1,4 @@
-// platform game
-// Author :Noel O' Hara
-// Extra Code: Izabela Zelek 
-// Robot Animation: Stephen Hurley
-// Coins Animations: Rauls Bergs
-//Link: https://instituteoftechnol663-my.sharepoint.com/:v:/g/personal/c00247865_itcarlow_ie/ETTFY8tC4AhBvVlpaJAAtgEBsAP_AF4om9dFaxYXrbspDg?e=wI9KHc
+
 #pragma once
 #include "SFML/Graphics.hpp"
 #include "Animation.h"
@@ -20,8 +15,6 @@ public:
 	//create Window
 	sf::RenderWindow window;
 	sf::View view;
-
-	
 
 	Player player;
 	sf::Texture playerTextureSheet;
