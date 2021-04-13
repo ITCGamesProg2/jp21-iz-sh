@@ -4,10 +4,10 @@
 
 **Menu**
 __________________________________
-Allows player to start game
-Allows player to view instructions
-Allows player to exit game
-Allows player customisation
+Allows player to start game.
+Allows player to view instructions.
+Allows player to exit game.
+Allows player customisation.
 __________________________________
 Screen, Instructions, Player
 
@@ -15,7 +15,7 @@ Screen, Instructions, Player
 
 **Instructions**
 __________________________________
-Explains how to play the game
+Explains how to play the game.
 __________________________________
 
 <p>&nbsp;</p>
@@ -38,7 +38,6 @@ __________________________________
 **Player**
 __________________________________
 Player movement around screen.
-Player can't move through boxes.
 Player can't move outside of screen.
 Player Shooting.
 Player hiding.
@@ -49,10 +48,11 @@ Bullet, Boxes, ScreenSize
 
 **Box**
 __________________________________
-Being destroyed by AI bullet
-Having a randomised position
-Giving player hidden status
-Chance to contain gun or ammo
+Being destroyed by AI bullet.
+Having a randomised position.
+Giving player hidden status.
+Blocks player from passing.
+Chance to contain gun or ammo.
 __________________________________
 Bullet, Player, Pickups
 
@@ -60,10 +60,10 @@ Bullet, Player, Pickups
 
 **AI**
 __________________________________
-Move to random location on screen
-Shoot at player if player is within vision cone
-Avoids going through boxes
-Calculate closet box to it and shoot at it to destroy it
+Move to random location on screen.
+Shoot at player if player is within vision cone.
+Avoids going through boxes.
+Calculate closet box to it and shoot at it to destroy it.
 __________________________________
 Player, Bullet, Box, ScreenSize
 
@@ -71,10 +71,10 @@ Player, Bullet, Box, ScreenSize
 
 **Bullet**
 __________________________________
-Generates bullet at player/AI position
-Bullet movement
-Collision detection with boxes and AI or player
-Border checking
+Generates bullet at player/AI position.
+Bullet movement.
+Collision detection with boxes and AI or player.
+Border checking.
 __________________________________
 Player, AI, Box, ScreenSize
 
@@ -82,9 +82,9 @@ Player, AI, Box, ScreenSize
 
 **Pickups**
 __________________________________
-Gun gives player ability to shoot
-Player can shoot if they have ammo
-Check if player is close enough to pickup the gun/ammo
+Gun gives player ability to shoot.
+Player can shoot if they have ammo.
+Check if player is close enough to pickup the gun/ammo.
 __________________________________
 Player
 
@@ -92,10 +92,10 @@ Player
 
 **HUD**
 __________________________________
-Fetches and shows the Player hidden status
-Shows Player Health
-Shows AI Health
-Shows Ammo Stock
-Shows if gun is in player's possession
+Fetches and shows the Player hidden status.
+Shows Player Health.
+Shows AI Health.
+Shows Ammo Stock.
+Shows if gun is in player's possession.
 __________________________________
 Player, AI, Box
