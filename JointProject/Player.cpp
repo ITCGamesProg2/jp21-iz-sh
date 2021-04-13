@@ -1,64 +1,62 @@
 #include "Player.h"
 
-Player::Player(sf::Sprite& spheet) : spriteSheet(spheet)
+Player::Player(sf::Sprite& t_spheet) : m_playerSprite(t_spheet)
 {
 }
 
-void Player::InitAnimationData()
+void Player::initAnimationData()
 {
 
-	animations[int(PlayerAnimationState::walk)] = { 8, 36,5,true };
-	animations[int(PlayerAnimationState::idle)] = { 3,21,80,true };
-	animationState = PlayerAnimationState::walk;
+	m_animations[int(PlayerAnimationState::walk)] = { 8, 36,5,true };
+	m_animations[int(PlayerAnimationState::idle)] = { 3,21,80,true };
+	m_animationState = PlayerAnimationState::walk;
 
-	animSheet.Init(spriteSheet.getGlobalBounds().width, spriteSheet.getGlobalBounds().height, 5, 9);
+	m_animSheet.init(m_playerSprite.getGlobalBounds().width, m_playerSprite.getGlobalBounds().height, 5, 9);
 }
 
-void Player::startAnimaton(PlayerAnimationState _animationState)
+void Player::startAnimaton(PlayerAnimationState t_animationState)
 {
-	animationState = _animationState;
-	animSheet.StartAnimation(animations[int(animationState)]);
+	m_animationState = t_animationState;
+	m_animSheet.startAnimation(m_animations[int(m_animationState)]);
 }
 
-void Player::Draw(sf::RenderWindow& win)
+void Player::draw(sf::RenderWindow& t_win)
 {
-	animSheet.nextFrame();
-	spriteSheet.setTextureRect(animSheet.GetFrame());
+	m_animSheet.nextFrame();
+	m_playerSprite.setTextureRect(m_animSheet.getFrame());
 
-	spriteSheet.setOrigin(spriteSheet.getGlobalBounds().width / 2, (spriteSheet.getGlobalBounds().height / 2) + 15);
+	m_playerSprite.setOrigin(m_playerSprite.getGlobalBounds().width / 2, (m_playerSprite.getGlobalBounds().height / 2) + 15);
 
-	win.draw(spriteSheet);
+	t_win.draw(m_playerSprite);
 }
 
-void Player::Update()
+void Player::update()
 {
-	previousPosition = spriteSheet.getPosition();
-
 	if (m_hidden == false)
 	{
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
 		{
-			animationState = PlayerAnimationState::walk;
+			m_animationState = PlayerAnimationState::walk;
 
-			spriteSheet.move(0, -2);
+			m_playerSprite.move(0, -2);
 		}
 		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
 		{
-			animationState = PlayerAnimationState::walk;
+			m_animationState = PlayerAnimationState::walk;
 
-			spriteSheet.move(0, 2);
+			m_playerSprite.move(0, 2);
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
 		{
-			animationState = PlayerAnimationState::walk;
+			m_animationState = PlayerAnimationState::walk;
 
-			spriteSheet.move(-2, 0);
+			m_playerSprite.move(-2, 0);
 		}
 		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
 		{
-			animationState = PlayerAnimationState::walk;
+			m_animationState = PlayerAnimationState::walk;
 
-			spriteSheet.move(2, 0);
+			m_playerSprite.move(2, 0);
 		}
 
 		boundaryCheck();
@@ -104,28 +102,20 @@ void Player::interactWithBox()
 
 void Player::boundaryCheck()
 {
-	if (spriteSheet.getPosition().x > 800)
+	if (m_playerSprite.getPosition().x > ScreenSize::s_width - m_playerSprite.getGlobalBounds().width / 2)
 	{
-		spriteSheet.setPosition(800, spriteSheet.getPosition().y);
+		m_playerSprite.setPosition(ScreenSize::s_width - m_playerSprite.getGlobalBounds().width / 2, m_playerSprite.getPosition().y);
 	}
-	else if (spriteSheet.getPosition().x < 0)
+	else if (m_playerSprite.getPosition().x < m_playerSprite.getGlobalBounds().width / 2)
 	{
-		spriteSheet.setPosition(0, spriteSheet.getPosition().y);
+		m_playerSprite.setPosition(m_playerSprite.getGlobalBounds().width / 2, m_playerSprite.getPosition().y);
 	}
-	if (spriteSheet.getPosition().y > 600)
+	if (m_playerSprite.getPosition().y > ScreenSize::s_height - m_playerSprite.getGlobalBounds().width / 2)
 	{
-		spriteSheet.setPosition(spriteSheet.getPosition().x, 600);
+		m_playerSprite.setPosition(m_playerSprite.getPosition().x, ScreenSize::s_height - m_playerSprite.getGlobalBounds().width / 2);
 	}
-	else if (spriteSheet.getPosition().y < 0)
+	else if (m_playerSprite.getPosition().y < m_playerSprite.getGlobalBounds().height / 2)
 	{
-		spriteSheet.setPosition(spriteSheet.getPosition().x,0);
-	}
-}
-
-void Player::collisionBetweenPlayerAndBox(sf::Sprite &boxSprite)
-{
-	if (boxSprite.getGlobalBounds().intersects(spriteSheet.getGlobalBounds()))
-	{
-		spriteSheet.setPosition(previousPosition);
+		m_playerSprite.setPosition(m_playerSprite.getPosition().x,m_playerSprite.getGlobalBounds().height / 2);
 	}
 }

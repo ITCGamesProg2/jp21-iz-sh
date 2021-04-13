@@ -20,7 +20,7 @@ public:
 	Animation curAnimation;
 	int curFrameOffset = 0;
 
-	void Init(int _pixelWidth, int _pixelHeight, int _numRows, int _numCols)
+	void init(int _pixelWidth, int _pixelHeight, int _numRows, int _numCols)
 	{
 		numCols = _numCols;
 		numRows = _numRows;
@@ -28,7 +28,7 @@ public:
 		frameSize.y = _pixelHeight / numRows;
 		curFrameOffset = 0;
 	}
-	sf::IntRect GetFrame()
+	sf::IntRect getFrame()
 	{
 		int row = curFrameOffset / numCols;
 		int col = curFrameOffset % numCols;
@@ -39,7 +39,7 @@ public:
 		frameRectangle.height = frameSize.y;
 		return frameRectangle;
 	}
-	void StartAnimation(Animation curAnimation)
+	void startAnimation(Animation curAnimation)
 	{
 		this->curAnimation = curAnimation;
 		frameCounter = 0;

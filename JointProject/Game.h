@@ -1,36 +1,25 @@
-
 #pragma once
 #include "SFML/Graphics.hpp"
 #include "Animation.h"
 #include "Player.h"
 #include "Box.h"
+#include "ScreenSize.h"
 #include <string>
-
-const int NUM_BOXES = 5;
 
 class Game
 {
 public:
 
 	//create Window
-	sf::RenderWindow window;
-	sf::View view;
+	sf::RenderWindow m_window;
+	sf::View m_view;
 
-	Player player;
-	sf::Texture playerTextureSheet;
-	sf::Sprite playerSpriteSheet;
+	Player m_player;
+	sf::Texture m_playerTextureSheet;
+	sf::Sprite m_playerSpriteSheet;
 
-	Box boxes[NUM_BOXES];
+	Box m_box;
 
-	// index of active box, used currently to determine which box shows the E button prompt 
-	int m_activeBox = 0;
-
-	bool m_drawInteractPrompt = false;
-
-	// text object of the E button Prompt
-	std::string m_interactPrompt = "E";
-	sf::Text m_interactPromptText;
-	sf::Font m_font;
 
 	Game();
 
@@ -41,15 +30,5 @@ public:
 	void draw();
 
 	void update();
-
-	void initText();
-
-	/// <summary>
-	/// get distance between 2 given entity vectors
-	/// </summary>
-	/// <param name="entity"></param>
-	/// <param name="secondEntity"></param>
-	/// <returns> float distanceBetween </returns>
-	float distanceBetween(sf::Vector2f entity, sf::Vector2f secondEntity);
 	
 };
