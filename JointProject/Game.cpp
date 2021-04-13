@@ -104,14 +104,14 @@ void Game::update()
 		// store box pos currently being checked
 		sf::Vector2f boxPos = boxes[i].getPosition();
 
-		sf::Sprite temp = boxes[i].getSprite();
-
-		player.collisionBetweenPlayerAndBox(temp);
-
 		if (distanceBetween(playerPos, boxPos) <= 100) // close enough to current box
 		{
 			// store this close box as the active box
 			m_activeBox = i;
+
+			sf::Sprite temp = boxes[m_activeBox].getSprite();
+
+			player.collisionBetweenPlayerAndBox(temp);
 
 			// enable drawing of E button interact prompt when it is possible to press E
 			// note: this is messy and is only working because of the m_canPressE bool in player class is public.
@@ -125,7 +125,7 @@ void Game::update()
 				m_drawInteractPrompt = false;
 			}
 			
-			// set the position of the E button prompt above the active Box
+			// set the position of the E button prompt on the active Box
 			m_interactPromptText.setPosition(boxes[m_activeBox].getPosition().x - m_interactPromptText.getGlobalBounds().width ,
 				boxes[m_activeBox].getPosition().y - m_interactPromptText.getGlobalBounds().height);
 

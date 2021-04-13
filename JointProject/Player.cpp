@@ -32,6 +32,8 @@ void Player::Draw(sf::RenderWindow& win)
 
 void Player::Update()
 {
+	previousPosition = spriteSheet.getPosition();
+
 	if (m_hidden == false)
 	{
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
@@ -125,9 +127,5 @@ void Player::collisionBetweenPlayerAndBox(sf::Sprite &boxSprite)
 	if (boxSprite.getGlobalBounds().intersects(spriteSheet.getGlobalBounds()))
 	{
 		spriteSheet.setPosition(previousPosition);
-	}
-	else
-	{
-		previousPosition = spriteSheet.getPosition();
 	}
 }
