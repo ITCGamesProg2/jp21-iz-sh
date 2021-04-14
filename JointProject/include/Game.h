@@ -6,6 +6,7 @@
 #include "ScreenSize.h"
 #include <string>
 #include "Bullet.h"
+#include "HUD.h"
 
 class Game
 {
@@ -21,6 +22,7 @@ public:
 
 	Box m_box;
 	Bullet m_bullet;
+	HUD m_HUD;
 
 	Game();
 

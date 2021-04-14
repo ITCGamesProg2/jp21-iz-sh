@@ -20,6 +20,7 @@ void Game::init()
 
 	m_box.initBox();
 	m_bullet.init();
+	m_HUD.init();
 
 }
 
@@ -82,6 +83,8 @@ void Game::draw()
 	}
 	m_bullet.draw(m_window);
 
+	m_HUD.draw(m_window);
+
 	m_window.display();
 }
 
@@ -91,5 +94,6 @@ void Game::update()
 	m_player.update();
 	m_box.update(m_player);
 	m_bullet.update(m_box);
+	m_HUD.update(m_player);
 	
 }

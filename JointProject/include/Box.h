@@ -74,5 +74,4 @@ private:
 	sf::Text m_interactPromptText;
 	sf::Font m_font;
 
-
 };

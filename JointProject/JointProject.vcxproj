@@ -154,6 +154,7 @@
     <ClInclude Include="include\Box.h" />
     <ClInclude Include="include\Bullet.h" />
     <ClInclude Include="include\Game.h" />
+    <ClInclude Include="include\HUD.h" />
     <ClInclude Include="include\MathUtility.h" />
     <ClInclude Include="include\Player.h" />
     <ClInclude Include="include\ScreenSize.h" />
@@ -162,6 +163,7 @@
     <ClCompile Include="src\Box.cpp" />
     <ClCompile Include="src\Bullet.cpp" />
     <ClCompile Include="src\Game.cpp" />
+    <ClCompile Include="src\HUD.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Player.cpp" />
   </ItemGroup>

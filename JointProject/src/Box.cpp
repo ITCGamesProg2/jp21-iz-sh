@@ -26,15 +26,10 @@ void Box::update(Player& t_player)
 
 		if (distanceBetween(t_player.getSprite().getPosition(), m_boxSprite[i].getPosition()) <= 130) // close enough to current box
 		{
-			
-
 			// store this close box as the active box
 			m_activeBox = i;
 
-
 			// enable drawing of E button interact prompt when it is possible to press E
-			// note: this is messy and is only working because of the m_canPressE bool in player class is public.
-			// when members of player are made private, adjustments to this functionality will have to be made.
 			if (t_player.canE())
 			{
 				m_drawInteractPrompt = true;
@@ -74,11 +69,12 @@ void Box::initBox()
 	}
 
 	// set temp positions of the boxes
-	m_boxSprite[0].setPosition(100, 200);
-	m_boxSprite[1].setPosition(250, 300);
-	m_boxSprite[2].setPosition(400, 400);
-	m_boxSprite[3].setPosition(550, 300);
-	m_boxSprite[4].setPosition(650, 200);
+	m_boxSprite[0].setPosition(200, 200);
+	m_boxSprite[1].setPosition(1200, 300);
+	m_boxSprite[2].setPosition(400, 600);
+	m_boxSprite[3].setPosition(750, 500);
+	m_boxSprite[4].setPosition(1000, 800);
+
 
 	initText();
 
