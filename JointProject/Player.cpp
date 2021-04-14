@@ -24,7 +24,6 @@ void Player::draw(sf::RenderWindow& t_win)
 {
 	m_animSheet.nextFrame();
 	m_playerSprite.setTextureRect(m_animSheet.getFrame());
-
 	m_playerSprite.setOrigin(m_playerSprite.getGlobalBounds().width / 2, (m_playerSprite.getGlobalBounds().height / 2) + 15);
 
 	t_win.draw(m_playerSprite);
@@ -51,12 +50,15 @@ void Player::update()
 			m_animationState = PlayerAnimationState::walk;
 
 			m_playerSprite.move(-2, 0);
+			m_playerSprite.setScale(-1, 1);
 		}
 		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
 		{
 			m_animationState = PlayerAnimationState::walk;
 
 			m_playerSprite.move(2, 0);
+			m_playerSprite.setScale(1, 1);
+
 		}
 
 		boundaryCheck();

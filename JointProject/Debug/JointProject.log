@@ -1,16 +1,9 @@
-﻿  Box.cpp
+﻿  Bullet.cpp
+C:\Users\viole\Desktop\JointProject\jp21-iz-sh\JointProject\Bullet.cpp(35,20): error C3861: 'vectorUnitVector': identifier not found
   Game.cpp
-  Player.cpp
-C:\Users\viole\Desktop\temp\jp21-iz-sh\JointProject\Player.cpp(14,91): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
-          with
-          [
-              T=float
-          ]
-C:\Users\viole\Desktop\temp\jp21-iz-sh\JointProject\Player.cpp(14,51): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
-          with
-          [
-              T=float
-          ]
+C:\Users\viole\Desktop\JointProject\jp21-iz-sh\JointProject\Game.cpp(67,1): error C2280: 'sf::RenderWindow::RenderWindow(const sf::RenderWindow &)': attempting to reference a deleted function
+C:\SFML-2.5.1\include\SFML\Graphics\RenderWindow.hpp(180): message : compiler has generated 'sf::RenderWindow::RenderWindow' here
+C:\SFML-2.5.1\include\SFML\Graphics\RenderWindow.hpp(180,1): message : 'sf::RenderWindow::RenderWindow(const sf::RenderWindow &)': function was implicitly deleted because a base class invokes a deleted or inaccessible function 'sf::Window::Window(const sf::Window &)'
+C:\SFML-2.5.1\include\SFML\Window\Window.hpp(550,1): message : 'sf::Window::Window(const sf::Window &)': function was implicitly deleted because a base class invokes a deleted or inaccessible function 'sf::NonCopyable::NonCopyable(const sf::NonCopyable &)'
   main.cpp
   Generating Code...
-  JointProject.vcxproj -> C:\Users\viole\Desktop\temp\jp21-iz-sh\Debug\JointProject.exe

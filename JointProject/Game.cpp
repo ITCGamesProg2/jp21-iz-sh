@@ -19,6 +19,7 @@ void Game::init()
 	m_player.startAnimaton(Player::PlayerAnimationState::walk);
 
 	m_box.initBox();
+	m_bullet.init();
 
 }
 
@@ -39,6 +40,11 @@ void Game::run()
 		{
 			if (event.type == sf::Event::Closed)
 				m_window.close();
+
+			if (event.type == sf::Event::MouseButtonReleased)
+			{
+				processMouseInput(event);
+			}
 		}
 
 		timeSinceLastUpdate += clock.restart();
@@ -54,9 +60,17 @@ void Game::run()
 	}
 }
 
+void Game::processMouseInput(sf::Event t_event)
+{
+	if (sf::Mouse::Left == t_event.key.code)
+	{
+		m_bullet.input(m_player.getSprite().getPosition(),m_window);
+	}
+}
+
 void Game::draw()
 {
-	m_window.clear();
+	m_window.clear(sf::Color(53, 109, 146));
 
 	m_box.draw(m_window);
 
@@ -66,7 +80,7 @@ void Game::draw()
 	{
 		m_player.draw(m_window);
 	}
-
+	m_bullet.draw(m_window);
 
 	m_window.display();
 }

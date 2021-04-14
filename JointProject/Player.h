@@ -52,6 +52,7 @@ public:
 		return m_canPressE;
 	}
 
+
 private:
 
 	PlayerAnimationState m_animationState = PlayerAnimationState::walk;

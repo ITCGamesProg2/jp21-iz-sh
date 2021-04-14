@@ -5,6 +5,7 @@
 #include "Box.h"
 #include "ScreenSize.h"
 #include <string>
+#include "Bullet.h"
 
 class Game
 {
@@ -19,12 +20,14 @@ public:
 	sf::Sprite m_playerSpriteSheet;
 
 	Box m_box;
-
+	Bullet m_bullet;
 
 	Game();
 
 	void init();
 	
+	void processMouseInput(sf::Event t_event);
+
 	void run();
 
 	void draw();
