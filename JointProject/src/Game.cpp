@@ -90,12 +90,6 @@ void Game::update()
 	// update player movement
 	m_player.update();
 	m_box.update(m_player);
-	m_bullet.update();
-	for (int i = 0; i < m_box.getMaxBox(); i++)
-	{
-		m_bullet.checkBoxIntersect(m_box.getSprite(i));
-	}
-	// store player pos
-	sf::Vector2f playerPos = m_player.getSprite().getPosition();
+	m_bullet.update(m_box);
 	
 }

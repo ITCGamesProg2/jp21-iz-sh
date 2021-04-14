@@ -44,15 +44,21 @@ void Bullet::input(sf::Vector2f t_shooterPos, sf::RenderWindow& t_window)
 	}
 }
 
-void Bullet::update()
+void Bullet::update(Box& t_box)
 {
 	boundaryCheck();
+
 	for (int i = 0; i < MAX_BULLET; i++)
 	{
 		if (m_bulletAlive[i])
 		{
 			m_bulletSprite[i].move(m_shotDirection[i].x * m_bulletSpeed,
 				m_shotDirection[i].y * m_bulletSpeed );
+
+			for (int j = 0; j < t_box.getMaxBox(); j++)
+			{
+				checkBoxIntersect(t_box.getSprite(j));
+			}
 		}
 	}
 }

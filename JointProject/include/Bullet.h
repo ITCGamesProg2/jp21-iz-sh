@@ -2,6 +2,8 @@
 #include <SFML/Graphics.hpp>
 #include "ScreenSize.h"
 #include "MathUtility.h"
+#include "Box.h"
+
 class Bullet
 {
 public:
@@ -17,7 +19,7 @@ public:
 	/// <summary>
 	/// moves bullets towards mouse click
 	/// </summary>
-	void update();
+	void update(Box &box);
 	/// <summary>
 	/// disappears bullets once they leave screen
 	/// </summary>

@@ -23,6 +23,7 @@ void Box::update(Player& t_player)
 	for (int i = 0; i < M_MAX_BOX; i++)
 	{
 		collisionBetweenPlayerAndBox(t_player);
+
 		if (distanceBetween(t_player.getSprite().getPosition(), m_boxSprite[i].getPosition()) <= 130) // close enough to current box
 		{
 			
