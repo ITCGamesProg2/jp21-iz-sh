@@ -1,18 +1,2 @@
-﻿  Box.cpp
-  Bullet.cpp
-  Game.cpp
-  HUD.cpp
-  main.cpp
-  Player.cpp
-C:\Users\viole\Desktop\jointproj\jp21-iz-sh\JointProject\src\Player.cpp(14,91): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
-          with
-          [
-              T=float
-          ]
-C:\Users\viole\Desktop\jointproj\jp21-iz-sh\JointProject\src\Player.cpp(14,51): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
-          with
-          [
-              T=float
-          ]
-  Generating Code...
-  JointProject.vcxproj -> C:\Users\viole\Desktop\jointproj\jp21-iz-sh\Debug\JointProject.exe
+﻿  Pickups.cpp
+  JointProject.vcxproj -> C:\Users\steph\Desktop\joint proj\jp21-iz-sh\Debug\JointProject.exe

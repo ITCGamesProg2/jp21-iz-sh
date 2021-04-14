@@ -7,6 +7,7 @@
 #include <string>
 #include "Bullet.h"
 #include "HUD.h"
+#include "Pickups.h"
 
 class Game
 {
@@ -23,6 +24,8 @@ public:
 	Box m_box;
 	Bullet m_bullet;
 	HUD m_HUD;
+
+	Pickups m_pickups;
 
 	Game();
 

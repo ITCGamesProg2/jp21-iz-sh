@@ -23,8 +23,11 @@
 
 int main()
 {
-	Game game;
 
+	// set a random number generator seed
+	srand(time(NULL));
+
+	Game game;
 
 	game.init();
 

@@ -3,7 +3,7 @@
 #include <iostream>
 #include "Player.h"
 
-static const int M_MAX_BOX = 5;
+
 
 class Box
 {
@@ -58,7 +58,14 @@ public:
 		return M_MAX_BOX;
 	}
 
+	/*bool getEmpty(int t_arrayCell)
+	{
+		return m_empty[t_arrayCell];
+	}*/
+
 private:
+
+	static const int M_MAX_BOX = 5;
 	sf::Vector2f m_position;
 	sf::Sprite m_boxSprite[M_MAX_BOX];
 	sf::Texture m_boxTexture;
@@ -68,6 +75,8 @@ private:
 	int m_activeBox = 0;
 
 	bool m_drawInteractPrompt = false;
+
+	/*bool m_empty[M_MAX_BOX];*/
 
 	// text object of the E button Prompt
 	std::string m_interactPrompt = "E";

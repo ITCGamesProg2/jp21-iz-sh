@@ -21,6 +21,7 @@ void Game::init()
 	m_box.initBox();
 	m_bullet.init();
 	m_HUD.init();
+	m_pickups.initPickups(m_box);
 
 }
 
@@ -79,6 +80,7 @@ void Game::draw()
 
 	m_box.draw(m_window);
 
+	m_pickups.draw(m_window);
 
 	// draw player if they are not hiding in a box
 	if (m_player.isHidden() == false)
