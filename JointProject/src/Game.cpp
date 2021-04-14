@@ -65,7 +65,11 @@ void Game::processMouseInput(sf::Event t_event)
 {
 	if (sf::Mouse::Left == t_event.key.code)
 	{
-		m_bullet.input(m_player.getSprite().getPosition(),m_window);
+		//player can only shoot if they are not in a box
+		if (!m_player.isHidden())
+		{
+			m_bullet.input(m_player.getSprite().getPosition(), m_window);
+		}
 	}
 }
 

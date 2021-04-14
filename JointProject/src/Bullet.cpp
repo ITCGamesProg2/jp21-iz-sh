@@ -29,6 +29,7 @@ void Bullet::draw(sf::RenderWindow& t_window)
 
 void Bullet::input(sf::Vector2f t_shooterPos, sf::RenderWindow& t_window)
 {
+	//calculates the direction of the current bullet using mousePos and pos of player
 	sf::Vector2f mousePos = (sf::Vector2f)sf::Mouse::getPosition(t_window);
 	sf::Vector2f distanceVector = mousePos - t_shooterPos;
 
@@ -65,6 +66,7 @@ void Bullet::update(Box& t_box)
 
 void Bullet::boundaryCheck()
 {
+	//makes bullets disappear once they get off screen
 	for (int i = 0; i < MAX_BULLET; i++)
 	{
 		if (m_bulletSprite[i].getPosition().x > ScreenSize::s_width)
