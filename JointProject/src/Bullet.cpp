@@ -45,7 +45,7 @@ void Bullet::input(sf::Vector2f t_shooterPos, sf::RenderWindow& t_window)
 	}
 }
 
-void Bullet::update(Box& t_box,AI t_enemy)
+void Bullet::update(Box& t_box,AI &t_enemy)
 {
 	boundaryCheck();
 
@@ -95,7 +95,10 @@ void Bullet::checkBoxIntersect(sf::Sprite t_box)
 	{
 		if (m_bulletSprite[i].getGlobalBounds().intersects(t_box.getGlobalBounds()))
 		{
-			m_bulletAlive[i] = false;
+			if (m_bulletAlive[i])
+			{
+				m_bulletAlive[i] = false;
+			}
 		}
 	}
 }
@@ -106,8 +109,11 @@ void Bullet::checkIntersect(AI& t_enemy)
 	{
 		if (m_bulletSprite[i].getGlobalBounds().intersects(t_enemy.getSprite().getGlobalBounds()))
 		{
-			m_bulletAlive[i] = false;
-			t_enemy.dealDamage();
+			if (m_bulletAlive[i] && t_enemy.isAlive())
+			{
+				m_bulletAlive[i] = false;
+				t_enemy.dealDamage();
+			}
 		}
 	}
 }

@@ -22,7 +22,6 @@ void AI::draw(sf::RenderWindow& t_window)
 
 void AI::update()
 {
-	std::cout << m_health << std::endl;
 	if (m_health <= 0)
 	{
 		m_alive = false;
