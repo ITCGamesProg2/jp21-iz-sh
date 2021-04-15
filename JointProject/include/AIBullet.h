@@ -19,6 +19,11 @@ public:
 	/// <param name="t_aiPos"></param>
 	void shootAtBox(sf::Vector2f t_boxPos, sf::Vector2f t_aiPos);
 
+	/// <summary>
+	/// shoots a bullet from the AI towards the player
+	/// </summary>
+	/// <param name="t_playerPos"></param>
+	/// <param name="t_aiPos"></param>
 	void shootAtPlayer(sf::Vector2f t_playerPos, sf::Vector2f t_aiPos);
 
 	/// <summary>
@@ -32,9 +37,14 @@ public:
 	void checkBoxIntersect(Box& t_box, int t_arrayCell);
 
 	/// <summary>
-	/// disappears bullets when they hit player, deals damage
+	/// disappears bullets when they hit player, deals damage to player
 	/// </summary>
 	void checkPlayerIntersect(Player& t_player);
+
+	/// <summary>
+	/// disappears bullets once they leave screen
+	/// </summary>
+	void boundaryCheck();
 
 	float distanceBetween(sf::Vector2f t_entity, sf::Vector2f t_secondEntity);
 
@@ -51,6 +61,7 @@ private:
 
 	int m_damageToPlayer = 100;
 
+	// bools controlling what shoot mode AI is in
 	bool m_shootAtBox = true;
 	bool m_shootAtPlayer = false;
 };

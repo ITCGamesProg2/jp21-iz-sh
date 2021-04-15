@@ -41,7 +41,7 @@ void HUD::update(Player& t_player)
 	m_hiddenStatusText.setPosition(ScreenSize::s_width - (ScreenSize::s_width / 10), ScreenSize::s_height - (ScreenSize::s_height / 10));
 
 	m_ammoCounterText.setString("Ammo: " + std::to_string(t_player.getAmmo()));
-	m_ammoCounterText.setPosition((ScreenSize::s_width / 10), ScreenSize::s_height - (ScreenSize::s_height / 10));
+	m_ammoCounterText.setPosition((ScreenSize::s_width / 14), ScreenSize::s_height - (ScreenSize::s_height / 10));
 }
 
 void HUD::draw(sf::RenderWindow& window)

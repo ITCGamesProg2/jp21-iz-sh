@@ -118,7 +118,7 @@ void Pickups::initPickups(Box& t_box)
 		// prevents repeat boxes being used
 		for (int j = 0; j < M_MAX_AMMO_PICKUPS; j++)
 		{
-			while (boxContainingBullets == m_usedAmmoBoxIndex[j] || boxContainingBullets == boxContainingGun)
+			while (boxContainingBullets == m_usedAmmoBoxIndex[j] || boxContainingBullets == m_usedGunBoxIndex)
 			{
 				boxContainingBullets = rand() % t_box.getMaxBox();
 			}

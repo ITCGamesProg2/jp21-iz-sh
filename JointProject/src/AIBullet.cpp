@@ -98,6 +98,8 @@ void AIBullet::update(Box& t_box, AI& t_ai, Player& t_player)
 	
 	for (int i = 0; i < MAX_BULLET; i++)
 	{
+		boundaryCheck();
+
 		if (m_bulletAlive[i])
 		{
 			m_bulletSprite[i].move(m_shotDirection[i].x * m_bulletSpeed,
@@ -139,6 +141,29 @@ void AIBullet::checkPlayerIntersect(Player& t_player)
 				m_bulletAlive[i] = false;
 				t_player.takeDamage(m_damageToPlayer);
 			}
+		}
+	}
+}
+
+void AIBullet::boundaryCheck()
+{
+	for (int i = 0; i < MAX_BULLET; i++)
+	{
+		if (m_bulletSprite[i].getPosition().x > ScreenSize::s_width)
+		{
+			m_bulletAlive[i] = false;
+		}
+		else if (m_bulletSprite[i].getPosition().x < 0)
+		{
+			m_bulletAlive[i] = false;
+		}
+		else if (m_bulletSprite[i].getPosition().y > ScreenSize::s_height)
+		{
+			m_bulletAlive[i] = false;
+		}
+		else if (m_bulletSprite[i].getPosition().y < 0)
+		{
+			m_bulletAlive[i] = false;
 		}
 	}
 }

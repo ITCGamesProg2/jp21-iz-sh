@@ -15,7 +15,7 @@ void Box::draw(sf::RenderWindow& t_win)
 		}
 		
 	}
-	//// draw E button prompt on the active box when player is close to it
+	// draw E button prompt on the active box when player is close to it
 	if (m_drawInteractPrompt)
 	{
 		t_win.draw(m_interactPromptText);
@@ -78,10 +78,11 @@ void Box::initBox()
 
 	// set temp positions of the boxes
 	m_boxSprite[0].setPosition(200, 200);
-	m_boxSprite[1].setPosition(1200, 300);
+	m_boxSprite[1].setPosition(1200, 600);
 	m_boxSprite[2].setPosition(400, 600);
 	m_boxSprite[3].setPosition(750, 500);
 	m_boxSprite[4].setPosition(1000, 800);
+	m_boxSprite[5].setPosition(1200, 100);
 
 
 	initText();
