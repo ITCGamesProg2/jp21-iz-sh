@@ -18,6 +18,7 @@ void Game::init()
 	m_player.initAnimationData();
 	m_player.startAnimaton(Player::PlayerAnimationState::walk);
 
+	m_enemy.init();
 	m_box.initBox();
 	m_bullet.init();
 	m_HUD.init();
@@ -41,7 +42,9 @@ void Game::run()
 		while (m_window.pollEvent(event))
 		{
 			if (event.type == sf::Event::Closed)
+			{
 				m_window.close();
+			}
 
 			if (event.type == sf::Event::MouseButtonReleased)
 			{
@@ -88,6 +91,7 @@ void Game::draw()
 	{
 		m_player.draw(m_window);
 	}
+	m_enemy.draw(m_window);
 	m_bullet.draw(m_window);
 
 	m_HUD.draw(m_window);
@@ -99,8 +103,9 @@ void Game::update()
 {
 	// update player movement
 	m_player.update(m_bullet.getMousePos(), m_clickedMouse);
+	m_enemy.update();
 	m_box.update(m_player);
-	m_bullet.update(m_box);
+	m_bullet.update(m_box,m_enemy);
 	m_HUD.update(m_player);
 
 	m_pickups.update(m_player, m_box.getActiveBox());

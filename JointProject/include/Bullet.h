@@ -3,6 +3,7 @@
 #include "ScreenSize.h"
 #include "MathUtility.h"
 #include "Box.h"
+#include "AI.h"
 
 class Bullet
 {
@@ -19,7 +20,7 @@ public:
 	/// <summary>
 	/// moves bullets towards mouse click
 	/// </summary>
-	void update(Box& box);
+	void update(Box& t_box, AI t_enemy);
 	/// <summary>
 	/// disappears bullets once they leave screen
 	/// </summary>
@@ -29,6 +30,11 @@ public:
 	/// </summary>
 	/// <param name="t_box"></param>
 	void checkBoxIntersect(sf::Sprite t_box);
+
+	/// <summary>
+	/// disappears bullets when they hit enemy, deals damage
+	/// </summary>
+	void checkIntersect(AI& t_enemy);
 
 	sf::Vector2f getMousePos()
 	{
@@ -41,6 +47,7 @@ private:
 	int m_bulletDirection[MAX_BULLET];
 	int m_bulletCount = 0; // determines which bullet is to be shot next
 	int m_bulletSpeed = 5;
+	int m_bulletDamage = 34;
 	bool m_bulletAlive[MAX_BULLET];
 	sf::Texture m_bulletTexture;
 	sf::Sprite m_bulletSprite[MAX_BULLET];

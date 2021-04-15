@@ -150,6 +150,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="include\AI.h" />
     <ClInclude Include="include\Animation.h" />
     <ClInclude Include="include\Box.h" />
     <ClInclude Include="include\Bullet.h" />
@@ -161,6 +162,7 @@
     <ClInclude Include="include\ScreenSize.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\AI.cpp" />
     <ClCompile Include="src\Box.cpp" />
     <ClCompile Include="src\Bullet.cpp" />
     <ClCompile Include="src\Game.cpp" />
