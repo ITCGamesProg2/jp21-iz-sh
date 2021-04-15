@@ -19,7 +19,8 @@ public:
 	/// <summary>
 	/// gets player input and moves the character
 	/// </summary>
-	void update();
+	void update(sf::Vector2f t_mousePos, bool& t_clickedMouse);
+
 
 	/// <summary>
 	/// checks if player inputs to hide in or get out of a box
@@ -67,6 +68,10 @@ public:
 		return m_ammo;
 	}
 
+	bool doesHaveGun()
+	{
+		return m_hasGun;
+	}
 
 private:
 

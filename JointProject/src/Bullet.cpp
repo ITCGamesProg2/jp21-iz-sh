@@ -30,15 +30,15 @@ void Bullet::draw(sf::RenderWindow& t_window)
 void Bullet::input(sf::Vector2f t_shooterPos, sf::RenderWindow& t_window)
 {
 	//calculates the direction of the current bullet using mousePos and pos of player
-	sf::Vector2f mousePos = (sf::Vector2f)sf::Mouse::getPosition(t_window);
+	mousePos = (sf::Vector2f)sf::Mouse::getPosition(t_window);
 	sf::Vector2f distanceVector = mousePos - t_shooterPos;
 
 	m_shotDirection[m_bulletCount] = thor::unitVector(distanceVector);
-	
+
 	m_bulletAlive[m_bulletCount] = true;
 	m_bulletSprite[m_bulletCount].setPosition(t_shooterPos);
 	m_bulletCount++;
-	
+
 	if (m_bulletCount >= MAX_BULLET)
 	{
 		m_bulletCount = 0;
@@ -54,7 +54,7 @@ void Bullet::update(Box& t_box)
 		if (m_bulletAlive[i])
 		{
 			m_bulletSprite[i].move(m_shotDirection[i].x * m_bulletSpeed,
-				m_shotDirection[i].y * m_bulletSpeed );
+				m_shotDirection[i].y * m_bulletSpeed);
 
 			for (int j = 0; j < t_box.getMaxBox(); j++)
 			{

@@ -29,7 +29,7 @@ void Player::draw(sf::RenderWindow& t_win)
 	t_win.draw(m_playerSprite);
 }
 
-void Player::update()
+void Player::update(sf::Vector2f t_mousePos, bool& t_clickedMouse)
 {
 	if (m_hidden == false)
 	{
@@ -63,7 +63,16 @@ void Player::update()
 
 		boundaryCheck();
 	}
-
+	if (t_mousePos.x < m_playerSprite.getPosition().x && t_clickedMouse)
+	{
+		m_playerSprite.setScale(-1, 1);
+		t_clickedMouse = false;
+	}
+	else if (t_mousePos.x > m_playerSprite.getPosition().x && t_clickedMouse)
+	{
+		m_playerSprite.setScale(1, 1);
+		t_clickedMouse = false;
+	}
 }
 
 void Player::interactWithBox()

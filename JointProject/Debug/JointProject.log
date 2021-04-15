@@ -1,2 +1,20 @@
-﻿  Pickups.cpp
-  JointProject.vcxproj -> C:\Users\steph\Desktop\joint proj\jp21-iz-sh\Debug\JointProject.exe
+﻿  Box.cpp
+  Bullet.cpp
+  Game.cpp
+  HUD.cpp
+  Pickups.cpp
+  Player.cpp
+C:\Users\viole\Desktop\join\jp21-iz-sh\JointProject\src\Player.cpp(14,91): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\viole\Desktop\join\jp21-iz-sh\JointProject\src\Player.cpp(14,51): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+  main.cpp
+C:\Users\viole\Desktop\join\jp21-iz-sh\JointProject\src\main.cpp(28,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  Generating Code...
+  JointProject.vcxproj -> C:\Users\viole\Desktop\join\jp21-iz-sh\Debug\JointProject.exe

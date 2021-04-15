@@ -19,7 +19,7 @@ public:
 	/// <summary>
 	/// moves bullets towards mouse click
 	/// </summary>
-	void update(Box &box);
+	void update(Box& box);
 	/// <summary>
 	/// disappears bullets once they leave screen
 	/// </summary>
@@ -29,6 +29,11 @@ public:
 	/// </summary>
 	/// <param name="t_box"></param>
 	void checkBoxIntersect(sf::Sprite t_box);
+
+	sf::Vector2f getMousePos()
+	{
+		return mousePos;
+	}
 
 private:
 
@@ -40,6 +45,7 @@ private:
 	sf::Texture m_bulletTexture;
 	sf::Sprite m_bulletSprite[MAX_BULLET];
 	sf::Vector2f m_shotDirection[MAX_BULLET];
+	sf::Vector2f mousePos;
 };
 
 

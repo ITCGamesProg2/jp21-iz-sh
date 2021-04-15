@@ -13,20 +13,6 @@ class Game
 {
 public:
 
-	//create Window
-	sf::RenderWindow m_window;
-	sf::View m_view;
-
-	Player m_player;
-	sf::Texture m_playerTextureSheet;
-	sf::Sprite m_playerSpriteSheet;
-
-	Box m_box;
-	Bullet m_bullet;
-	HUD m_HUD;
-
-	Pickups m_pickups;
-
 	Game();
 
 	void init();
@@ -38,5 +24,22 @@ public:
 	void draw();
 
 	void update();
+
+private:
+	//create Window
+	sf::RenderWindow m_window;
+	sf::View m_view;
+
+	Player m_player;
+	sf::Texture m_playerTextureSheet;
+	sf::Sprite m_playerSpriteSheet;
+	bool m_clickedMouse = false;
+
+	Box m_box;
+	Bullet m_bullet;
+	HUD m_HUD;
+
+	Pickups m_pickups;
+
 	
 };
