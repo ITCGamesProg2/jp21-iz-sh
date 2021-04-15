@@ -1,7 +1,6 @@
-﻿  AI.cpp
-  Bullet.cpp
+﻿  AIBullet.cpp
   Game.cpp
   main.cpp
-C:\Users\viole\Desktop\joint\jp21-iz-sh\JointProject\src\main.cpp(28,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
   Generating Code...
-  JointProject.vcxproj -> C:\Users\viole\Desktop\joint\jp21-iz-sh\Debug\JointProject.exe
+C:\Users\steph\Desktop\joint project\jp21-iz-sh\JointProject\src\main.cpp(28,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  JointProject.vcxproj -> C:\Users\steph\Desktop\joint project\jp21-iz-sh\Debug\JointProject.exe

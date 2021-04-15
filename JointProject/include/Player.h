@@ -2,6 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include "Animation.h"
 #include "ScreenSize.h"
+#include <iostream>
 
 class Player
 {
@@ -73,6 +74,16 @@ public:
 		return m_hasGun;
 	}
 
+	void takeDamage(int damage)
+	{
+		m_health -= damage;
+	}
+
+	bool isAlive()
+	{
+		return m_alive;
+	}
+
 private:
 
 	PlayerAnimationState m_animationState = PlayerAnimationState::walk;
@@ -100,5 +111,9 @@ private:
 	int m_ammo = 0;
 
 	bool m_hasGun = false;
+
+	int m_health = 100;
+
+	bool m_alive = true;
 
 };

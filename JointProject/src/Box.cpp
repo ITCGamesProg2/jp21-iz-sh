@@ -9,7 +9,11 @@ void Box::draw(sf::RenderWindow& t_win)
 {
 	for (int i = 0; i < M_MAX_BOX; i++)
 	{
-		t_win.draw(m_boxSprite[i]);
+		if (m_alive[i])
+		{
+			t_win.draw(m_boxSprite[i]);
+		}
+		
 	}
 	//// draw E button prompt on the active box when player is close to it
 	if (m_drawInteractPrompt)
@@ -26,27 +30,31 @@ void Box::update(Player& t_player)
 
 		if (distanceBetween(t_player.getSprite().getPosition(), m_boxSprite[i].getPosition()) <= 130) // close enough to current box
 		{
-			// store this close box as the active box
-			m_activeBox = i;
-
-			// enable drawing of E button interact prompt when it is possible to press E
-			if (t_player.canE())
+			if (m_alive[i])
 			{
-				m_drawInteractPrompt = true;
+				// store this close box as the active box
+				m_activeBox = i;
+
+				// enable drawing of E button interact prompt when it is possible to press E
+				if (t_player.canE())
+				{
+					m_drawInteractPrompt = true;
+				}
+				else
+				{
+					m_drawInteractPrompt = false;
+				}
+
+				// set the position of the E button prompt on the active Box
+				m_interactPromptText.setPosition(m_boxSprite[m_activeBox].getPosition().x - m_interactPromptText.getGlobalBounds().width,
+					m_boxSprite[m_activeBox].getPosition().y - m_interactPromptText.getGlobalBounds().height);
+
+				// check if player interacts with the box
+				t_player.interactWithBox();
+
+				break;
 			}
-			else
-			{
-				m_drawInteractPrompt = false;
-			}
-
-			// set the position of the E button prompt on the active Box
-			m_interactPromptText.setPosition(m_boxSprite[m_activeBox].getPosition().x - m_interactPromptText.getGlobalBounds().width,
-				m_boxSprite[m_activeBox].getPosition().y - m_interactPromptText.getGlobalBounds().height);
-
-			// check if player interacts with the box
-			t_player.interactWithBox();
-
-			break;
+			
 		}
 		else // not close enough to any box
 		{
@@ -114,9 +122,12 @@ void Box::collisionBetweenPlayerAndBox(Player& t_player)
 	int numIntersect = 0;
 	for (int i = 0; i < M_MAX_BOX; i++)
 	{
-		if (m_boxSprite[i].getGlobalBounds().intersects(t_player.getSprite().getGlobalBounds()))
+		if (m_alive[i])
 		{
-			numIntersect++;
+			if (m_boxSprite[i].getGlobalBounds().intersects(t_player.getSprite().getGlobalBounds()))
+			{
+				numIntersect++;
+			}
 		}
 	}
 	if (numIntersect == 0)

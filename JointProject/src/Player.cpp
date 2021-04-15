@@ -26,53 +26,68 @@ void Player::draw(sf::RenderWindow& t_win)
 	m_playerSprite.setTextureRect(m_animSheet.getFrame());
 	m_playerSprite.setOrigin(m_playerSprite.getGlobalBounds().width / 2, (m_playerSprite.getGlobalBounds().height / 2) + 15);
 
-	t_win.draw(m_playerSprite);
+	if (m_hidden == false && m_alive)
+	{
+		t_win.draw(m_playerSprite);
+	}
+	
 }
 
 void Player::update(sf::Vector2f t_mousePos, bool& t_clickedMouse)
 {
-	if (m_hidden == false)
+	std::cout << m_health << std::endl;
+
+	if (m_health <= 0)
 	{
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
-		{
-			m_animationState = PlayerAnimationState::walk;
+		m_alive = false;
+	}
 
-			m_playerSprite.move(0, -2);
+	if (m_alive)
+	{
+		if (m_hidden == false)
+		{
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
+			{
+				m_animationState = PlayerAnimationState::walk;
+
+				m_playerSprite.move(0, -2);
+			}
+			else if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+			{
+				m_animationState = PlayerAnimationState::walk;
+
+				m_playerSprite.move(0, 2);
+			}
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+			{
+				m_animationState = PlayerAnimationState::walk;
+
+				m_playerSprite.move(-2, 0);
+				m_playerSprite.setScale(-1, 1);
+			}
+			else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+			{
+				m_animationState = PlayerAnimationState::walk;
+
+				m_playerSprite.move(2, 0);
+				m_playerSprite.setScale(1, 1);
+
+			}
+
+			boundaryCheck();
 		}
-		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+		if (t_mousePos.x < m_playerSprite.getPosition().x && t_clickedMouse)
 		{
-			m_animationState = PlayerAnimationState::walk;
-
-			m_playerSprite.move(0, 2);
-		}
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
-		{
-			m_animationState = PlayerAnimationState::walk;
-
-			m_playerSprite.move(-2, 0);
 			m_playerSprite.setScale(-1, 1);
+			t_clickedMouse = false;
 		}
-		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+		else if (t_mousePos.x > m_playerSprite.getPosition().x&& t_clickedMouse)
 		{
-			m_animationState = PlayerAnimationState::walk;
-
-			m_playerSprite.move(2, 0);
 			m_playerSprite.setScale(1, 1);
-
+			t_clickedMouse = false;
 		}
-
-		boundaryCheck();
 	}
-	if (t_mousePos.x < m_playerSprite.getPosition().x && t_clickedMouse)
-	{
-		m_playerSprite.setScale(-1, 1);
-		t_clickedMouse = false;
-	}
-	else if (t_mousePos.x > m_playerSprite.getPosition().x && t_clickedMouse)
-	{
-		m_playerSprite.setScale(1, 1);
-		t_clickedMouse = false;
-	}
+	
 }
 
 void Player::interactWithBox()

@@ -63,6 +63,16 @@ public:
 		return m_activeBox;
 	}
 
+	void setAlive(int t_arrayCell)
+	{
+		m_alive[t_arrayCell] = false;
+	}
+
+	bool getAlive(int t_arrayCell)
+	{
+		return m_alive[t_arrayCell];
+	}
+
 private:
 
 	static const int M_MAX_BOX = 5;
@@ -80,5 +90,7 @@ private:
 	std::string m_interactPrompt = "E";
 	sf::Text m_interactPromptText;
 	sf::Font m_font;
+
+	bool m_alive[M_MAX_BOX];
 
 };
