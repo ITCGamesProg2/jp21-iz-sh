@@ -52,6 +52,21 @@ public:
 		return m_canPressE;
 	}
 
+	void giveAmmo()
+	{
+		m_ammo += 5;
+	}
+
+	void giveGun()
+	{
+		m_hasGun = true;
+	}
+
+	int getAmmo()
+	{
+		return m_ammo;
+	}
+
 
 private:
 
@@ -76,5 +91,9 @@ private:
 	/// </summary>
 	int m_EInputDelay = 50;
 	int m_EInputDelayCounter = m_EInputDelay;
+
+	int m_ammo = 0;
+
+	bool m_hasGun = false;
 
 };

@@ -11,9 +11,9 @@ public:
 
 	void draw(sf::RenderWindow& t_win);
 
-	void update(Player& t_player);
+	void update(Player& t_player, int t_activeBox);
 
-	void initPickups(Box &t_box);
+	void initPickups(Box& t_box);
 
 private:
 	static const int M_MAX_AMMO_PICKUPS = 3;
@@ -24,6 +24,12 @@ private:
 	sf::Sprite m_gunSprite;
 	sf::Texture m_gunSpriteTexture;
 
-	int m_usedBoxIndex[M_MAX_AMMO_PICKUPS];
+	int m_usedAmmoBoxIndex[M_MAX_AMMO_PICKUPS];
+	int m_usedGunBoxIndex;
 
+	// check if the ammo pickup can be picked up
+	bool m_bulletPickUpAlive[M_MAX_AMMO_PICKUPS];
+
+	// check if the gun pickup can be picked up
+	bool m_gunPickupAlive;
 };

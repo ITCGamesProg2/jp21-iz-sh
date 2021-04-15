@@ -101,5 +101,7 @@ void Game::update()
 	m_box.update(m_player);
 	m_bullet.update(m_box);
 	m_HUD.update(m_player);
+
+	m_pickups.update(m_player, m_box.getActiveBox());
 	
 }

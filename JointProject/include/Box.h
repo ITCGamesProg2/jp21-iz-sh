@@ -58,10 +58,10 @@ public:
 		return M_MAX_BOX;
 	}
 
-	/*bool getEmpty(int t_arrayCell)
+	int getActiveBox()
 	{
-		return m_empty[t_arrayCell];
-	}*/
+		return m_activeBox;
+	}
 
 private:
 
@@ -71,12 +71,10 @@ private:
 	sf::Texture m_boxTexture;
 	sf::Vector2f m_previousPosition;
 
-	// index of active box, used currently to determine which box shows the E button prompt 
+	// index of active box
 	int m_activeBox = 0;
 
 	bool m_drawInteractPrompt = false;
-
-	/*bool m_empty[M_MAX_BOX];*/
 
 	// text object of the E button Prompt
 	std::string m_interactPrompt = "E";

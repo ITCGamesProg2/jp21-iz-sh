@@ -82,7 +82,6 @@ void Player::interactWithBox()
 			else
 			{
 				m_hidden = true;
-
 			}
 
 			// disable ability to press E

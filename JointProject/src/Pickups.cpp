@@ -6,17 +6,76 @@ Pickups::Pickups()
 
 void Pickups::draw(sf::RenderWindow& t_win)
 {
-	t_win.draw(m_gunSprite);
+	if (m_gunPickupAlive)
+	{
+		t_win.draw(m_gunSprite);
+	}
 
 	for (int i = 0; i < M_MAX_AMMO_PICKUPS; i++)
 	{
-		t_win.draw(m_ammoSprite[i]);
+		if (m_bulletPickUpAlive[i])
+		{
+			t_win.draw(m_ammoSprite[i]);
+		}
+		
 	}
 	
 }
 
-void Pickups::update(Player& t_player)
+void Pickups::update(Player& t_player, int t_activeBox)
 {
+	if (t_player.isHidden() == true)
+	{
+		if (t_activeBox == m_usedGunBoxIndex)
+		{
+			if (m_gunPickupAlive)
+			{
+				t_player.giveGun();
+				m_gunPickupAlive = false;
+			}
+			
+		}
+
+		for (int i = 0; i < M_MAX_AMMO_PICKUPS; i++)
+		{
+			if (m_bulletPickUpAlive[i])
+			{
+				if (t_activeBox == m_usedAmmoBoxIndex[i])
+				{
+					t_player.giveAmmo();
+					m_bulletPickUpAlive[i] = false;
+				}
+			}
+
+		}
+	}
+
+	//	WORK IN PROGRESS, PICKING UP BULLETS THAT ARE NOT IN BOXES
+
+	/*else if (t_player.isHidden() == false)
+	{
+		if (m_gunPickupAlive)
+		{
+			if (t_player.getSprite().getGlobalBounds().intersects((m_gunSprite.getGlobalBounds())))
+			{
+				t_player.giveGun();
+				m_gunPickupAlive = false;
+			}
+		}
+
+		for (int i = 0; i < M_MAX_AMMO_PICKUPS; i++)
+		{
+			if (m_bulletPickUpAlive[i])
+			{
+				if (t_player.getSprite().getGlobalBounds().intersects((m_ammoSprite[i].getGlobalBounds())))
+				{
+					t_player.giveAmmo();
+					m_bulletPickUpAlive[i] = false;
+				}
+			}
+		}
+	}*/
+	
 }
 
 void Pickups::initPickups(Box& t_box)
@@ -47,6 +106,9 @@ void Pickups::initPickups(Box& t_box)
 	int boxContainingGun = rand() % t_box.getMaxBox();
 	m_gunSprite.setPosition(t_box.getSprite(boxContainingGun).getPosition());
 
+	// store which box contains the gun
+	m_usedGunBoxIndex = boxContainingGun;
+
 	// generate which boxes will have ammo pickups 
 	for (int i = 0; i < M_MAX_AMMO_PICKUPS; i++)
 	{
@@ -56,16 +118,17 @@ void Pickups::initPickups(Box& t_box)
 		// prevents repeat boxes being used
 		for (int j = 0; j < M_MAX_AMMO_PICKUPS; j++)
 		{
-			while (boxContainingBullets == m_usedBoxIndex[j] || boxContainingBullets == boxContainingGun)
+			while (boxContainingBullets == m_usedAmmoBoxIndex[j] || boxContainingBullets == boxContainingGun)
 			{
 				boxContainingBullets = rand() % t_box.getMaxBox();
 			}
 		}
 
-		// store the used box index so it doesnt get used again
-		m_usedBoxIndex[i] = boxContainingBullets;
+		// store the used box index so it doesnt get used again and which boxes contain ammo
+		m_usedAmmoBoxIndex[i] = boxContainingBullets;
 		
 		// generate the ammo "in" the box
 		m_ammoSprite[i].setPosition(t_box.getSprite(boxContainingBullets).getPosition());
+
 	}
 }
