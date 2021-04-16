@@ -35,7 +35,7 @@ void Player::draw(sf::RenderWindow& t_win)
 
 void Player::update(sf::Vector2f t_mousePos, bool& t_clickedMouse)
 {
-	std::cout << m_health << std::endl;
+	//std::cout << m_health << std::endl;
 
 	if (m_health <= 0)
 	{

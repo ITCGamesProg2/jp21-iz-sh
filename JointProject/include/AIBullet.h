@@ -62,6 +62,6 @@ private:
 	int m_damageToPlayer = 100;
 
 	// bools controlling what shoot mode AI is in
-	bool m_shootAtBox = true;
-	bool m_shootAtPlayer = false;
+	bool m_shootAtBox = false;
+	bool m_shootAtPlayer = true;
 };

@@ -10,6 +10,7 @@
 #include "Pickups.h"
 #include "AI.h"
 #include "AIBullet.h"
+#include "Grid.h"
 
 class Game
 {
@@ -39,12 +40,11 @@ private:
 
 	Box m_box;
 	Bullet m_bullet;
-	
 	AIBullet m_AIBullet;
-
 	HUD m_HUD;
 	Pickups m_pickups;
 	AI m_enemy;
+	Grid m_grid;
 
 	
 };

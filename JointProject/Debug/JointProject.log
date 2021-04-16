@@ -1,1 +1,12 @@
-﻿  JointProject.vcxproj -> C:\Users\steph\Desktop\joint project\jp21-iz-sh\Debug\JointProject.exe
+﻿  Player.cpp
+C:\Users\viole\Desktop\f3\jp21-iz-sh\JointProject\src\Player.cpp(14,91): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\viole\Desktop\f3\jp21-iz-sh\JointProject\src\Player.cpp(14,51): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+  JointProject.vcxproj -> C:\Users\viole\Desktop\f3\jp21-iz-sh\Debug\JointProject.exe

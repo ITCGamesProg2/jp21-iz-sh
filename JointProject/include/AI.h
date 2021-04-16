@@ -34,11 +34,11 @@ public:
 	{
 		return m_alive;
 	}
-
 private:
 	sf::Texture m_enemyTexture;
 	sf::Sprite m_enemySprite;
 	int m_health = 100;
 	int m_bulletDamage = 34;
 	bool m_alive = true;
+	
 };
