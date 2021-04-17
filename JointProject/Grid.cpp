@@ -21,6 +21,7 @@ void Grid::markImpassableCells(Box& t_box)
 	int tempTop;
 	int tempWidth;
 	int tempHeight;
+
 	for (int i = 0; i < t_box.getMaxBox(); i++)
 	{
 		tempLeft = t_box.getSprite(i).getGlobalBounds().left;

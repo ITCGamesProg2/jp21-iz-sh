@@ -38,17 +38,14 @@ void Pickups::update(Player& t_player, int t_activeBox)
 			{
 				if (t_activeBox == m_usedAmmoBoxIndex[i])
 				{
-					t_player.giveAmmo();
+					t_player.giveAmmo(5);
 					m_bulletPickUpAlive[i] = false;
 				}
 			}
 
 		}
 	}
-
-	//	WORK IN PROGRESS, PICKING UP BULLETS THAT ARE NOT IN BOXES
-
-	/*else if (t_player.isHidden() == false)
+	else if (t_player.isHidden() == false)
 	{
 		if (m_gunPickupAlive)
 		{
@@ -65,12 +62,12 @@ void Pickups::update(Player& t_player, int t_activeBox)
 			{
 				if (t_player.getSprite().getGlobalBounds().intersects((m_ammoSprite[i].getGlobalBounds())))
 				{
-					t_player.giveAmmo();
+					t_player.giveAmmo(5);
 					m_bulletPickUpAlive[i] = false;
 				}
 			}
 		}
-	}*/
+	}
 	
 }
 

@@ -6,12 +6,13 @@ Player::Player(sf::Sprite& t_spheet) : m_playerSprite(t_spheet)
 
 void Player::initAnimationData()
 {
-
 	m_animations[int(PlayerAnimationState::walk)] = { 8, 36,5,true };
 	m_animations[int(PlayerAnimationState::idle)] = { 3,21,80,true };
 	m_animationState = PlayerAnimationState::walk;
 
 	m_animSheet.init(m_playerSprite.getGlobalBounds().width, m_playerSprite.getGlobalBounds().height, 5, 9);
+	m_playerSprite.setTextureRect(m_animSheet.getFrame());
+	m_playerSprite.setOrigin(m_playerSprite.getGlobalBounds().width / 2, (m_playerSprite.getGlobalBounds().height / 2) + 15);
 }
 
 void Player::startAnimaton(PlayerAnimationState t_animationState)
@@ -24,7 +25,6 @@ void Player::draw(sf::RenderWindow& t_win)
 {
 	m_animSheet.nextFrame();
 	m_playerSprite.setTextureRect(m_animSheet.getFrame());
-	m_playerSprite.setOrigin(m_playerSprite.getGlobalBounds().width / 2, (m_playerSprite.getGlobalBounds().height / 2) + 15);
 
 	if (m_hidden == false && m_alive)
 	{
@@ -35,8 +35,6 @@ void Player::draw(sf::RenderWindow& t_win)
 
 void Player::update(sf::Vector2f t_mousePos, bool& t_clickedMouse)
 {
-	//std::cout << m_health << std::endl;
-
 	if (m_health <= 0)
 	{
 		m_alive = false;

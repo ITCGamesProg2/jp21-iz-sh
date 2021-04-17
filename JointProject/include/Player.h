@@ -54,9 +54,9 @@ public:
 		return m_canPressE;
 	}
 
-	void giveAmmo()
+	void giveAmmo(int t_value)
 	{
-		m_ammo += 5;
+		m_ammo += t_value;
 	}
 
 	void giveGun()
