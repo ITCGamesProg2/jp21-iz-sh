@@ -10,7 +10,13 @@ class Box
 
 public:
 
-	Box() { ; }
+	Box() 
+	{ 
+		for (int i = 0; i < M_MAX_BOX; i++)
+		{
+			m_alive[i] = true;
+		}
+	}
 	void draw(sf::RenderWindow& t_win);
 
 	/// <summary>

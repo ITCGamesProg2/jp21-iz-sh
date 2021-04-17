@@ -8,7 +8,13 @@ class Pickups
 public:
 
 	Pickups()
-	{;}
+	{
+		m_gunPickupAlive = true;
+		for (int i = 0; i < M_MAX_AMMO_PICKUPS; i++)
+		{
+			m_bulletPickUpAlive[i] = true;
+		}
+	}
 
 	void draw(sf::RenderWindow& t_win);
 
