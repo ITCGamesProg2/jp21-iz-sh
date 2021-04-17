@@ -2,7 +2,7 @@
 
 void AI::init()
 {
-	if (!m_enemyTexture.loadFromFile("./resources/enemy.png"))
+	if (!m_enemyTexture.loadFromFile("./resources/robot.png"))
 	{
 		std::string s("Error loading enemy sprite");
 		throw std::exception(s.c_str());

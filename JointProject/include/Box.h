@@ -14,7 +14,7 @@ public:
 	{ 
 		for (int i = 0; i < M_MAX_BOX; i++)
 		{
-			m_alive[i] = true;
+			m_boxAlive[i] = true;
 		}
 	}
 	void draw(sf::RenderWindow& t_win);
@@ -71,12 +71,22 @@ public:
 
 	void setAlive(int t_arrayCell)
 	{
-		m_alive[t_arrayCell] = false;
+		m_boxAlive[t_arrayCell] = false;
 	}
 
 	bool getAlive(int t_arrayCell)
 	{
-		return m_alive[t_arrayCell];
+		return m_boxAlive[t_arrayCell];
+	}
+
+	int getNumberOfBoxesInGame()
+	{
+		return m_currentNumBoxesInGame;
+	}
+
+	void reduceNumOfBoxes()
+	{
+		m_currentNumBoxesInGame -= 1;
 	}
 
 private:
@@ -89,6 +99,8 @@ private:
 	// index of active box
 	int m_activeBox = 0;
 
+	int m_currentNumBoxesInGame = M_MAX_BOX;
+
 	bool m_drawInteractPrompt = false;
 
 	// text object of the E button Prompt
@@ -96,6 +108,6 @@ private:
 	sf::Text m_interactPromptText;
 	sf::Font m_font;
 
-	bool m_alive[M_MAX_BOX];
+	bool m_boxAlive[M_MAX_BOX];
 
 };

@@ -4,7 +4,7 @@ void Box::draw(sf::RenderWindow& t_win)
 {
 	for (int i = 0; i < M_MAX_BOX; i++)
 	{
-		if (m_alive[i])
+		if (m_boxAlive[i])
 		{
 			t_win.draw(m_boxSprite[i]);
 		}
@@ -23,9 +23,15 @@ void Box::update(Player& t_player)
 	{
 		collisionBetweenPlayerAndBox(t_player);
 
+		// check if box player was hiding in was destroyed
+		if (t_player.isHidden() && m_boxAlive[m_activeBox] == false)
+		{
+			t_player.setHiddenStatus(false);
+		}
+
 		if (distanceBetween(t_player.getSprite().getPosition(), m_boxSprite[i].getPosition()) <= 130) // close enough to current box
 		{
-			if (m_alive[i])
+			if (m_boxAlive[i])
 			{
 				// store this close box as the active box
 				m_activeBox = i;
@@ -113,7 +119,7 @@ void Box::collisionBetweenPlayerAndBox(Player& t_player)
 	int numIntersect = 0;
 	for (int i = 0; i < M_MAX_BOX; i++)
 	{
-		if (m_alive[i])
+		if (m_boxAlive[i])
 		{
 			if (m_boxSprite[i].getGlobalBounds().intersects(t_player.getSprite().getGlobalBounds()))
 			{

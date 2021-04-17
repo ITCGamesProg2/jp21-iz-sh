@@ -14,6 +14,9 @@ void AIBullet::init()
 		m_bulletSprite[i].setPosition(0, 0);
 		m_bulletAlive[i] = false;
 	}
+
+	m_firingTimer.reset(sf::Time(sf::seconds(BOX_FIRING_COOLDOWN)));
+	m_firingTimer.start();
 }
 
 void AIBullet::draw(sf::RenderWindow& t_window)
@@ -63,39 +66,7 @@ void AIBullet::shootAtPlayer(sf::Vector2f t_playerPos, sf::Vector2f t_aiPos)
 
 void AIBullet::update(Box& t_box, AI& t_ai, Player& t_player)
 {
-	// VERY IMPORTANT NOTE TO SELF (STEPHEN): MODIFY LATER TO HAVE TIMER CONTROLLING AI FIRE RATE. RIGHT NOW CAN ONLY SHOOT ONE BULLET PER GAME
-	// ALSO INTRODUCE SHOOTING STATES: SHOOTATBOX WHEN PLAYER IS UNDETECTED, SHOOTATPLAYER WHEN PLAYER IS BEING CHASED
-	
-	// check if AI should shoot at box
-
-	// V.I CONT: POSSIBLE THAT AI WILL SHOOT AT DESTROYED BOX IF IT WAS THE CLOESEST ONE, MODIFY WHEN MULTIPLE BULLETS CAN BE FIRED
-	if (m_shootAtBox)
-	{
-		int closestBoxIndex = 0;
-		float closestBoxDistance = 9999;
-
-		// find the closest box to the AI
-		for (int i = 0; i < t_box.getMaxBox(); i++)
-		{
-			float currentdistanceBetween = distanceBetween(t_box.getSprite(i).getPosition(), t_ai.getSprite().getPosition());
-
-			if (currentdistanceBetween < closestBoxDistance)
-			{
-				closestBoxIndex = i;
-				closestBoxDistance = currentdistanceBetween;
-			}
-		}
-
-		// shoot at that box
-		shootAtBox(t_box.getSprite(closestBoxIndex).getPosition(), t_ai.getSprite().getPosition());
-		m_shootAtBox = false;
-	}
-	else if (m_shootAtPlayer) // shoot at player instead
-	{
-		shootAtPlayer(t_player.getSprite().getPosition(), t_ai.getSprite().getPosition());
-		m_shootAtPlayer = false;
-	}
-	
+	// first update the bullets
 	for (int i = 0; i < MAX_BULLET; i++)
 	{
 		boundaryCheck();
@@ -113,6 +84,58 @@ void AIBullet::update(Box& t_box, AI& t_ai, Player& t_player)
 			checkPlayerIntersect(t_player);
 		}
 	}
+
+	// gen new bullet if firing cooldown is over
+	if (m_firingTimer.isExpired())
+	{
+		// in shootAtBox mode
+		if (m_shootAtBoxMode)
+		{
+			// check if there is still boxes to shoot at
+			if (t_box.getNumberOfBoxesInGame() > 0)
+			{
+				// fire a bullet every 5 seconds in shootAtBox mode
+				m_firingTimer.reset(sf::Time(sf::seconds(BOX_FIRING_COOLDOWN)));
+				m_firingTimer.start();
+
+				int closestBoxIndex = 0;
+				float closestBoxDistance = 9999;
+
+				// find the closest box to the AI
+				for (int i = 0; i < t_box.getMaxBox(); i++)
+				{
+					if (t_box.getAlive(i) == true)
+					{
+						float currentdistanceBetween = distanceBetween(t_box.getSprite(i).getPosition(), t_ai.getSprite().getPosition());
+
+						if (currentdistanceBetween < closestBoxDistance)
+						{
+							closestBoxIndex = i;
+							closestBoxDistance = currentdistanceBetween;
+						}
+					}
+				}
+				// shoot at that box
+				shootAtBox(t_box.getSprite(closestBoxIndex).getPosition(), t_ai.getSprite().getPosition());
+			}
+			else
+			{
+				m_shootAtBoxMode = false;
+				m_firingTimer.reset(sf::Time(sf::seconds(PLAYER_FIRING_COOLDOWN)));
+				m_firingTimer.start();
+				m_shootAtPlayerMode = true;
+			}
+
+		}
+		else if (m_shootAtPlayerMode) // shoot at player instead
+		{
+			m_firingTimer.reset(sf::Time(sf::seconds(PLAYER_FIRING_COOLDOWN)));
+			m_firingTimer.start();
+
+			shootAtPlayer(t_player.getSprite().getPosition(), t_ai.getSprite().getPosition());
+		}
+	}
+		
 }
 
 void AIBullet::checkBoxIntersect(Box &t_box, int t_arrayCell)
@@ -123,6 +146,7 @@ void AIBullet::checkBoxIntersect(Box &t_box, int t_arrayCell)
 		{
 			if (m_bulletAlive[i] && t_box.getAlive(t_arrayCell))
 			{
+				t_box.reduceNumOfBoxes();
 				t_box.setAlive(t_arrayCell);
 				m_bulletAlive[i] = false;
 			}
@@ -136,10 +160,10 @@ void AIBullet::checkPlayerIntersect(Player& t_player)
 	{
 		if (m_bulletSprite[i].getGlobalBounds().intersects(t_player.getSprite().getGlobalBounds()))
 		{
-			if (m_bulletAlive[i] && t_player.isAlive())
+			if (m_bulletAlive[i] && t_player.isAlive() && t_player.isHidden() == false)
 			{
 				m_bulletAlive[i] = false;
-				t_player.takeDamage(m_damageToPlayer);
+				t_player.takeDamage(10);
 			}
 		}
 	}

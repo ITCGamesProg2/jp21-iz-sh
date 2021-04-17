@@ -5,6 +5,7 @@
 #include "Box.h"
 #include "Player.h"
 #include "AI.h"
+#include "Thor/Time.hpp"
 
 class AIBullet
 {
@@ -50,7 +51,7 @@ public:
 
 private:
 
-	static const int MAX_BULLET = 1;
+	static const int MAX_BULLET = 15;
 	int m_bulletDirection[MAX_BULLET];
 	int m_bulletCount = 0; // determines which bullet is to be shot next
 	int m_bulletSpeed = 5;
@@ -62,6 +63,15 @@ private:
 	int m_damageToPlayer = 100;
 
 	// bools controlling what shoot mode AI is in
-	bool m_shootAtBox = false;
-	bool m_shootAtPlayer = true;
+	bool m_shootAtBoxMode = true;
+	bool m_shootAtPlayerMode = false;
+
+	// timer that controls the rate of fire of the AI
+	thor::Timer m_firingTimer;
+	static constexpr float BOX_FIRING_COOLDOWN = 5.0f;
+	static constexpr float PLAYER_FIRING_COOLDOWN = 2.0f;
+
+
+	/*thor::Timer m_backToPatrolDelay;
+	static constexpr float DELAY = 3.0f;*/
 };

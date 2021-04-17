@@ -1,12 +1,2 @@
-﻿  Player.cpp
-C:\Users\steph\Desktop\joins\jp21-iz-sh\JointProject\src\Player.cpp(13,91): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
-C:\Users\steph\Desktop\joins\jp21-iz-sh\JointProject\src\Player.cpp(13,91): warning C4244:         with
-C:\Users\steph\Desktop\joins\jp21-iz-sh\JointProject\src\Player.cpp(13,91): warning C4244:         [
-C:\Users\steph\Desktop\joins\jp21-iz-sh\JointProject\src\Player.cpp(13,91): warning C4244:             T=float
-C:\Users\steph\Desktop\joins\jp21-iz-sh\JointProject\src\Player.cpp(13,91): warning C4244:         ]
-C:\Users\steph\Desktop\joins\jp21-iz-sh\JointProject\src\Player.cpp(13,51): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
-C:\Users\steph\Desktop\joins\jp21-iz-sh\JointProject\src\Player.cpp(13,51): warning C4244:         with
-C:\Users\steph\Desktop\joins\jp21-iz-sh\JointProject\src\Player.cpp(13,51): warning C4244:         [
-C:\Users\steph\Desktop\joins\jp21-iz-sh\JointProject\src\Player.cpp(13,51): warning C4244:             T=float
-C:\Users\steph\Desktop\joins\jp21-iz-sh\JointProject\src\Player.cpp(13,51): warning C4244:         ]
+﻿  AIBullet.cpp
   JointProject.vcxproj -> C:\Users\steph\Desktop\joins\jp21-iz-sh\Debug\JointProject.exe

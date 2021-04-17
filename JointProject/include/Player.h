@@ -49,6 +49,11 @@ public:
 		return m_hidden;
 	}
 
+	void setHiddenStatus(bool t_hiddenStatus)
+	{
+		m_hidden = t_hiddenStatus;
+	}
+
 	bool canE()
 	{
 		return m_canPressE;
@@ -115,5 +120,6 @@ private:
 	int m_health = 100;
 
 	bool m_alive = true;
+
 
 };
