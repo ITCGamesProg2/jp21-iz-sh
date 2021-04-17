@@ -84,11 +84,6 @@ void Box::initBox()
 
 }
 
-sf::Vector2f Box::getPosition()
-{
-	return m_position;
-}
-
 void Box::initText()
 {
 	if (!m_font.loadFromFile("./resources/arial.ttf"))

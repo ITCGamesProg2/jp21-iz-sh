@@ -10,9 +10,11 @@ public:
 	Pickups()
 	{
 		m_gunPickupAlive = true;
+		m_usedGunBoxIndex = -1;
 		for (int i = 0; i < M_MAX_AMMO_PICKUPS; i++)
 		{
 			m_bulletPickUpAlive[i] = true;
+			m_usedAmmoBoxIndex[i] = -1;
 		}
 	}
 
