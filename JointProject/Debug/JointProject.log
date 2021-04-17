@@ -1,6 +1,26 @@
-﻿  Game.cpp
-  Pickups.cpp
-  main.cpp
-C:\Users\viole\Desktop\f3\jp21-iz-sh\JointProject\src\main.cpp(28,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-  Generating Code...
+﻿  Grid.cpp
+C:\Users\viole\Desktop\f3\jp21-iz-sh\JointProject\Grid.cpp(26,50): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\viole\Desktop\f3\jp21-iz-sh\JointProject\Grid.cpp(27,49): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\viole\Desktop\f3\jp21-iz-sh\JointProject\Grid.cpp(28,51): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\viole\Desktop\f3\jp21-iz-sh\JointProject\Grid.cpp(29,52): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\viole\Desktop\f3\jp21-iz-sh\JointProject\Grid.cpp(32,14): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\viole\Desktop\f3\jp21-iz-sh\JointProject\Grid.cpp(35,61): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\viole\Desktop\f3\jp21-iz-sh\JointProject\Grid.cpp(38,47): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\viole\Desktop\f3\jp21-iz-sh\JointProject\Grid.cpp(41,61): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
   JointProject.vcxproj -> C:\Users\viole\Desktop\f3\jp21-iz-sh\Debug\JointProject.exe

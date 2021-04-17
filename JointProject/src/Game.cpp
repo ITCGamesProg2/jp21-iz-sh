@@ -25,6 +25,7 @@ void Game::init()
 	m_HUD.init();
 	m_pickups.initPickups(m_box);
 	m_grid.makeGrid();
+	m_grid.markImpassableCells(m_box);
 
 }
 

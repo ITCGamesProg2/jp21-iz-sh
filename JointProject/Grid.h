@@ -1,16 +1,29 @@
 #pragma once
 #include <iostream>
 #include "Cell.h"
+#include "Box.h"
+#include <ScreenSize.h>
 class Grid
 {
 public:
 	Grid();
+	/// <summary>
+	/// makes 100 instances of Cell
+	/// </summary>
 	void makeGrid();
+
+	/// <summary>
+	/// gets coords of corners of sprites and marks the cells as impassable
+	/// </summary>
+	/// <param name="t_box"></param>
+	void markImpassableCells(Box& t_box);
 
 private:
 
 	static int const ROWS = 10;
 	static int const COLS = 10;
+	int m_cellWidth;
+	int m_cellHeight;
 	int arr[ROWS][COLS] =
 	{
 		{0, 1, 2, 3, 4, 5, 6, 7, 8, 9 },
