@@ -40,5 +40,4 @@ private:
 	int m_health = 100;
 	int m_bulletDamage = 34;
 	bool m_alive = true;
-	
 };

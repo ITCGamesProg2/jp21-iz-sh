@@ -7,7 +7,8 @@ class Pickups
 {
 public:
 
-	Pickups();
+	Pickups()
+	{;}
 
 	void draw(sf::RenderWindow& t_win);
 

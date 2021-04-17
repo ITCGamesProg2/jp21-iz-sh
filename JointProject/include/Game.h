@@ -45,6 +45,5 @@ private:
 	Pickups m_pickups;
 	AI m_enemy;
 	Grid m_grid;
-
 	
 };

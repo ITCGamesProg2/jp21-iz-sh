@@ -1,10 +1,5 @@
 #include "Box.h"
 
-Box::Box()
-{
-
-}
-
 void Box::draw(sf::RenderWindow& t_win)
 {
 	for (int i = 0; i < M_MAX_BOX; i++)
@@ -76,6 +71,7 @@ void Box::initBox()
 		m_boxSprite[i].setOrigin(m_boxSprite[i].getGlobalBounds().width / 2, m_boxSprite[i].getGlobalBounds().height / 2);
 	}
 
+
 	// set temp positions of the boxes
 	m_boxSprite[0].setPosition(200, 200);
 	m_boxSprite[1].setPosition(1200, 600);
@@ -83,7 +79,6 @@ void Box::initBox()
 	m_boxSprite[3].setPosition(750, 500);
 	m_boxSprite[4].setPosition(1000, 800);
 	m_boxSprite[5].setPosition(1200, 100);
-
 
 	initText();
 

@@ -24,7 +24,7 @@ void Game::init()
 	m_AIBullet.init();
 	m_HUD.init();
 	m_pickups.initPickups(m_box);
-	m_grid.neighbours(3, 3);
+	m_grid.makeGrid();
 
 }
 

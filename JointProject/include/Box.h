@@ -10,7 +10,7 @@ class Box
 
 public:
 
-	Box();
+	Box() { ; }
 	void draw(sf::RenderWindow& t_win);
 
 	/// <summary>

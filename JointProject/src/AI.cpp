@@ -14,7 +14,6 @@ void AI::init()
 
 	// positions to test where the AI will shoot its bullet
 	m_enemySprite.setPosition(900, 200);
-	//m_enemySprite.setPosition(100, 100);
 }
 
 void AI::draw(sf::RenderWindow& t_window)

@@ -1,12 +1,9 @@
-﻿  Player.cpp
-C:\Users\viole\Desktop\f3\jp21-iz-sh\JointProject\src\Player.cpp(14,91): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
-          with
-          [
-              T=float
-          ]
-C:\Users\viole\Desktop\f3\jp21-iz-sh\JointProject\src\Player.cpp(14,51): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
-          with
-          [
-              T=float
-          ]
+﻿  AIBullet.cpp
+  Box.cpp
+  Bullet.cpp
+  Game.cpp
+  Pickups.cpp
+  main.cpp
+C:\Users\viole\Desktop\f3\jp21-iz-sh\JointProject\src\main.cpp(28,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  Generating Code...
   JointProject.vcxproj -> C:\Users\viole\Desktop\f3\jp21-iz-sh\Debug\JointProject.exe

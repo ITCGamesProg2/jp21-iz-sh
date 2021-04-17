@@ -1,9 +1,5 @@
 #include "Pickups.h"
 
-Pickups::Pickups()
-{
-}
-
 void Pickups::draw(sf::RenderWindow& t_win)
 {
 	if (m_gunPickupAlive)

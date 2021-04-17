@@ -1,10 +1,11 @@
 #pragma once
 #include <iostream>
+#include "Cell.h"
 class Grid
 {
 public:
 	Grid();
-	void neighbours(int t_row, int t_col);
+	void makeGrid();
 
 private:
 
@@ -23,5 +24,8 @@ private:
 		{80, 81, 82, 83, 84, 85, 86, 87, 88, 89 },
 		{90, 91, 92, 93, 94, 95, 96, 97, 98, 99 }
 	};
+
+	std::vector<Cell> m_grid;
+	
 };
 
