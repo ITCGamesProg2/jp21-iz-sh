@@ -25,20 +25,10 @@ public:
 	void update(Player &t_player);
 
 	/// <summary>
-	/// give the box its inital sprite
+	/// give the box its inital sprite, and the text
 	/// </summary>
-	void initBox();	
+	void init(sf::Font& t_font);
 
-	/// <summary>
-	/// gets position of the box
-	/// </summary>
-	/// <returns> m_position </returns>
-	sf::Vector2f getPosition();
-
-	/// <summary>
-	/// loads in text attributes
-	/// </summary>
-	void initText();
 
 	/// <summary>
 	/// get distance between 2 given entity vectors
@@ -106,7 +96,6 @@ private:
 	// text object of the E button Prompt
 	std::string m_interactPrompt = "E";
 	sf::Text m_interactPromptText;
-	sf::Font m_font;
 
 	bool m_boxAlive[M_MAX_BOX];
 

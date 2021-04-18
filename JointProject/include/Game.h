@@ -11,6 +11,16 @@
 #include "AI.h"
 #include "AIBullet.h"
 #include "Grid.h"
+#include "MainMenu.h"
+
+enum class
+	GameState
+{
+	None,
+	MainMenu,
+	Help,
+	Game
+};
 
 class Game
 {
@@ -34,6 +44,7 @@ private:
 	sf::View m_view;
 
 	Player m_player;
+	sf::Font m_font;
 	sf::Texture m_playerTextureSheet;
 	sf::Sprite m_playerSpriteSheet;
 	bool m_clickedMouse = false;
@@ -45,5 +56,6 @@ private:
 	Pickups m_pickups;
 	AI m_enemy;
 	Grid m_grid;
-	
+	MainMenu m_menu;
+	GameState m_currentState = GameState::MainMenu;
 };

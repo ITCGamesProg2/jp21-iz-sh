@@ -10,7 +10,7 @@ public:
 
 	HUD();
 
-	void init();
+	void init(sf::Font& t_font);
 
 	void update(Player &t_player);
 
@@ -18,7 +18,6 @@ public:
 
 private:
 	// The font for this HUD.
-	sf::Font m_font;
 
 	sf::Text m_hiddenStatusText;
 

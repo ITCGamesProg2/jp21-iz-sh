@@ -64,7 +64,7 @@ void Box::update(Player& t_player)
 	}
 }
 
-void Box::initBox()
+void Box::init(sf::Font& t_font)
 {
 	if (!m_boxTexture.loadFromFile("./resources/closedBox.png"))
 	{
@@ -86,23 +86,12 @@ void Box::initBox()
 	m_boxSprite[4].setPosition(1000, 800);
 	m_boxSprite[5].setPosition(1200, 100);
 
-	initText();
-
-}
-
-void Box::initText()
-{
-	if (!m_font.loadFromFile("./resources/arial.ttf"))
-	{
-		std::string s("Error loading font");
-		throw std::exception(s.c_str());
-	}
-
-	m_interactPromptText.setFont(m_font);
+	m_interactPromptText.setFont(t_font);
 	m_interactPromptText.setString(m_interactPrompt);
 	m_interactPromptText.setCharacterSize(30u);
 	m_interactPromptText.setStyle(sf::Text::Bold | sf::Text::Underlined);
 	m_interactPromptText.setFillColor(sf::Color::Red);
+
 }
 
 

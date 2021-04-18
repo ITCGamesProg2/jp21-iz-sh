@@ -58,7 +58,7 @@ void Bullet::update(Box& t_box,AI &t_enemy)
 
 			for (int j = 0; j < t_box.getMaxBox(); j++)
 			{
-				checkBoxIntersect(t_box.getSprite(j));
+				checkBoxIntersect(t_box.getSprite(j),t_box.getAlive(j));
 			}
 			checkIntersect(t_enemy);
 		}
@@ -89,13 +89,13 @@ void Bullet::boundaryCheck()
 	}
 }
 
-void Bullet::checkBoxIntersect(sf::Sprite t_box)
+void Bullet::checkBoxIntersect(sf::Sprite t_box, bool m_isAlive)
 {
 	for (int i = 0; i < MAX_BULLET; i++)
 	{
 		if (m_bulletSprite[i].getGlobalBounds().intersects(t_box.getGlobalBounds()))
 		{
-			if (m_bulletAlive[i])
+			if (m_bulletAlive[i] && m_isAlive)
 			{
 				m_bulletAlive[i] = false;
 			}

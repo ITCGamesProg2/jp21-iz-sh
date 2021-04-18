@@ -159,6 +159,7 @@
     <ClInclude Include="include\Game.h" />
     <ClInclude Include="include\Grid.h" />
     <ClInclude Include="include\HUD.h" />
+    <ClInclude Include="include\MainMenu.h" />
     <ClInclude Include="include\MathUtility.h" />
     <ClInclude Include="include\Pickups.h" />
     <ClInclude Include="include\Player.h" />
@@ -174,6 +175,7 @@
     <ClCompile Include="src\Grid.cpp" />
     <ClCompile Include="src\HUD.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\MainMenu.cpp" />
     <ClCompile Include="src\Pickups.cpp" />
     <ClCompile Include="src\Player.cpp" />
   </ItemGroup>

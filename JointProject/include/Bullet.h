@@ -29,7 +29,7 @@ public:
 	/// disappears bullets when they hit box
 	/// </summary>
 	/// <param name="t_box"></param>
-	void checkBoxIntersect(sf::Sprite t_box);
+	void checkBoxIntersect(sf::Sprite t_box, bool m_isAlive);
 
 	/// <summary>
 	/// disappears bullets when they hit enemy, deals damage
