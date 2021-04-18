@@ -1,27 +1,13 @@
-﻿  Grid.cpp
-C:\Users\viole\Desktop\git\jp21-iz-sh\JointProject\src\Grid.cpp(27,50): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
-          with
-          [
-              T=float
-          ]
-C:\Users\viole\Desktop\git\jp21-iz-sh\JointProject\src\Grid.cpp(28,49): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
-          with
-          [
-              T=float
-          ]
-C:\Users\viole\Desktop\git\jp21-iz-sh\JointProject\src\Grid.cpp(29,51): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
-          with
-          [
-              T=float
-          ]
-C:\Users\viole\Desktop\git\jp21-iz-sh\JointProject\src\Grid.cpp(30,52): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
-          with
-          [
-              T=float
-          ]
-C:\Users\viole\Desktop\git\jp21-iz-sh\JointProject\src\Grid.cpp(33,14): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-C:\Users\viole\Desktop\git\jp21-iz-sh\JointProject\src\Grid.cpp(36,61): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-C:\Users\viole\Desktop\git\jp21-iz-sh\JointProject\src\Grid.cpp(39,47): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-C:\Users\viole\Desktop\git\jp21-iz-sh\JointProject\src\Grid.cpp(42,61): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-C:\Users\viole\Desktop\git\jp21-iz-sh\JointProject\src\Grid.cpp(57,21): warning C4018: '<': signed/unsigned mismatch
+﻿  AI.cpp
+C:\Users\viole\Desktop\git\jp21-iz-sh\JointProject\include\AI.h(12,18): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  AIBullet.cpp
+C:\Users\viole\Desktop\git\jp21-iz-sh\JointProject\include\AI.h(12,18): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  Bullet.cpp
+C:\Users\viole\Desktop\git\jp21-iz-sh\JointProject\include\AI.h(12,18): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  Game.cpp
+C:\Users\viole\Desktop\git\jp21-iz-sh\JointProject\include\AI.h(12,18): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  main.cpp
+C:\Users\viole\Desktop\git\jp21-iz-sh\JointProject\include\AI.h(12,18): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\viole\Desktop\git\jp21-iz-sh\JointProject\src\main.cpp(28,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  Generating Code...
   JointProject.vcxproj -> C:\Users\viole\Desktop\git\jp21-iz-sh\Debug\JointProject.exe

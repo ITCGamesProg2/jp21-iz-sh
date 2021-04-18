@@ -14,6 +14,8 @@ void AI::init()
 
 	// positions to test where the AI will shoot its bullet
 	m_enemySprite.setPosition(900, 200);
+	randX = std::rand() % (ScreenSize::s_width - 200) + 100;
+	randY = std::rand() % (ScreenSize::s_height - 200) + 100;
 }
 
 void AI::draw(sf::RenderWindow& t_window)
@@ -30,4 +32,29 @@ void AI::update()
 	{
 		m_alive = false;
 	}
+
+	if (m_enemySprite.getPosition().x == randX && m_enemySprite.getPosition().y == randY)
+	{
+		randX = std::rand() % (ScreenSize::s_width - 200) + 100;
+		randY = std::rand() % (ScreenSize::s_height - 200) + 100;
+	}
+
+	if (m_enemySprite.getPosition().x > randX)
+	{
+		m_enemySprite.move(-1, 0);
+	}
+	else if (m_enemySprite.getPosition().x < randX)
+	{
+		m_enemySprite.move(1, 0);
+	}
+
+	if (m_enemySprite.getPosition().y > randY)
+	{
+		m_enemySprite.move(0, -1);
+	}
+	else if (m_enemySprite.getPosition().y < randY)
+	{
+		m_enemySprite.move(0, 1);
+	}
+
 }

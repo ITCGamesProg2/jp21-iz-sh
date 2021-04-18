@@ -2,10 +2,15 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include "ScreenSize.h"
+#include <time.h>
+
+
 class AI
 {
 public:
-	AI() {};
+	AI() {
+		std::srand(time(NULL));
+	};
 	void init();
 	void draw(sf::RenderWindow& t_window);
 	void update();
@@ -40,4 +45,6 @@ private:
 	int m_health = 100;
 	int m_bulletDamage = 34;
 	bool m_alive = true;
+	int randX;
+	int randY;
 };
