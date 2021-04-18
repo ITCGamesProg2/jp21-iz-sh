@@ -4,7 +4,6 @@
 #include "ScreenSize.h"
 #include <time.h>
 
-
 class AI
 {
 public:
@@ -22,7 +21,7 @@ public:
 	sf::Sprite getSprite() {
 		return m_enemySprite;
 	}
-	
+
 	/// <summary>
 	/// takes away health
 	/// </summary>
@@ -39,12 +38,35 @@ public:
 	{
 		return m_alive;
 	}
+
+	bool getShootingAtPlayer()
+	{
+		return m_shootingAtPlayer;
+	}
+
+	void setShootingAtPlayer(bool shootingAtPlayerStatus)
+	{
+		m_shootingAtPlayer = shootingAtPlayerStatus;
+	}
+
+	void setOutlineColor(sf::Color color)
+	{
+		m_rangeCircle.setOutlineColor(color);
+	}
+
+	float m_spotPlayerRange = 200;
+
 private:
 	sf::Texture m_enemyTexture;
 	sf::Sprite m_enemySprite;
+	sf::CircleShape m_rangeCircle;
+
 	int m_health = 100;
 	int m_bulletDamage = 34;
 	bool m_alive = true;
 	int randX;
 	int randY;
+
+	bool m_shootingAtPlayer = false;
 };
+

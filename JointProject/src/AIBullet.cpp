@@ -85,12 +85,25 @@ void AIBullet::update(Box& t_box, AI& t_ai, Player& t_player)
 		}
 	}
 
+	// check if player is in seeing range
+	if (distanceBetween(t_player.getSprite().getPosition(), t_ai.getSprite().getPosition()) <= t_ai.m_spotPlayerRange && t_player.isHidden() == false)
+	{
+		t_ai.setShootingAtPlayer(true);
+		t_ai.setOutlineColor(sf::Color::Red);
+	}
+	else
+	{
+		t_ai.setShootingAtPlayer(false);
+		t_ai.setOutlineColor(sf::Color::Green);
+	}
+
 	// gen new bullet if firing cooldown is over
 	if (m_firingTimer.isExpired())
 	{
 		// in shootAtBox mode
-		if (m_shootAtBoxMode)
+		if (t_ai.getShootingAtPlayer() == false)
 		{
+
 			// check if there is still boxes to shoot at
 			if (t_box.getNumberOfBoxesInGame() > 0)
 			{
@@ -118,16 +131,15 @@ void AIBullet::update(Box& t_box, AI& t_ai, Player& t_player)
 				// shoot at that box
 				shootAtBox(t_box.getSprite(closestBoxIndex).getPosition(), t_ai.getSprite().getPosition());
 			}
-			else
+			else // no more boxes, shoot at player always instead
 			{
-				m_shootAtBoxMode = false;
+				t_ai.setShootingAtPlayer(true);
 				m_firingTimer.reset(sf::Time(sf::seconds(PLAYER_FIRING_COOLDOWN)));
 				m_firingTimer.start();
-				m_shootAtPlayerMode = true;
 			}
 
 		}
-		else if (m_shootAtPlayerMode) // shoot at player instead
+		else // shoot at player instead
 		{
 			m_firingTimer.reset(sf::Time(sf::seconds(PLAYER_FIRING_COOLDOWN)));
 			m_firingTimer.start();
@@ -135,10 +147,9 @@ void AIBullet::update(Box& t_box, AI& t_ai, Player& t_player)
 			shootAtPlayer(t_player.getSprite().getPosition(), t_ai.getSprite().getPosition());
 		}
 	}
-		
 }
 
-void AIBullet::checkBoxIntersect(Box &t_box, int t_arrayCell)
+void AIBullet::checkBoxIntersect(Box& t_box, int t_arrayCell)
 {
 	for (int i = 0; i < MAX_BULLET; i++)
 	{
