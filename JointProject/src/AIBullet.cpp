@@ -130,6 +130,15 @@ void AIBullet::update(Box& t_box, AI& t_ai, Player& t_player)
 				}
 				// shoot at that box
 				shootAtBox(t_box.getSprite(closestBoxIndex).getPosition(), t_ai.getSprite().getPosition());
+
+				if (t_box.getSprite(closestBoxIndex).getPosition().x < t_ai.getSprite().getPosition().x)
+				{
+					t_ai.setScaleSprite(1);
+				}
+				else
+				{
+					t_ai.setScaleSprite(-1);
+				}
 			}
 			else // no more boxes, shoot at player always instead
 			{

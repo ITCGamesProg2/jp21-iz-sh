@@ -49,10 +49,12 @@ void AI::update()
 
 	if (m_enemySprite.getPosition().x > randX)
 	{
+		setScaleSprite(1);
 		m_enemySprite.move(-1, 0);
 	}
 	else if (m_enemySprite.getPosition().x < randX)
 	{
+		setScaleSprite(-1);
 		m_enemySprite.move(1, 0);
 	}
 

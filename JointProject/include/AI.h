@@ -54,6 +54,10 @@ public:
 		m_rangeCircle.setOutlineColor(color);
 	}
 
+	void setScaleSprite(int scale)
+	{
+		m_enemySprite.setScale(scale, 1);
+	}
 	float m_spotPlayerRange = 200;
 
 private:

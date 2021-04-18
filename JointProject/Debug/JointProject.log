@@ -1,15 +1,21 @@
 ﻿  AI.cpp
+C:\Users\viole\Desktop\join\jp21-iz-sh\JointProject\include\AI.h(11,18): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\viole\Desktop\join\jp21-iz-sh\JointProject\include\AI.h(59,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   AIBullet.cpp
-C:\Users\steph\Desktop\ahhhhhh\jp21-iz-sh\JointProject\include\AI.h(11,18): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\viole\Desktop\join\jp21-iz-sh\JointProject\include\AI.h(11,18): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\viole\Desktop\join\jp21-iz-sh\JointProject\include\AI.h(59,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   Bullet.cpp
-C:\Users\steph\Desktop\ahhhhhh\jp21-iz-sh\JointProject\include\AI.h(11,18): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\viole\Desktop\join\jp21-iz-sh\JointProject\include\AI.h(11,18): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\viole\Desktop\join\jp21-iz-sh\JointProject\include\AI.h(59,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   Game.cpp
-C:\Users\steph\Desktop\ahhhhhh\jp21-iz-sh\JointProject\include\AI.h(11,18): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\viole\Desktop\join\jp21-iz-sh\JointProject\include\AI.h(11,18): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\viole\Desktop\join\jp21-iz-sh\JointProject\include\AI.h(59,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   MainMenu.cpp
-C:\Users\steph\Desktop\ahhhhhh\jp21-iz-sh\JointProject\include\AI.h(11,18): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\viole\Desktop\join\jp21-iz-sh\JointProject\include\AI.h(11,18): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\viole\Desktop\join\jp21-iz-sh\JointProject\include\AI.h(59,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   main.cpp
-C:\Users\steph\Desktop\ahhhhhh\jp21-iz-sh\JointProject\include\AI.h(11,18): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\Users\steph\Desktop\ahhhhhh\jp21-iz-sh\JointProject\include\AI.h(11,18): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\viole\Desktop\join\jp21-iz-sh\JointProject\include\AI.h(11,18): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\viole\Desktop\join\jp21-iz-sh\JointProject\include\AI.h(59,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\viole\Desktop\join\jp21-iz-sh\JointProject\src\main.cpp(28,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
   Generating Code...
-C:\Users\steph\Desktop\ahhhhhh\jp21-iz-sh\JointProject\src\main.cpp(28,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-  JointProject.vcxproj -> C:\Users\steph\Desktop\ahhhhhh\jp21-iz-sh\Debug\JointProject.exe
+  JointProject.vcxproj -> C:\Users\viole\Desktop\join\jp21-iz-sh\Debug\JointProject.exe
