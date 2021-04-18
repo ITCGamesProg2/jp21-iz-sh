@@ -1,2 +1,27 @@
-﻿  AIBullet.cpp
-  JointProject.vcxproj -> C:\Users\steph\Desktop\joins\jp21-iz-sh\Debug\JointProject.exe
+﻿  Grid.cpp
+C:\Users\viole\Desktop\git\jp21-iz-sh\JointProject\src\Grid.cpp(27,50): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\viole\Desktop\git\jp21-iz-sh\JointProject\src\Grid.cpp(28,49): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\viole\Desktop\git\jp21-iz-sh\JointProject\src\Grid.cpp(29,51): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\viole\Desktop\git\jp21-iz-sh\JointProject\src\Grid.cpp(30,52): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\viole\Desktop\git\jp21-iz-sh\JointProject\src\Grid.cpp(33,14): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\viole\Desktop\git\jp21-iz-sh\JointProject\src\Grid.cpp(36,61): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\viole\Desktop\git\jp21-iz-sh\JointProject\src\Grid.cpp(39,47): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\viole\Desktop\git\jp21-iz-sh\JointProject\src\Grid.cpp(42,61): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\viole\Desktop\git\jp21-iz-sh\JointProject\src\Grid.cpp(57,21): warning C4018: '<': signed/unsigned mismatch
+  JointProject.vcxproj -> C:\Users\viole\Desktop\git\jp21-iz-sh\Debug\JointProject.exe

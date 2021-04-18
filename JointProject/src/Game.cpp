@@ -110,6 +110,7 @@ void Game::update()
 	m_bullet.update(m_box,m_enemy);
 	m_AIBullet.update(m_box, m_enemy, m_player);
 	m_HUD.update(m_player);
+	m_grid.update();
 
 	m_pickups.update(m_player, m_box.getActiveBox());
 	

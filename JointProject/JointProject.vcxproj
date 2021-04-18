@@ -150,14 +150,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Cell.h" />
-    <ClInclude Include="Grid.h" />
     <ClInclude Include="include\AI.h" />
     <ClInclude Include="include\AIBullet.h" />
     <ClInclude Include="include\Animation.h" />
     <ClInclude Include="include\Box.h" />
     <ClInclude Include="include\Bullet.h" />
+    <ClInclude Include="include\Cell.h" />
     <ClInclude Include="include\Game.h" />
+    <ClInclude Include="include\Grid.h" />
     <ClInclude Include="include\HUD.h" />
     <ClInclude Include="include\MathUtility.h" />
     <ClInclude Include="include\Pickups.h" />
@@ -165,13 +165,13 @@
     <ClInclude Include="include\ScreenSize.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Cell.cpp" />
-    <ClCompile Include="Grid.cpp" />
     <ClCompile Include="src\AI.cpp" />
     <ClCompile Include="src\AIBullet.cpp" />
     <ClCompile Include="src\Box.cpp" />
     <ClCompile Include="src\Bullet.cpp" />
+    <ClCompile Include="src\Cell.cpp" />
     <ClCompile Include="src\Game.cpp" />
+    <ClCompile Include="src\Grid.cpp" />
     <ClCompile Include="src\HUD.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Pickups.cpp" />
