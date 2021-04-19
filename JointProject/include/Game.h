@@ -47,6 +47,8 @@ private:
 	sf::Font m_font;
 	sf::Texture m_playerTextureSheet;
 	sf::Sprite m_playerSpriteSheet;
+	sf::Texture m_bgTexture;
+	sf::Sprite m_bgSpriteSheet;
 	bool m_clickedMouse = false;
 
 	Box m_box;

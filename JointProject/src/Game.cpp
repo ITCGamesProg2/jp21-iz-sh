@@ -14,6 +14,11 @@ void Game::init()
 		// error...
 	}
 
+	if (!m_bgTexture.loadFromFile("./resources/bg.png"))
+	{
+		// error...
+	}
+
 	if (!m_font.loadFromFile("./resources/arial.ttf"))
 	{
 		std::string s("Error loading font");
@@ -23,6 +28,10 @@ void Game::init()
 	m_playerSpriteSheet.setTexture(m_playerTextureSheet);
 	m_player.initAnimationData();
 	m_player.startAnimaton(Player::PlayerAnimationState::walk);
+
+	m_bgSpriteSheet.setTexture(m_bgTexture);
+	m_bgSpriteSheet.setPosition(0, 0);
+	m_bgSpriteSheet.setScale(0.75, 0.6);
 
 	m_enemy.init();
 	m_box.init(m_font);
@@ -116,6 +125,7 @@ void Game::draw()
 	case GameState::Help:
 		break;
 	case GameState::Game:
+		m_window.draw(m_bgSpriteSheet);
 		m_enemy.draw(m_window);
 		m_AIBullet.draw(m_window);
 		m_box.draw(m_window);
