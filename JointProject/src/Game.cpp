@@ -138,7 +138,7 @@ void Game::update()
 	case GameState::None:
 		break;
 	case GameState::MainMenu:
-		state = m_menu.update(m_window);
+		state = m_menu.update(m_window,m_player);
 		if (state == 1)
 		{
 			m_currentState = GameState::Game;
@@ -146,6 +146,10 @@ void Game::update()
 		else if (state == 2)
 		{
 			m_currentState = GameState::Help;
+		}
+		else if(state == 3)
+		{
+			m_window.close();
 		}
 		break;
 	case GameState::Help:

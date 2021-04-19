@@ -89,6 +89,15 @@ public:
 		return m_alive;
 	}
 
+	/// <summary>
+	/// sets the colour of player to the chosen one in menu
+	/// </summary>
+	/// <param name="t_color"></param>
+	void setColour(sf::Color& t_color)
+	{
+		m_playerSprite.setColor(t_color);
+	}
+
 private:
 
 	PlayerAnimationState m_animationState = PlayerAnimationState::walk;
