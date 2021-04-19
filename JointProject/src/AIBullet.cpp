@@ -21,6 +21,8 @@ void AIBullet::init()
 
 void AIBullet::draw(sf::RenderWindow& t_window)
 {
+	m_explosionParticles.draw(t_window);
+
 	for (int i = 0; i < MAX_BULLET; i++)
 	{
 		if (m_bulletAlive[i])
@@ -66,6 +68,8 @@ void AIBullet::shootAtPlayer(sf::Vector2f t_playerPos, sf::Vector2f t_aiPos)
 
 void AIBullet::update(Box& t_box, AI& t_ai, Player& t_player)
 {
+	m_explosionParticles.update();
+
 	// first update the bullets
 	for (int i = 0; i < MAX_BULLET; i++)
 	{
@@ -85,77 +89,80 @@ void AIBullet::update(Box& t_box, AI& t_ai, Player& t_player)
 		}
 	}
 
-	// check if player is in seeing range
-	if (distanceBetween(t_player.getSprite().getPosition(), t_ai.getSprite().getPosition()) <= t_ai.m_spotPlayerRange && t_player.isHidden() == false)
+	if (t_ai.isAlive())
 	{
-		t_ai.setShootingAtPlayer(true);
-		t_ai.setOutlineColor(sf::Color::Red);
-	}
-	else
-	{
-		t_ai.setShootingAtPlayer(false);
-		t_ai.setOutlineColor(sf::Color::Green);
-	}
-
-	// gen new bullet if firing cooldown is over
-	if (m_firingTimer.isExpired())
-	{
-		// in shootAtBox mode
-		if (t_ai.getShootingAtPlayer() == false)
+		// check if player is in seeing range
+		if (distanceBetween(t_player.getSprite().getPosition(), t_ai.getSprite().getPosition()) <= t_ai.m_spotPlayerRange && t_player.isHidden() == false)
 		{
+			t_ai.setShootingAtPlayer(true);
+			t_ai.setOutlineColor(sf::Color::Red);
+		}
+		else
+		{
+			t_ai.setShootingAtPlayer(false);
+			t_ai.setOutlineColor(sf::Color::Green);
+		}
 
-			// check if there is still boxes to shoot at
-			if (t_box.getNumberOfBoxesInGame() > 0)
+		// gen new bullet if firing cooldown is over
+		if (m_firingTimer.isExpired())
+		{
+			// in shootAtBox mode
+			if (t_ai.getShootingAtPlayer() == false)
 			{
-				// fire a bullet every 5 seconds in shootAtBox mode
-				m_firingTimer.reset(sf::Time(sf::seconds(BOX_FIRING_COOLDOWN)));
-				m_firingTimer.start();
-
-				int closestBoxIndex = 0;
-				float closestBoxDistance = 9999;
-
-				// find the closest box to the AI
-				for (int i = 0; i < t_box.getMaxBox(); i++)
+				// check if there is still boxes to shoot at
+				if (t_box.getNumberOfBoxesInGame() > 0)
 				{
-					if (t_box.getAlive(i) == true)
-					{
-						float currentdistanceBetween = distanceBetween(t_box.getSprite(i).getPosition(), t_ai.getSprite().getPosition());
+					// fire a bullet every 5 seconds in shootAtBox mode
+					m_firingTimer.reset(sf::Time(sf::seconds(BOX_FIRING_COOLDOWN)));
+					m_firingTimer.start();
 
-						if (currentdistanceBetween < closestBoxDistance)
+					int closestBoxIndex = 0;
+					float closestBoxDistance = 9999;
+
+					// find the closest box to the AI
+					for (int i = 0; i < t_box.getMaxBox(); i++)
+					{
+						if (t_box.getAlive(i) == true)
 						{
-							closestBoxIndex = i;
-							closestBoxDistance = currentdistanceBetween;
+							float currentdistanceBetween = distanceBetween(t_box.getSprite(i).getPosition(), t_ai.getSprite().getPosition());
+
+							if (currentdistanceBetween < closestBoxDistance)
+							{
+								closestBoxIndex = i;
+								closestBoxDistance = currentdistanceBetween;
+							}
 						}
 					}
-				}
-				// shoot at that box
-				shootAtBox(t_box.getSprite(closestBoxIndex).getPosition(), t_ai.getSprite().getPosition());
+					// shoot at that box
+					shootAtBox(t_box.getSprite(closestBoxIndex).getPosition(), t_ai.getSprite().getPosition());
 
-				if (t_box.getSprite(closestBoxIndex).getPosition().x < t_ai.getSprite().getPosition().x)
-				{
-					t_ai.setScaleSprite(1);
+					if (t_box.getSprite(closestBoxIndex).getPosition().x < t_ai.getSprite().getPosition().x)
+					{
+						t_ai.setScaleSprite(1);
+					}
+					else
+					{
+						t_ai.setScaleSprite(-1);
+					}
 				}
-				else
+				else // no more boxes, shoot at player always instead
 				{
-					t_ai.setScaleSprite(-1);
+					t_ai.setShootingAtPlayer(true);
+					m_firingTimer.reset(sf::Time(sf::seconds(PLAYER_FIRING_COOLDOWN)));
+					m_firingTimer.start();
 				}
+
 			}
-			else // no more boxes, shoot at player always instead
+			else // shoot at player instead
 			{
-				t_ai.setShootingAtPlayer(true);
 				m_firingTimer.reset(sf::Time(sf::seconds(PLAYER_FIRING_COOLDOWN)));
 				m_firingTimer.start();
+
+				shootAtPlayer(t_player.getSprite().getPosition(), t_ai.getSprite().getPosition());
 			}
-
-		}
-		else // shoot at player instead
-		{
-			m_firingTimer.reset(sf::Time(sf::seconds(PLAYER_FIRING_COOLDOWN)));
-			m_firingTimer.start();
-
-			shootAtPlayer(t_player.getSprite().getPosition(), t_ai.getSprite().getPosition());
 		}
 	}
+	
 }
 
 void AIBullet::checkBoxIntersect(Box& t_box, int t_arrayCell)
@@ -168,6 +175,9 @@ void AIBullet::checkBoxIntersect(Box& t_box, int t_arrayCell)
 			{
 				t_box.reduceNumOfBoxes();
 				t_box.setAlive(t_arrayCell);
+
+				// spawn particles at destroyed box
+				m_explosionParticles.spawnExplosion(t_box.getSprite(t_arrayCell).getPosition(), sf::Color::Black);
 				m_bulletAlive[i] = false;
 			}
 		}
@@ -183,7 +193,10 @@ void AIBullet::checkPlayerIntersect(Player& t_player)
 			if (m_bulletAlive[i] && t_player.isAlive() && t_player.isHidden() == false)
 			{
 				m_bulletAlive[i] = false;
-				t_player.takeDamage(10);
+
+				// spawn particles at player
+				m_explosionParticles.spawnExplosion(t_player.getSprite().getPosition(), sf::Color::Magenta);
+				t_player.takeDamage(m_damageToPlayer);
 			}
 		}
 	}

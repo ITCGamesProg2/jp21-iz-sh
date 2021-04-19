@@ -6,6 +6,7 @@
 #include "Player.h"
 #include "AI.h"
 #include "Thor/Time.hpp"
+#include "ParticalEffects.h"
 
 class AIBullet
 {
@@ -71,6 +72,8 @@ private:
 	static constexpr float BOX_FIRING_COOLDOWN = 5.0f;
 	static constexpr float PLAYER_FIRING_COOLDOWN = 2.0f;
 
+
+	ParticleSystem m_explosionParticles;
 
 	/*thor::Timer m_backToPatrolDelay;
 	static constexpr float DELAY = 3.0f;*/

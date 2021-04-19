@@ -40,6 +40,8 @@ void Player::update(sf::Vector2f t_mousePos, bool& t_clickedMouse)
 		m_alive = false;
 	}
 
+	std::cout << m_health << std::endl;
+
 	if (m_alive)
 	{
 		if (m_hidden == false)
