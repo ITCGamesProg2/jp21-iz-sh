@@ -12,6 +12,7 @@
 #include "AIBullet.h"
 #include "Grid.h"
 #include "MainMenu.h"
+#include "Help.h"
 
 enum class
 	GameState
@@ -59,5 +60,6 @@ private:
 	AI m_enemy;
 	Grid m_grid;
 	MainMenu m_menu;
+	HelpScreen m_help;
 	GameState m_currentState = GameState::MainMenu;
 };

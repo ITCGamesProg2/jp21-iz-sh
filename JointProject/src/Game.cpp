@@ -42,6 +42,7 @@ void Game::init()
 	m_grid.makeGrid();
 	m_grid.markImpassableCells(m_box);
 	m_menu.initialise(m_font);
+	m_help.initialise(m_font);
 
 }
 
@@ -123,6 +124,7 @@ void Game::draw()
 		m_menu.render(m_window);
 		break;
 	case GameState::Help:
+		m_help.render(m_window);
 		break;
 	case GameState::Game:
 		m_window.draw(m_bgSpriteSheet);
@@ -143,6 +145,9 @@ void Game::draw()
 void Game::update()
 {
 	int state = 0;
+
+	bool backToMenu = false;
+
 	switch (m_currentState)
 	{
 	case GameState::None:
@@ -163,6 +168,14 @@ void Game::update()
 		}
 		break;
 	case GameState::Help:
+		
+		backToMenu = m_help.update(m_window);
+
+		if (backToMenu)
+		{
+			m_currentState = GameState::MainMenu;
+		}
+
 		break;
 	case GameState::Game:
 		// update player movement

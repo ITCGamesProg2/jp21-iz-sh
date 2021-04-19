@@ -1,4 +1,7 @@
-﻿  AIBullet.cpp
-C:\Users\steph\Desktop\New folder\jp21-iz-sh\JointProject\include\AI.h(12,18): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\Users\steph\Desktop\New folder\jp21-iz-sh\JointProject\include\AI.h(60,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+﻿  Help.cpp
+C:\Users\steph\Desktop\New folder\jp21-iz-sh\JointProject\include\Help.cpp(21,107): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+C:\Users\steph\Desktop\New folder\jp21-iz-sh\JointProject\include\Help.cpp(21,107): warning C4244:         with
+C:\Users\steph\Desktop\New folder\jp21-iz-sh\JointProject\include\Help.cpp(21,107): warning C4244:         [
+C:\Users\steph\Desktop\New folder\jp21-iz-sh\JointProject\include\Help.cpp(21,107): warning C4244:             T=float
+C:\Users\steph\Desktop\New folder\jp21-iz-sh\JointProject\include\Help.cpp(21,107): warning C4244:         ]
   JointProject.vcxproj -> C:\Users\steph\Desktop\New folder\jp21-iz-sh\Debug\JointProject.exe
