@@ -3,6 +3,7 @@
 #include <iostream>
 #include "ScreenSize.h"
 #include <time.h>
+#include "ParticalEffects.h"
 
 class AI
 {
@@ -72,5 +73,6 @@ private:
 	int randY;
 
 	bool m_shootingAtPlayer = false;
+
 };
 

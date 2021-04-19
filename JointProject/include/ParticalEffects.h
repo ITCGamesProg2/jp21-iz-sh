@@ -27,8 +27,9 @@ public:
 	Particle m_explosionParticles[M_MAX_PARTICLES];
 
 	sf::Vector2f position;
+
 	void spawnExplosion(sf::Vector2f pos, sf::Color color);
-	
+
 	void update();
 	
 	void draw(sf::RenderWindow& win);

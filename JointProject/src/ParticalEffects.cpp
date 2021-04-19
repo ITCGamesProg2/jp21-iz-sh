@@ -51,4 +51,5 @@ void ParticleSystem::draw(sf::RenderWindow& win)
 	{
 		m_explosionParticles[i].draw(win);
 	}
+
 }

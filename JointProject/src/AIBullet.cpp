@@ -177,7 +177,7 @@ void AIBullet::checkBoxIntersect(Box& t_box, int t_arrayCell)
 				t_box.setAlive(t_arrayCell);
 
 				// spawn particles at destroyed box
-				m_explosionParticles.spawnExplosion(t_box.getSprite(t_arrayCell).getPosition(), sf::Color::Black);
+				m_explosionParticles.spawnExplosion(t_box.getSprite(t_arrayCell).getPosition(), sf::Color(132, 112, 62));
 				m_bulletAlive[i] = false;
 			}
 		}

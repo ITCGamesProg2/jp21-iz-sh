@@ -101,7 +101,7 @@ void Bullet::checkBoxIntersect(sf::Sprite t_box, bool m_isAlive)
 		{
 			if (m_bulletAlive[i] && m_isAlive)
 			{
-				m_explosionParticles.spawnExplosion(m_bulletSprite[i].getPosition(), sf::Color::Black);
+				m_explosionParticles.spawnExplosion(m_bulletSprite[i].getPosition(), sf::Color(132, 112, 62));
 				m_bulletAlive[i] = false;
 			}
 		}
