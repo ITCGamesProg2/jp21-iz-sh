@@ -30,15 +30,15 @@ void MainMenu::initialise(sf::Font& t_font)
 	m_menuScreen.setScale(1.2, 1.3);
 	m_menuScreen.setPosition(0, 0);
 
-	if (!m_robotTexture.loadFromFile("./resources/head.png"))
+	if (!m_playerTexture.loadFromFile("./resources/head.png"))
 	{
 		std::cout << "Error with robot stand still texture";
 	}
 
-	m_robotSprite.setTexture(m_robotTexture);
-	m_robotSprite.setScale(3, 3);
-	m_robotSprite.setPosition(ScreenSize::s_width - m_robotSprite.getGlobalBounds().width * 1.5, ScreenSize::s_height - m_robotSprite.getGlobalBounds().height * 1.68);
-	m_robotSprite.setColor(m_robotColour[7]);
+	m_playerSprite.setTexture(m_playerTexture);
+	m_playerSprite.setScale(3, 3);
+	m_playerSprite.setPosition(ScreenSize::s_width - m_playerSprite.getGlobalBounds().width * 1.5, ScreenSize::s_height - m_playerSprite.getGlobalBounds().height * 1.68);
+	m_playerSprite.setColor(m_robotColour[7]);
 
 	for (int index = 0; index < MAX_BUTTON; index++)
 	{
@@ -80,7 +80,7 @@ void MainMenu::render(sf::RenderWindow& t_window)
 {
 	t_window.draw(m_menuScreen);
 	t_window.draw(m_colourBg);
-	t_window.draw(m_robotSprite);
+	t_window.draw(m_playerSprite);
 	for (int index = 0; index < MAX_BUTTON; index++)
 	{
 		t_window.draw(m_buttonSprite[index]);
@@ -123,7 +123,7 @@ int MainMenu::processInput(sf::Window& t_window,Player & t_player, sf::Event t_e
 		{
 			if (m_colourSwatch[i].getGlobalBounds().contains((sf::Vector2f)mousePos))
 			{
-				m_robotSprite.setColor(m_robotColour[i]);
+				m_playerSprite.setColor(m_robotColour[i]);
 				m_colourSwatch[i].setOutlineColor(sf::Color::White);
 				t_player.setColour(m_robotColour[i]);
 			}

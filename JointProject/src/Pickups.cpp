@@ -73,7 +73,7 @@ void Pickups::update(Player& t_player, int t_activeBox)
 
 void Pickups::initPickups(Box& t_box)
 {
-	if (!m_ammoTexture.loadFromFile("./resources/bullet.png"))
+	if (!m_ammoTexture.loadFromFile("./resources/pickup.png"))
 	{
 		std::string s("Error loading ammo pickup texture");
 		throw std::exception(s.c_str());

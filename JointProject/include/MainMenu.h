@@ -13,13 +13,13 @@ class MainMenu
 	sf::Font m_font;
 	//reference for texture used
 	sf::Texture m_buttonTexture;
-	sf::Texture m_robotTexture;
+	sf::Texture m_playerTexture;
 	sf::Texture m_menuTexture;
 	//array of the button texts
 	sf::Text m_TextOnButton[MAX_BUTTON];
 	//array of the button sprites
 	sf::Sprite m_buttonSprite[MAX_BUTTON];
-	sf::Sprite m_robotSprite;
+	sf::Sprite m_playerSprite;
 	sf::Sprite m_menuScreen;
 
 	sf::Vector2f m_originalPos[MAX_BUTTON];

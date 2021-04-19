@@ -13,6 +13,7 @@
 #include "Grid.h"
 #include "MainMenu.h"
 #include "Help.h"
+#include "Cutscene.h"
 
 enum class
 	GameState
@@ -20,6 +21,7 @@ enum class
 	None,
 	MainMenu,
 	Help,
+	Cutscene,
 	Game
 };
 
@@ -61,5 +63,6 @@ private:
 	Grid m_grid;
 	MainMenu m_menu;
 	HelpScreen m_help;
+	Cutscene m_cut;
 	GameState m_currentState = GameState::MainMenu;
 };

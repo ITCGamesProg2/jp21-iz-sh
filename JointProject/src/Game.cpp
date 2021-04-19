@@ -19,7 +19,7 @@ void Game::init()
 		// error...
 	}
 
-	if (!m_font.loadFromFile("./resources/arial.ttf"))
+	if (!m_font.loadFromFile("./resources/EdgeOfTheGalaxy.ttf"))
 	{
 		std::string s("Error loading font");
 		throw std::exception(s.c_str());
@@ -43,7 +43,7 @@ void Game::init()
 	m_grid.markImpassableCells(m_box);
 	m_menu.initialise(m_font);
 	m_help.initialise(m_font);
-
+	m_cut.init(m_font);
 }
 
 void Game::run()
@@ -100,7 +100,7 @@ void Game::processMouseInput(sf::Event t_event)
 			state = m_menu.processInput(m_window, m_player, t_event);
 			if (state == 1)
 			{
-				m_currentState = GameState::Game;
+				m_currentState = GameState::Cutscene;
 			}
 			else if (state == 2)
 			{
@@ -122,6 +122,8 @@ void Game::processMouseInput(sf::Event t_event)
 				m_currentState = GameState::MainMenu;
 			}
 		}
+		break;
+	case GameState::Cutscene:
 		break;
 	case GameState::Game:
 		if (sf::Mouse::Left == t_event.key.code)
@@ -154,6 +156,9 @@ void Game::draw()
 	case GameState::Help:
 		m_help.render(m_window);
 		break;
+	case GameState::Cutscene:
+		m_cut.draw(m_window);
+		break;
 	case GameState::Game:
 		m_window.draw(m_bgSpriteSheet);
 		m_enemy.draw(m_window);
@@ -181,6 +186,12 @@ void Game::update()
 		break;
 	case GameState::Help:
 		m_help.update(m_window);
+		break;
+	case GameState::Cutscene:
+		if (m_cut.update())
+		{
+			m_currentState = GameState::Game;
+		}
 		break;
 	case GameState::Game:
 		// update player movement
