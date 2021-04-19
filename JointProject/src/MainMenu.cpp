@@ -93,38 +93,23 @@ void MainMenu::render(sf::RenderWindow& t_window)
 
 }
 //checks if mouseclick is within button boundary, changes gamestate if true
-int MainMenu::update(sf::Window& t_window,Player & t_player)
+int MainMenu::processInput(sf::Window& t_window,Player & t_player, sf::Event t_event)
 {
 	int changeState = 0;
 	sf::Vector2i mousePos;
 	mousePos = sf::Mouse::getPosition(t_window);
 	for (int i = 0; i < MAX_BUTTON; i++)
 	{
-		/// <summary>
-		/// changes position and colour slightly to show which button is being pressed
-		/// </summary>
-		/// <param name="t_window"></param>
-		/// <param name="t_player"></param>
-		/// <returns></returns>
 		if (mousePos.x > m_buttonSprite[i].getGlobalBounds().left && mousePos.x < m_buttonSprite[i].getGlobalBounds().left + m_buttonSprite[i].getGlobalBounds().width &&
 			mousePos.y > m_buttonSprite[i].getGlobalBounds().top && mousePos.y < m_buttonSprite[i].getGlobalBounds().top + m_buttonSprite[i].getGlobalBounds().height)
 		{
-			m_buttonSprite[i].setPosition(m_pushedDownPos[i]);
-			m_buttonSprite[i].setColor(sf::Color(135, 130, 189));
-			if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+			if (t_event.type == sf::Event::MouseButtonReleased)
 			{
 				changeState = i + 1;
 			}
 		}
-		else
-		{
-			m_buttonSprite[i].setPosition(m_originalPos[i]);
-			m_buttonSprite[i].setColor(sf::Color::White);
-		}
-		m_TextOnButton[i].setPosition(m_buttonSprite[i].getPosition().x, m_buttonSprite[i].getPosition().y - 10);
-
 	}
-
+	
 	/// <summary>
 	/// lets player choose color of character by clicking on colour swatches
 	/// </summary>
@@ -134,7 +119,7 @@ int MainMenu::update(sf::Window& t_window,Player & t_player)
 
 	for (int i = 0; i < MAX_COLOUR; i++)
 	{
-		if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+		if (t_event.type == sf::Event::MouseButtonReleased)
 		{
 			if (m_colourSwatch[i].getGlobalBounds().contains((sf::Vector2f)mousePos))
 			{
@@ -149,4 +134,33 @@ int MainMenu::update(sf::Window& t_window,Player & t_player)
 		}
 	}
 	return changeState;
+}
+
+void MainMenu::update(sf::Window& t_window)
+{
+	sf::Vector2i mousePos;
+	mousePos = sf::Mouse::getPosition(t_window);
+	/// <summary>
+	/// changes position and colour slightly to show which button is being pressed
+	/// </summary>
+	/// <param name="t_window"></param>
+	/// <param name="t_player"></param>
+	/// <returns></returns>
+	for (int i = 0; i < MAX_BUTTON; i++)
+	{
+		if (mousePos.x > m_buttonSprite[i].getGlobalBounds().left && mousePos.x < m_buttonSprite[i].getGlobalBounds().left + m_buttonSprite[i].getGlobalBounds().width &&
+			mousePos.y > m_buttonSprite[i].getGlobalBounds().top && mousePos.y < m_buttonSprite[i].getGlobalBounds().top + m_buttonSprite[i].getGlobalBounds().height)
+		{
+			m_buttonSprite[i].setPosition(m_pushedDownPos[i]);
+			m_buttonSprite[i].setColor(sf::Color(135, 130, 189));
+
+		}
+
+		else
+		{
+			m_buttonSprite[i].setPosition(m_originalPos[i]);
+			m_buttonSprite[i].setColor(sf::Color::White);
+		}
+		m_TextOnButton[i].setPosition(m_buttonSprite[i].getPosition().x, m_buttonSprite[i].getPosition().y - 10);
+	}
 }

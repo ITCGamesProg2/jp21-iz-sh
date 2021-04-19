@@ -29,6 +29,7 @@ public:
 
 	void initialise(sf::Font& t_font);
 	void render(sf::RenderWindow& t_window); //draws the sprites and texts
-	bool update(sf::Window& t_window);
+	bool processInput(sf::Window& t_window, sf::Event t_event);
+	void update(sf::Window& t_window);
 
 };

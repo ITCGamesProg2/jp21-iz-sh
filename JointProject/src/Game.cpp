@@ -87,13 +87,41 @@ void Game::run()
 
 void Game::processMouseInput(sf::Event t_event)
 {
+	int state = 0;
+	bool backToMenu = false;
+
 	switch (m_currentState)
 	{
 	case GameState::None:
 		break;
 	case GameState::MainMenu:
+		if (sf::Mouse::Left == t_event.key.code)
+		{
+			state = m_menu.processInput(m_window, m_player, t_event);
+			if (state == 1)
+			{
+				m_currentState = GameState::Game;
+			}
+			else if (state == 2)
+			{
+				m_currentState = GameState::Help;
+			}
+			else if (state == 3)
+			{
+				m_window.close();
+			}
+		}
 		break;
 	case GameState::Help:
+		if (sf::Mouse::Left == t_event.key.code)
+		{
+			backToMenu = m_help.processInput(m_window,t_event);
+
+			if (backToMenu)
+			{
+				m_currentState = GameState::MainMenu;
+			}
+		}
 		break;
 	case GameState::Game:
 		if (sf::Mouse::Left == t_event.key.code)
@@ -144,38 +172,15 @@ void Game::draw()
 
 void Game::update()
 {
-	int state = 0;
-
-	bool backToMenu = false;
-
 	switch (m_currentState)
 	{
 	case GameState::None:
 		break;
 	case GameState::MainMenu:
-		state = m_menu.update(m_window,m_player);
-		if (state == 1)
-		{
-			m_currentState = GameState::Game;
-		}
-		else if (state == 2)
-		{
-			m_currentState = GameState::Help;
-		}
-		else if(state == 3)
-		{
-			m_window.close();
-		}
+		m_menu.update(m_window);
 		break;
 	case GameState::Help:
-		
-		backToMenu = m_help.update(m_window);
-
-		if (backToMenu)
-		{
-			m_currentState = GameState::MainMenu;
-		}
-
+		m_help.update(m_window);
 		break;
 	case GameState::Game:
 		// update player movement

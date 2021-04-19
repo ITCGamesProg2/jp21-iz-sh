@@ -39,6 +39,7 @@ public:
 
 	void initialise(sf::Font& t_font);
 	void render(sf::RenderWindow& t_window); //draws the sprites and texts
-	int update(sf::Window& t_window, Player& t_player); //checks if buttons pressed
+	int processInput(sf::Window& t_window, Player& t_player, sf::Event t_event); //checks if buttons pressed
+	void update(sf::Window& t_window);
 
 };

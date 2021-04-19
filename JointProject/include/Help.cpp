@@ -53,9 +53,26 @@ void HelpScreen::render(sf::RenderWindow& t_window)
 
 }
 
-bool HelpScreen::update(sf::Window& t_window)
+bool HelpScreen::processInput(sf::Window& t_window,sf::Event t_event)
 {
+	sf::Vector2i mousePos;
+	mousePos = sf::Mouse::getPosition(t_window);
+
 	bool changeState = false;
+	
+	if (mousePos.x > m_buttonSprite.getGlobalBounds().left && mousePos.x < m_buttonSprite.getGlobalBounds().left + m_buttonSprite.getGlobalBounds().width &&
+		mousePos.y > m_buttonSprite.getGlobalBounds().top && mousePos.y < m_buttonSprite.getGlobalBounds().top + m_buttonSprite.getGlobalBounds().height)
+	{
+		if (t_event.type == sf::Event::MouseButtonReleased)
+		{
+			changeState = true;
+		}
+	}
+	return changeState;
+}
+
+void HelpScreen::update(sf::Window& t_window)
+{
 	sf::Vector2i mousePos;
 	mousePos = sf::Mouse::getPosition(t_window);
 
@@ -64,24 +81,17 @@ bool HelpScreen::update(sf::Window& t_window)
 	/// </summary>
 	/// <param name="t_window"></param>
 	/// <returns></returns>
-	if (mousePos.x > m_buttonSprite.getGlobalBounds().left&& mousePos.x < m_buttonSprite.getGlobalBounds().left + m_buttonSprite.getGlobalBounds().width &&
-		mousePos.y > m_buttonSprite.getGlobalBounds().top&& mousePos.y < m_buttonSprite.getGlobalBounds().top + m_buttonSprite.getGlobalBounds().height)
-		{
-			m_buttonSprite.setPosition(m_pushedDownPos);
-			m_buttonSprite.setColor(sf::Color(135, 130, 189));
+	if (mousePos.x > m_buttonSprite.getGlobalBounds().left && mousePos.x < m_buttonSprite.getGlobalBounds().left + m_buttonSprite.getGlobalBounds().width &&
+		mousePos.y > m_buttonSprite.getGlobalBounds().top && mousePos.y < m_buttonSprite.getGlobalBounds().top + m_buttonSprite.getGlobalBounds().height)
+	{
+		m_buttonSprite.setPosition(m_pushedDownPos);
+		m_buttonSprite.setColor(sf::Color(135, 130, 189));
 
-			if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
-			{
-				changeState = true;
-			}
-		}
-		else
-		{
-			m_buttonSprite.setPosition(m_originalPos);
-			m_buttonSprite.setColor(sf::Color::White);
-		}
-
+	}
+	else
+	{
+		m_buttonSprite.setPosition(m_originalPos);
+		m_buttonSprite.setColor(sf::Color::White);
+	}
 	m_exitText.setPosition(m_buttonSprite.getPosition().x, m_buttonSprite.getPosition().y - 10);
-
-	return changeState;
 }
