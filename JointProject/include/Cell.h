@@ -28,6 +28,11 @@ public:
 	{
 		m_isPassable = t_imPass;
 	}
+
+	bool isPassable()
+	{
+		return m_isPassable;
+	}
 	/// <summary>
 	/// returns list of neighbours
 	/// </summary>

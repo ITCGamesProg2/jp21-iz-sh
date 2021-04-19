@@ -13,6 +13,7 @@ void Grid::makeGrid()
 		m_grid.emplace_back(Cell(index));
 	}
 	Cell::neighbours(m_grid);
+	breadthFirst(10, 37);
 }
 
 void Grid::markImpassableCells(Box& t_box)
@@ -44,34 +45,36 @@ void Grid::markImpassableCells(Box& t_box)
 	}
 }
 
-void Grid::breadthFirst(std::vector<Cell>& t_grid, int t_startCellId, int t_destCellId)
+void Grid::breadthFirst(int t_startCellId, int t_destCellId)
 {
 	bool goalReached = false;
 	std::queue<Cell> cellQueue;
-	Cell startCell = t_grid.at(t_startCellId);
+	Cell startCell = m_grid.at(t_startCellId);
 	cellQueue.emplace(startCell);
-	t_grid.at(t_startCellId).setMarked(true);
+	m_grid.at(t_startCellId).setMarked(true);
 
 	while (!cellQueue.empty() && !goalReached)
 	{
 		for (int i = 0; i < cellQueue.front().neighbours().size() && !goalReached; i++)
 		{
-			Cell childCell = cellQueue.front().neighbours().at(i);
-			int childCellid = childCell.id();
-
-			//if we found the destination cell
-			if (childCellid == t_destCellId)
+			if (m_grid[i].isPassable())
 			{
-				goalReached = true;
-				t_grid.at(t_destCellId).setParentCellId(cellQueue.front().id());
+				int childCellid= cellQueue.front().neighbours().at(i);
+				Cell& childCell = m_grid.at(childCellid);
 
-			}
-			//else if we haven't found the destination cell
-			else if (!childCell.isMarked())
-			{
-				t_grid.at(childCellid).setParentCellId(cellQueue.front().id());
-				childCell.setMarked(true);
-				cellQueue.emplace(childCell);
+				//if we found the destination cell
+				if (childCellid == t_destCellId)
+				{
+					goalReached = true;
+					m_grid.at(t_destCellId).setParentCellId(cellQueue.front().id());
+				}
+				//else if we haven't found the destination cell
+				else if (!childCell.isMarked())
+				{
+					m_grid.at(childCellid).setParentCellId(cellQueue.front().id());
+					childCell.setMarked(true);
+					cellQueue.push(childCell);
+				}
 			}
 		}
 
@@ -81,7 +84,7 @@ void Grid::breadthFirst(std::vector<Cell>& t_grid, int t_startCellId, int t_dest
 
 void Grid::update()
 {
-	breadthFirst(m_grid, 10, 37);
+	
 }
 
 

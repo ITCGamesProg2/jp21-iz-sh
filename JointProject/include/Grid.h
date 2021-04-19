@@ -18,7 +18,7 @@ public:
 	/// <param name="t_box"></param>
 	void markImpassableCells(Box& t_box);
 
-	void breadthFirst(std::vector<Cell>& t_grid, int t_startCellId, int t_destCellId);
+	void breadthFirst(int t_startCellId, int t_destCellId);
 
 	void update();
 
