@@ -18,6 +18,8 @@ void Bullet::init()
 
 void Bullet::draw(sf::RenderWindow& t_window)
 {
+	m_particles.draw(t_window);
+
 	for (int i = 0; i < MAX_BULLET; i++)
 	{
 		if (m_bulletAlive[i])
@@ -48,6 +50,8 @@ void Bullet::input(sf::Vector2f t_shooterPos, sf::RenderWindow& t_window)
 void Bullet::update(Box& t_box,AI &t_enemy)
 {
 	boundaryCheck();
+
+	m_particles.update();
 
 	for (int i = 0; i < MAX_BULLET; i++)
 	{
@@ -98,6 +102,7 @@ void Bullet::checkBoxIntersect(sf::Sprite t_box, bool m_isAlive)
 			if (m_bulletAlive[i] && m_isAlive)
 			{
 				m_bulletAlive[i] = false;
+				m_particles.spawnExplosion(m_bulletSprite[i].getPosition(), sf::Color::Black);
 			}
 		}
 	}
@@ -112,6 +117,7 @@ void Bullet::checkIntersect(AI& t_enemy)
 			if (m_bulletAlive[i] && t_enemy.isAlive())
 			{
 				m_bulletAlive[i] = false;
+				m_particles.spawnExplosion(t_enemy.getSprite().getPosition(), sf::Color::Black);
 				t_enemy.dealDamage();
 			}
 		}

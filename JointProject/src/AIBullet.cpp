@@ -28,6 +28,8 @@ void AIBullet::draw(sf::RenderWindow& t_window)
 			t_window.draw(m_bulletSprite[i]);
 		}
 	}
+
+	m_particles.draw(t_window);
 }
 
 void AIBullet::shootAtBox(sf::Vector2f t_boxPos, sf::Vector2f t_aiPos)
@@ -66,6 +68,8 @@ void AIBullet::shootAtPlayer(sf::Vector2f t_playerPos, sf::Vector2f t_aiPos)
 
 void AIBullet::update(Box& t_box, AI& t_ai, Player& t_player)
 {
+	m_particles.update();
+
 	// first update the bullets
 	for (int i = 0; i < MAX_BULLET; i++)
 	{
@@ -168,6 +172,7 @@ void AIBullet::checkBoxIntersect(Box& t_box, int t_arrayCell)
 			{
 				t_box.reduceNumOfBoxes();
 				t_box.setAlive(t_arrayCell);
+				m_particles.spawnExplosion(t_box.getSprite(t_arrayCell).getPosition(), sf::Color::Black);
 				m_bulletAlive[i] = false;
 			}
 		}
@@ -183,6 +188,7 @@ void AIBullet::checkPlayerIntersect(Player& t_player)
 			if (m_bulletAlive[i] && t_player.isAlive() && t_player.isHidden() == false)
 			{
 				m_bulletAlive[i] = false;
+				m_particles.spawnExplosion(t_player.getSprite().getPosition(), sf::Color::Magenta);
 				t_player.takeDamage(10);
 			}
 		}

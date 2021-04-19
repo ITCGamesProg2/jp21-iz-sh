@@ -99,4 +99,5 @@ private:
 
 	bool m_boxAlive[M_MAX_BOX];
 
+
 };

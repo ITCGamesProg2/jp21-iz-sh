@@ -1,12 +1,17 @@
-﻿  Player.cpp
-C:\Users\viole\Desktop\ge\jp21-iz-sh\JointProject\src\Player.cpp(13,91): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
-          with
-          [
-              T=float
-          ]
-C:\Users\viole\Desktop\ge\jp21-iz-sh\JointProject\src\Player.cpp(13,51): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
-          with
-          [
-              T=float
-          ]
-  JointProject.vcxproj -> C:\Users\viole\Desktop\ge\jp21-iz-sh\Debug\JointProject.exe
+﻿  ParticalEffects.cpp
+C:\Users\steph\Desktop\ahhhhhhh\jp21-iz-sh\JointProject\include\ParticalEffects.cpp(36,126): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+C:\Users\steph\Desktop\ahhhhhhh\jp21-iz-sh\JointProject\include\ParticalEffects.cpp(36,126): warning C4244:         with
+C:\Users\steph\Desktop\ahhhhhhh\jp21-iz-sh\JointProject\include\ParticalEffects.cpp(36,126): warning C4244:         [
+C:\Users\steph\Desktop\ahhhhhhh\jp21-iz-sh\JointProject\include\ParticalEffects.cpp(36,126): warning C4244:             T=float
+C:\Users\steph\Desktop\ahhhhhhh\jp21-iz-sh\JointProject\include\ParticalEffects.cpp(36,126): warning C4244:         ]
+  main.cpp
+C:\Users\steph\Desktop\ahhhhhhh\jp21-iz-sh\JointProject\include\ParticalEffects.cpp(36,91): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+C:\Users\steph\Desktop\ahhhhhhh\jp21-iz-sh\JointProject\include\ParticalEffects.cpp(36,91): warning C4244:         with
+C:\Users\steph\Desktop\ahhhhhhh\jp21-iz-sh\JointProject\include\ParticalEffects.cpp(36,91): warning C4244:         [
+C:\Users\steph\Desktop\ahhhhhhh\jp21-iz-sh\JointProject\include\ParticalEffects.cpp(36,91): warning C4244:             T=float
+C:\Users\steph\Desktop\ahhhhhhh\jp21-iz-sh\JointProject\include\ParticalEffects.cpp(36,91): warning C4244:         ]
+C:\Users\steph\Desktop\ahhhhhhh\jp21-iz-sh\JointProject\include\AI.h(11,18): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\steph\Desktop\ahhhhhhh\jp21-iz-sh\JointProject\include\AI.h(59,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Generating Code...
+C:\Users\steph\Desktop\ahhhhhhh\jp21-iz-sh\JointProject\src\main.cpp(28,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  JointProject.vcxproj -> C:\Users\steph\Desktop\ahhhhhhh\jp21-iz-sh\Debug\JointProject.exe

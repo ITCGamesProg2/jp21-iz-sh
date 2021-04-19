@@ -161,11 +161,13 @@
     <ClInclude Include="include\HUD.h" />
     <ClInclude Include="include\MainMenu.h" />
     <ClInclude Include="include\MathUtility.h" />
+    <ClInclude Include="include\ParticalEffects.h" />
     <ClInclude Include="include\Pickups.h" />
     <ClInclude Include="include\Player.h" />
     <ClInclude Include="include\ScreenSize.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="include\ParticalEffects.cpp" />
     <ClCompile Include="src\AI.cpp" />
     <ClCompile Include="src\AIBullet.cpp" />
     <ClCompile Include="src\Box.cpp" />

@@ -4,6 +4,7 @@
 #include "MathUtility.h"
 #include "Box.h"
 #include "AI.h"
+#include "ParticalEffects.h"
 
 class Bullet
 {
@@ -52,6 +53,9 @@ private:
 	sf::Sprite m_bulletSprite[MAX_BULLET];
 	sf::Vector2f m_shotDirection[MAX_BULLET];
 	sf::Vector2f mousePos;
+
+	// particles for the player bullet
+	ParticleSystem m_particles;
 };
 
 

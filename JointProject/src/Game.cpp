@@ -161,6 +161,7 @@ void Game::update()
 		m_grid.update();
 
 		m_pickups.update(m_player, m_box.getActiveBox());
+
 		break;
 	default:
 		break;
