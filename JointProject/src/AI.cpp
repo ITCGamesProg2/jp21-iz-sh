@@ -10,8 +10,12 @@ void AI::init(Grid& t_grid)
 	m_enemySprite.setTexture(m_enemyTexture);
 	m_enemySprite.setOrigin(m_enemySprite.getGlobalBounds().width / 2, m_enemySprite.getGlobalBounds().height / 2);
 	// positions to test where the AI will shoot its bullet
-	
-	randCell = std::rand() %100;
+
+	randCell = std::rand() % 100;
+	while (!t_grid.getCells().at(randCell).isPassable())
+	{
+		randCell = std::rand() % 100;
+	}
 
 	m_rangeCircle.setRadius(m_spotPlayerRange);
 	m_rangeCircle.setPosition(m_enemySprite.getPosition());
@@ -54,6 +58,10 @@ void AI::update(Grid &m_grid)
 	{
 		std::cout << "done" << std::endl;
 		randCell = std::rand() % 100;
+		while (!m_grid.getCells().at(randCell).isPassable())
+		{
+			randCell = std::rand() % 100;
+		}
 		m_aiPath = m_grid.breadthFirst(m_grid.getCells().at(nextCell).id(), randCell);
 	}
 

@@ -85,6 +85,19 @@ void Box::init(sf::Font& t_font)
 	m_boxSprite[3].setPosition(750, 500);
 	m_boxSprite[4].setPosition(1000, 800);
 	m_boxSprite[5].setPosition(1200, 100);
+	m_boxSprite[6].setPosition(m_boxSprite[0].getPosition().x + m_boxSprite[0].getGlobalBounds().width / 4, m_boxSprite[0].getPosition().y + m_boxSprite[0].getGlobalBounds().height /1.2);
+	m_boxSprite[7].setPosition(m_boxSprite[6].getPosition().x - m_boxSprite[6].getGlobalBounds().width * 1.05, m_boxSprite[6].getPosition().y - m_boxSprite[6].getGlobalBounds().height / 4);
+	m_boxSprite[8].setPosition(m_boxSprite[1].getPosition().x + m_boxSprite[1].getGlobalBounds().width * 1.05, m_boxSprite[1].getPosition().y + m_boxSprite[1].getGlobalBounds().height / 4);
+	m_boxSprite[9].setPosition(m_boxSprite[1].getPosition().x + m_boxSprite[1].getGlobalBounds().width /1.1 , m_boxSprite[1].getPosition().y - m_boxSprite[1].getGlobalBounds().height / 1.2);
+	m_boxSprite[10].setPosition(m_boxSprite[2].getPosition().x + m_boxSprite[2].getGlobalBounds().width / 1.1, m_boxSprite[2].getPosition().y - m_boxSprite[2].getGlobalBounds().height / 1.2);
+	m_boxSprite[11].setPosition(m_boxSprite[2].getPosition().x + m_boxSprite[2].getGlobalBounds().width, m_boxSprite[2].getPosition().y + m_boxSprite[2].getGlobalBounds().height / 3);
+	m_boxSprite[12].setPosition(m_boxSprite[2].getPosition().x - m_boxSprite[2].getGlobalBounds().width / 6, m_boxSprite[2].getPosition().y + m_boxSprite[2].getGlobalBounds().height / 1.2);
+	m_boxSprite[13].setPosition(m_boxSprite[5].getPosition().x + m_boxSprite[5].getGlobalBounds().width , m_boxSprite[5].getPosition().y + m_boxSprite[5].getGlobalBounds().height / 4);
+	m_boxSprite[14].setPosition(m_boxSprite[5].getPosition().x + m_boxSprite[5].getGlobalBounds().width / 6, m_boxSprite[5].getPosition().y + m_boxSprite[5].getGlobalBounds().height /1.1);
+	m_boxSprite[15].setPosition(m_boxSprite[3].getPosition().x, m_boxSprite[3].getPosition().y - m_boxSprite[3].getGlobalBounds().height * 3.5);
+	m_boxSprite[16].setPosition(m_boxSprite[15].getPosition().x - m_boxSprite[15].getGlobalBounds().width, m_boxSprite[15].getPosition().y + m_boxSprite[15].getGlobalBounds().height / 2);
+	m_boxSprite[17].setPosition(m_boxSprite[4].getPosition().x + m_boxSprite[4].getGlobalBounds().width, m_boxSprite[4].getPosition().y + m_boxSprite[4].getGlobalBounds().height / 2);
+
 
 	m_interactPromptText.setFont(t_font);
 	m_interactPromptText.setString(m_interactPrompt);

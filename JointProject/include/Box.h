@@ -81,7 +81,7 @@ public:
 
 private:
 
-	static const int M_MAX_BOX = 6;
+	static const int M_MAX_BOX = 18;
 	sf::Sprite m_boxSprite[M_MAX_BOX];
 	sf::Texture m_boxTexture;
 	sf::Vector2f m_previousPosition;
