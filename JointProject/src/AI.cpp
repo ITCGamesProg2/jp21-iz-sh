@@ -9,7 +9,6 @@ void AI::init(Grid& t_grid)
 	}
 	m_enemySprite.setTexture(m_enemyTexture);
 	m_enemySprite.setOrigin(m_enemySprite.getGlobalBounds().width / 2, m_enemySprite.getGlobalBounds().height / 2);
-	// positions to test where the AI will shoot its bullet
 
 	randCell = std::rand() % 100;
 	while (!t_grid.getCells().at(randCell).isPassable())

@@ -23,4 +23,6 @@ private:
 
 	sf::Text m_ammoCounterText;
 
+	sf::Text m_gunStatusText;
+
 };

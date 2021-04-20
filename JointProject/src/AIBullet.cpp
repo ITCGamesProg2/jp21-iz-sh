@@ -96,6 +96,7 @@ void AIBullet::update(Box& t_box, AI& t_ai, Player& t_player)
 		{
 			t_ai.setShootingAtPlayer(true);
 			t_ai.setOutlineColor(sf::Color::Red);
+
 		}
 		else
 		{

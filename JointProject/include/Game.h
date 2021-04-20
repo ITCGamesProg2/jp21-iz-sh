@@ -58,10 +58,13 @@ private:
 	AIBullet m_AIBullet;
 	HUD m_HUD;
 	Pickups m_pickups;
-	AI m_enemy;
+	int M_NUM_ENEMIES = 2;
+	AI m_enemy[M_NUM_ENEMIES];
 	MainMenu m_menu;
 	HelpScreen m_help;
 	Cutscene m_cut;
 	Grid m_grid;
 	GameState m_currentState = GameState::Game;
+
+	
 };
