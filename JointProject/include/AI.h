@@ -78,7 +78,7 @@ private:
 	int m_health = 100;
 	int m_bulletDamage = 34;
 	bool m_alive = true;
-	int randX;
+	int randCell;
 	int randY;
 
 	std::vector<int> m_aiPath;

@@ -11,8 +11,7 @@ void AI::init(Grid& t_grid)
 	m_enemySprite.setOrigin(m_enemySprite.getGlobalBounds().width / 2, m_enemySprite.getGlobalBounds().height / 2);
 	// positions to test where the AI will shoot its bullet
 	
-	randX = std::rand() % (ScreenSize::s_width - 200) + 100;
-	randY = std::rand() % (ScreenSize::s_height - 200) + 100;
+	randCell = std::rand() %100;
 
 	m_rangeCircle.setRadius(m_spotPlayerRange);
 	m_rangeCircle.setPosition(m_enemySprite.getPosition());
@@ -21,7 +20,8 @@ void AI::init(Grid& t_grid)
 	m_rangeCircle.setOutlineThickness(2u);
 	m_rangeCircle.setOutlineColor(sf::Color::Green);
 
-	m_aiPath = t_grid.breadthFirst(5, 30);
+	m_aiPath = t_grid.breadthFirst(5, randCell);
+	//std::cout << randCell << std::endl;
 
 	int x = t_grid.getCells().at(5).getCentreX();
 	int y = t_grid.getCells().at(5).getCentreY();
@@ -50,31 +50,37 @@ void AI::update(Grid &m_grid)
 	int nextX = m_grid.getCells().at(nextCell).getCentreX();
 	int nextY = m_grid.getCells().at(nextCell).getCentreY();
 
+	if (m_grid.getCells().at(nextCell).id() == randCell)
+	{
+		std::cout << "done" << std::endl;
+		randCell = std::rand() % 100;
+		m_aiPath = m_grid.breadthFirst(m_grid.getCells().at(nextCell).id(), randCell);
+	}
+
+	if (m_enemySprite.getPosition().x == nextX && m_enemySprite.getPosition().y == nextY)
+	{
+		m_aiPath.pop_back();
+	}
+
 	if (m_enemySprite.getPosition().x > nextX)
 	{
 		m_enemySprite.move(-1, 0);
-
+		setScaleSprite(1);
 	}
 	if (m_enemySprite.getPosition().x < nextX)
 	{
 		m_enemySprite.move(1, 0);
-
+		setScaleSprite(-1);
 	}
 	if (m_enemySprite.getPosition().y > nextY)
 	{
 		m_enemySprite.move(0, -1);
 
 	}
-	if (m_enemySprite.getPosition().y > nextY)
+	if (m_enemySprite.getPosition().y < nextY)
 	{
 		m_enemySprite.move(0, 1);
 
-	}
-
-	if (m_enemySprite.getPosition().x == nextX && m_enemySprite.getPosition().y == nextY)
-	{
-
-		m_aiPath.pop_back();
 	}
 
 	m_rangeCircle.setPosition(m_enemySprite.getPosition());
@@ -87,12 +93,12 @@ void AI::update(Grid &m_grid)
 
 	if (m_enemySprite.getPosition().x > randX)
 	{
-		setScaleSprite(1);
+		
 		m_enemySprite.move(-1, 0);
 	}
 	else if (m_enemySprite.getPosition().x < randX)
 	{
-		setScaleSprite(-1);
+		
 		m_enemySprite.move(1, 0);
 	}
 
