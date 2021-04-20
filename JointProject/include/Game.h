@@ -21,7 +21,9 @@ enum class
 	MainMenu,
 	Help,
 	Cutscene,
-	Game
+	Game,
+	Win,
+	Loose,
 };
 
 class Game
@@ -53,18 +55,16 @@ private:
 	sf::Sprite m_bgSpriteSheet;
 	bool m_clickedMouse = false;
 
+	static const int M_NUM_ENEMIES = 2;
 	Box m_box;
 	Bullet m_bullet;
-	AIBullet m_AIBullet;
+	AIBullet m_AIBullet[M_NUM_ENEMIES];
 	HUD m_HUD;
 	Pickups m_pickups;
-	int M_NUM_ENEMIES = 2;
 	AI m_enemy[M_NUM_ENEMIES];
 	MainMenu m_menu;
 	HelpScreen m_help;
 	Cutscene m_cut;
 	Grid m_grid;
 	GameState m_currentState = GameState::Game;
-
-	
 };

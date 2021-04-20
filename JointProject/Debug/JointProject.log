@@ -1,18 +1,10 @@
 ﻿  Game.cpp
 C:\Users\steph\Desktop\joiiiiiiint\jp21-iz-sh\JointProject\include\AI.h(13,18): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
 C:\Users\steph\Desktop\joiiiiiiint\jp21-iz-sh\JointProject\include\AI.h(61,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\steph\Desktop\joiiiiiiint\jp21-iz-sh\JointProject\include\Game.h(62,26): error C2327: 'Game::M_NUM_ENEMIES': is not a type name, static, or enumerator
-C:\Users\steph\Desktop\joiiiiiiint\jp21-iz-sh\JointProject\include\Game.h(62,13): error C2065: 'M_NUM_ENEMIES': undeclared identifier
-C:\Users\steph\Desktop\joiiiiiiint\jp21-iz-sh\JointProject\src\Game.cpp(34,36): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\steph\Desktop\joiiiiiiint\jp21-iz-sh\JointProject\src\Game.cpp(209,33): error C2664: 'void Bullet::update(Box &,AI &)': cannot convert argument 2 from 'AI [1]' to 'AI &'
-C:\Users\steph\Desktop\joiiiiiiint\jp21-iz-sh\JointProject\include\Bullet.h(24,7): message : see declaration of 'Bullet::update'
-C:\Users\steph\Desktop\joiiiiiiint\jp21-iz-sh\JointProject\src\Game.cpp(210,45): error C2664: 'void AIBullet::update(Box &,AI &,Player &)': cannot convert argument 2 from 'AI [1]' to 'AI &'
   MainMenu.cpp
-C:\Users\steph\Desktop\joiiiiiiint\jp21-iz-sh\JointProject\include\AIBullet.h(34,7): message : see declaration of 'AIBullet::update'
+C:\Users\steph\Desktop\joiiiiiiint\jp21-iz-sh\JointProject\src\Game.cpp(34,36): warning C4305: 'argument': truncation from 'double' to 'float'
 C:\Users\steph\Desktop\joiiiiiiint\jp21-iz-sh\JointProject\include\AI.h(13,18): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
 C:\Users\steph\Desktop\joiiiiiiint\jp21-iz-sh\JointProject\include\AI.h(61,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\steph\Desktop\joiiiiiiint\jp21-iz-sh\JointProject\include\Game.h(62,26): error C2327: 'Game::M_NUM_ENEMIES': is not a type name, static, or enumerator
-C:\Users\steph\Desktop\joiiiiiiint\jp21-iz-sh\JointProject\include\Game.h(62,13): error C2065: 'M_NUM_ENEMIES': undeclared identifier
 C:\Users\steph\Desktop\joiiiiiiint\jp21-iz-sh\JointProject\src\MainMenu.cpp(30,32): warning C4305: 'argument': truncation from 'double' to 'float'
 C:\Users\steph\Desktop\joiiiiiiint\jp21-iz-sh\JointProject\src\MainMenu.cpp(40,118): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
 C:\Users\steph\Desktop\joiiiiiiint\jp21-iz-sh\JointProject\src\MainMenu.cpp(40,49): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
@@ -27,7 +19,6 @@ C:\Users\steph\Desktop\joiiiiiiint\jp21-iz-sh\JointProject\src\MainMenu.cpp(70,1
 C:\Users\steph\Desktop\joiiiiiiint\jp21-iz-sh\JointProject\src\MainMenu.cpp(71,14): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
 C:\Users\steph\Desktop\joiiiiiiint\jp21-iz-sh\JointProject\include\AI.h(13,18): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
 C:\Users\steph\Desktop\joiiiiiiint\jp21-iz-sh\JointProject\include\AI.h(61,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\steph\Desktop\joiiiiiiint\jp21-iz-sh\JointProject\include\Game.h(62,26): error C2327: 'Game::M_NUM_ENEMIES': is not a type name, static, or enumerator
-C:\Users\steph\Desktop\joiiiiiiint\jp21-iz-sh\JointProject\include\Game.h(62,13): error C2065: 'M_NUM_ENEMIES': undeclared identifier
   Generating Code...
 C:\Users\steph\Desktop\joiiiiiiint\jp21-iz-sh\JointProject\src\main.cpp(28,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  JointProject.vcxproj -> C:\Users\steph\Desktop\joiiiiiiint\jp21-iz-sh\Debug\JointProject.exe

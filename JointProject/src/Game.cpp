@@ -35,7 +35,11 @@ void Game::init()
 
 	m_box.init(m_font);
 	m_bullet.init();
-	m_AIBullet.init();
+
+	for (int i = 0; i < M_NUM_ENEMIES; i++)
+	{
+		m_AIBullet[i].init();
+	}
 	m_HUD.init(m_font);
 	m_pickups.initPickups(m_box);
 	m_grid.makeGrid();
@@ -50,7 +54,10 @@ void Game::init()
 	//int x = m_grid.getCells().at(5).getCentreX();
 	//int y = m_grid.getCells().at(5).getCentreY();
 
-	m_enemy.init(m_grid);
+	for (int i = 0; i < M_NUM_ENEMIES; i++)
+	{
+		m_enemy[i].init(m_grid);
+	}
 
 }
 
@@ -169,8 +176,12 @@ void Game::draw()
 		break;
 	case GameState::Game:
 		m_window.draw(m_bgSpriteSheet);
-		m_enemy.draw(m_window);
-		m_AIBullet.draw(m_window);
+		for (int i = 0; i < M_NUM_ENEMIES; i++)
+		{
+			m_enemy[i].draw(m_window);
+			m_AIBullet[i].draw(m_window);
+		}
+		
 		m_box.draw(m_window);
 		m_pickups.draw(m_window);
 		m_player.draw(m_window);
@@ -204,10 +215,15 @@ void Game::update()
 	case GameState::Game:
 		// update player movement
 		m_player.update(m_bullet.getMousePos(), m_clickedMouse);
-		m_enemy.update(m_grid);
+
+		for (int i = 0; i < M_NUM_ENEMIES; i++)
+		{
+			m_enemy[i].update(m_grid);
+			m_bullet.update(m_box, m_enemy[i]);
+			m_AIBullet[i].update(m_box, m_enemy[i], m_player);
+		}
 		m_box.update(m_player);
-		m_bullet.update(m_box, m_enemy);
-		m_AIBullet.update(m_box, m_enemy, m_player);
+		
 		m_HUD.update(m_player);
 
 		m_pickups.update(m_player, m_box.getActiveBox());
