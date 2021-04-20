@@ -10,10 +10,9 @@ void Grid::makeGrid()
 {
 	for (int index = 0; index < 100; index++)
 	{
-		m_grid.emplace_back(Cell(index));
+		m_grid.emplace_back(Cell(m_cellWidth, m_cellHeight, index));
 	}
 	Cell::neighbours(m_grid);
-	breadthFirst(10, 37);
 }
 
 void Grid::markImpassableCells(Box& t_box)
@@ -45,7 +44,7 @@ void Grid::markImpassableCells(Box& t_box)
 	}
 }
 
-void Grid::breadthFirst(int t_startCellId, int t_destCellId)
+std::vector<int> Grid::breadthFirst(int t_startCellId, int t_destCellId)
 {
 	bool goalReached = false;
 	std::queue<Cell> cellQueue;
@@ -80,6 +79,20 @@ void Grid::breadthFirst(int t_startCellId, int t_destCellId)
 
 		cellQueue.pop();
 	}
+
+	std::vector<int> path;
+
+	int cellIndex = t_destCellId;
+
+	while (m_grid.at(cellIndex).getParentCellId() != -1)
+	{
+		path.push_back(cellIndex);
+
+		cellIndex = m_grid.at(cellIndex).getParentCellId();
+	}
+
+	path.push_back(cellIndex);
+	return path;
 }
 
 void Grid::update()

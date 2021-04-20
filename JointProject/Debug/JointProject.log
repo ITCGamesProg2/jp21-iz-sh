@@ -1,4 +1,6 @@
-﻿  Cutscene.cpp
-C:\Users\viole\Desktop\JOINT\jp21-iz-sh\JointProject\Cutscene.cpp(61,34): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\viole\Desktop\JOINT\jp21-iz-sh\JointProject\Cutscene.cpp(71,55): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-  JointProject.vcxproj -> C:\Users\viole\Desktop\JOINT\jp21-iz-sh\Debug\JointProject.exe
+﻿  AI.cpp
+C:\Users\steph\Desktop\jointproj\jp21-iz-sh\JointProject\include\AI.h(13,18): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\steph\Desktop\jointproj\jp21-iz-sh\JointProject\include\AI.h(61,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\steph\Desktop\jointproj\jp21-iz-sh\JointProject\src\AI.cpp(29,31): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\steph\Desktop\jointproj\jp21-iz-sh\JointProject\src\AI.cpp(29,28): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  JointProject.vcxproj -> C:\Users\steph\Desktop\jointproj\jp21-iz-sh\Debug\JointProject.exe

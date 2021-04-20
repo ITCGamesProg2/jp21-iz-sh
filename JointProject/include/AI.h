@@ -4,6 +4,7 @@
 #include "ScreenSize.h"
 #include <time.h>
 #include "ParticalEffects.h"
+#include "Grid.h"
 
 class AI
 {
@@ -11,9 +12,9 @@ public:
 	AI() {
 		std::srand(time(NULL));
 	};
-	void init();
+	void init(Grid &t_grid);
 	void draw(sf::RenderWindow& t_window);
-	void update();
+	void update(Grid& m_grid);
 
 	/// <summary>
 	/// returns the enemy sprite
@@ -59,7 +60,15 @@ public:
 	{
 		m_enemySprite.setScale(scale, 1);
 	}
+
+
 	float m_spotPlayerRange = 200;
+
+	void nextCell()
+	{
+		int nextCell = m_aiPath.at(m_aiPath.size() - 1);
+
+	}
 
 private:
 	sf::Texture m_enemyTexture;
@@ -71,6 +80,8 @@ private:
 	bool m_alive = true;
 	int randX;
 	int randY;
+
+	std::vector<int> m_aiPath;
 
 	bool m_shootingAtPlayer = false;
 

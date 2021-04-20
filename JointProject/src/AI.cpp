@@ -1,6 +1,6 @@
 #include "AI.h"
 
-void AI::init()
+void AI::init(Grid& t_grid)
 {
 	if (!m_enemyTexture.loadFromFile("./resources/robot.png"))
 	{
@@ -10,7 +10,7 @@ void AI::init()
 	m_enemySprite.setTexture(m_enemyTexture);
 	m_enemySprite.setOrigin(m_enemySprite.getGlobalBounds().width / 2, m_enemySprite.getGlobalBounds().height / 2);
 	// positions to test where the AI will shoot its bullet
-	m_enemySprite.setPosition(900, 200);
+	
 	randX = std::rand() % (ScreenSize::s_width - 200) + 100;
 	randY = std::rand() % (ScreenSize::s_height - 200) + 100;
 
@@ -20,6 +20,13 @@ void AI::init()
 	m_rangeCircle.setFillColor(sf::Color::Transparent);
 	m_rangeCircle.setOutlineThickness(2u);
 	m_rangeCircle.setOutlineColor(sf::Color::Green);
+
+	m_aiPath = t_grid.breadthFirst(5, 30);
+
+	int x = t_grid.getCells().at(5).getCentreX();
+	int y = t_grid.getCells().at(5).getCentreY();
+
+	m_enemySprite.setPosition(x, y);
 }
 
 void AI::draw(sf::RenderWindow& t_window)
@@ -31,7 +38,7 @@ void AI::draw(sf::RenderWindow& t_window)
 	}
 }
 
-void AI::update()
+void AI::update(Grid &m_grid)
 {
 
 	if (m_health <= 0)
@@ -39,9 +46,40 @@ void AI::update()
 		m_alive = false;
 	}
 
+	int nextCell = m_aiPath.at(m_aiPath.size() - 1);
+	int nextX = m_grid.getCells().at(nextCell).getCentreX();
+	int nextY = m_grid.getCells().at(nextCell).getCentreY();
+
+	if (m_enemySprite.getPosition().x > nextX)
+	{
+		m_enemySprite.move(-1, 0);
+
+	}
+	if (m_enemySprite.getPosition().x < nextX)
+	{
+		m_enemySprite.move(1, 0);
+
+	}
+	if (m_enemySprite.getPosition().y > nextY)
+	{
+		m_enemySprite.move(0, -1);
+
+	}
+	if (m_enemySprite.getPosition().y > nextY)
+	{
+		m_enemySprite.move(0, 1);
+
+	}
+
+	if (m_enemySprite.getPosition().x == nextX && m_enemySprite.getPosition().y == nextY)
+	{
+
+		m_aiPath.pop_back();
+	}
+
 	m_rangeCircle.setPosition(m_enemySprite.getPosition());
 
-	if (m_enemySprite.getPosition().x == randX && m_enemySprite.getPosition().y == randY)
+	/*if (m_enemySprite.getPosition().x == randX && m_enemySprite.getPosition().y == randY)
 	{
 		randX = std::rand() % (ScreenSize::s_width - 200) + 100;
 		randY = std::rand() % (ScreenSize::s_height - 200) + 100;
@@ -65,6 +103,6 @@ void AI::update()
 	else if (m_enemySprite.getPosition().y < randY)
 	{
 		m_enemySprite.move(0, 1);
-	}
+	}*/
 
 }

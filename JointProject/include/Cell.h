@@ -4,10 +4,13 @@
 class Cell
 {
 public:
-	Cell(int t_cellId = -1) : m_id(t_cellId)
+	Cell(int t_cellWidth, int t_cellHeight, int t_cellId = -1 ) : m_id(t_cellId)
 	{
 		m_isPassable = true;
+		findCentreXandCentreY(t_cellWidth,t_cellHeight);
 	}
+
+	void findCentreXandCentreY(int t_cellWidth, int t_cellHeight );
 
 	static void neighbours(std::vector<Cell>& t_grid);
 
@@ -61,11 +64,29 @@ public:
 	{
 		m_parentCellId = t_cellId;
 	}
+
+	int getParentCellId()
+	{
+		return m_parentCellId;
+	}
+
+	int getCentreX()
+	{
+		return m_centreX;
+	}
+
+	int getCentreY()
+	{
+		return m_centreY;
+	}
+
 private:
 	int m_id;
+	int m_centreX;
+	int m_centreY;
 	bool m_isMarked{ false };
 	bool m_isPassable;
 	std::vector<int> m_neighbours;
-	int m_parentCellId;
+	int m_parentCellId = -1;
 };
 

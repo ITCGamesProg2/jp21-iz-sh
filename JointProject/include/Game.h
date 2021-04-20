@@ -10,7 +10,6 @@
 #include "Pickups.h"
 #include "AI.h"
 #include "AIBullet.h"
-#include "Grid.h"
 #include "MainMenu.h"
 #include "Help.h"
 #include "Cutscene.h"
@@ -60,9 +59,9 @@ private:
 	HUD m_HUD;
 	Pickups m_pickups;
 	AI m_enemy;
-	Grid m_grid;
 	MainMenu m_menu;
 	HelpScreen m_help;
 	Cutscene m_cut;
-	GameState m_currentState = GameState::MainMenu;
+	Grid m_grid;
+	GameState m_currentState = GameState::Game;
 };

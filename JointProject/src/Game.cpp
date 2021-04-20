@@ -33,7 +33,6 @@ void Game::init()
 	m_bgSpriteSheet.setPosition(0, 0);
 	m_bgSpriteSheet.setScale(0.75, 0.6);
 
-	m_enemy.init();
 	m_box.init(m_font);
 	m_bullet.init();
 	m_AIBullet.init();
@@ -44,6 +43,15 @@ void Game::init()
 	m_menu.initialise(m_font);
 	m_help.initialise(m_font);
 	m_cut.init(m_font);
+
+	//std::vector<int> aiPath;
+	//aiPath = m_grid.breadthFirst(5,30);
+
+	//int x = m_grid.getCells().at(5).getCentreX();
+	//int y = m_grid.getCells().at(5).getCentreY();
+
+	m_enemy.init(m_grid);
+
 }
 
 void Game::run()
@@ -196,12 +204,11 @@ void Game::update()
 	case GameState::Game:
 		// update player movement
 		m_player.update(m_bullet.getMousePos(), m_clickedMouse);
-		m_enemy.update();
+		m_enemy.update(m_grid);
 		m_box.update(m_player);
 		m_bullet.update(m_box, m_enemy);
 		m_AIBullet.update(m_box, m_enemy, m_player);
 		m_HUD.update(m_player);
-		m_grid.update();
 
 		m_pickups.update(m_player, m_box.getActiveBox());
 		break;
