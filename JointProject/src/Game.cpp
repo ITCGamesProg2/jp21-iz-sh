@@ -303,5 +303,15 @@ void Game::update()
 void Game::restart()
 {
 	m_player.restart();
+	m_box.restart();
+	m_bullet.restart();
+
+	for (int i = 0; i < M_NUM_ENEMIES; i++)
+	{
+		m_enemy[i].restart(m_grid);
+		m_AIBullet[i].restart();
+	}
+
+	m_pickups.restart();
 	m_currentState = GameState::Game;
 }

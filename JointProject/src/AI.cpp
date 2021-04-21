@@ -50,6 +50,7 @@ bool AI::update(Grid &m_grid)
 	
 	if (m_alive)
 	{
+	
 		int nextCell = m_aiPath.at(m_aiPath.size() - 1);
 		int nextX = m_grid.getCells().at(nextCell).getCentreX();
 		int nextY = m_grid.getCells().at(nextCell).getCentreY();
@@ -58,10 +59,12 @@ bool AI::update(Grid &m_grid)
 		{
 			std::cout << "done" << std::endl;
 			randCell = std::rand() % 100;
+
 			while (!m_grid.getCells().at(randCell).isPassable())
 			{
 				randCell = std::rand() % 100;
 			}
+
 			m_aiPath = m_grid.breadthFirst(m_grid.getCells().at(nextCell).id(), randCell);
 		}
 
@@ -128,3 +131,24 @@ bool AI::update(Grid &m_grid)
 	}*/
 
 }
+
+void AI::restart(Grid & t_grid)
+{
+	m_alive = true;
+	m_health = 100;
+
+	m_aiPath = t_grid.breadthFirst(5, randCell);
+
+	randCell = std::rand() % 100;
+
+	while (!t_grid.getCells().at(randCell).isPassable())
+	{
+		randCell = std::rand() % 100;
+	}
+
+	int x = t_grid.getCells().at(5).getCentreX();
+	int y = t_grid.getCells().at(5).getCentreY();
+
+	m_enemySprite.setPosition(x, y);
+}
+

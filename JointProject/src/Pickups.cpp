@@ -125,3 +125,13 @@ void Pickups::initPickups(Box& t_box)
 
 	}
 }
+
+void Pickups::restart()
+{
+	for (int i = 0; i < M_MAX_AMMO_PICKUPS; i++)
+	{
+		m_bulletPickUpAlive[M_MAX_AMMO_PICKUPS];
+	}
+	
+	m_gunPickupAlive = true;
+}

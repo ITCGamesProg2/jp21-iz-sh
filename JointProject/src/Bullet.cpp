@@ -125,3 +125,11 @@ void Bullet::checkIntersect(AI& t_enemy)
 	}
 }
 
+void Bullet::restart()
+{
+	for (int i = 0; i < MAX_BULLET; i++)
+	{
+		m_bulletAlive[i] = false;
+	}
+}
+

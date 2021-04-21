@@ -50,6 +50,8 @@ public:
 
 	float distanceBetween(sf::Vector2f t_entity, sf::Vector2f t_secondEntity);
 
+	void restart();
+
 private:
 
 	static const int MAX_BULLET = 15;

@@ -232,3 +232,13 @@ float AIBullet::distanceBetween(sf::Vector2f t_entity, sf::Vector2f t_secondEnti
 	distanceBetween = std::sqrt(distanceBetween);
 	return distanceBetween;
 }
+
+void AIBullet::restart()
+{
+	for (int i = 0; i < MAX_BULLET; i++)
+	{
+		m_bulletAlive[i] = false;
+		m_bulletCount = 0;
+	}
+
+}

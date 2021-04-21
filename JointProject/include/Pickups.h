@@ -24,6 +24,8 @@ public:
 
 	void initPickups(Box& t_box);
 
+	void restart();
+
 private:
 	static const int M_MAX_AMMO_PICKUPS = 3;
 	sf::Vector2f m_position;

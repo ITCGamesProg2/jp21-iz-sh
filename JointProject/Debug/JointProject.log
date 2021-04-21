@@ -1,12 +1,8 @@
-﻿  Player.cpp
-C:\Users\steph\Desktop\ahhhhhhhhhh\jp21-iz-sh\JointProject\src\Player.cpp(13,91): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
-C:\Users\steph\Desktop\ahhhhhhhhhh\jp21-iz-sh\JointProject\src\Player.cpp(13,91): warning C4244:         with
-C:\Users\steph\Desktop\ahhhhhhhhhh\jp21-iz-sh\JointProject\src\Player.cpp(13,91): warning C4244:         [
-C:\Users\steph\Desktop\ahhhhhhhhhh\jp21-iz-sh\JointProject\src\Player.cpp(13,91): warning C4244:             T=float
-C:\Users\steph\Desktop\ahhhhhhhhhh\jp21-iz-sh\JointProject\src\Player.cpp(13,91): warning C4244:         ]
-C:\Users\steph\Desktop\ahhhhhhhhhh\jp21-iz-sh\JointProject\src\Player.cpp(13,51): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
-C:\Users\steph\Desktop\ahhhhhhhhhh\jp21-iz-sh\JointProject\src\Player.cpp(13,51): warning C4244:         with
-C:\Users\steph\Desktop\ahhhhhhhhhh\jp21-iz-sh\JointProject\src\Player.cpp(13,51): warning C4244:         [
-C:\Users\steph\Desktop\ahhhhhhhhhh\jp21-iz-sh\JointProject\src\Player.cpp(13,51): warning C4244:             T=float
-C:\Users\steph\Desktop\ahhhhhhhhhh\jp21-iz-sh\JointProject\src\Player.cpp(13,51): warning C4244:         ]
+﻿  AI.cpp
+C:\Users\steph\Desktop\ahhhhhhhhhh\jp21-iz-sh\JointProject\include\AI.h(13,18): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\steph\Desktop\ahhhhhhhhhh\jp21-iz-sh\JointProject\include\AI.h(61,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\steph\Desktop\ahhhhhhhhhh\jp21-iz-sh\JointProject\src\AI.cpp(32,31): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\steph\Desktop\ahhhhhhhhhh\jp21-iz-sh\JointProject\src\AI.cpp(32,28): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\steph\Desktop\ahhhhhhhhhh\jp21-iz-sh\JointProject\src\AI.cpp(156,31): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\steph\Desktop\ahhhhhhhhhh\jp21-iz-sh\JointProject\src\AI.cpp(156,28): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   JointProject.vcxproj -> C:\Users\steph\Desktop\ahhhhhhhhhh\jp21-iz-sh\Debug\JointProject.exe

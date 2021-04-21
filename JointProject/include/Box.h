@@ -79,6 +79,8 @@ public:
 		m_currentNumBoxesInGame -= 1;
 	}
 
+	void restart();
+
 private:
 
 	static const int M_MAX_BOX = 18;

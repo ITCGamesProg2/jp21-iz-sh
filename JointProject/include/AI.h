@@ -61,14 +61,9 @@ public:
 		m_enemySprite.setScale(scale, 1);
 	}
 
-
 	float m_spotPlayerRange = 200;
 
-	void nextCell()
-	{
-		int nextCell = m_aiPath.at(m_aiPath.size() - 1);
-
-	}
+	void restart(Grid& t_grid);
 
 private:
 	sf::Texture m_enemyTexture;
@@ -79,7 +74,6 @@ private:
 	int m_bulletDamage = 34;
 	bool m_alive = true;
 	int randCell;
-	int randY;
 
 	std::vector<int> m_aiPath;
 

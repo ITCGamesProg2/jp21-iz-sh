@@ -42,6 +42,8 @@ public:
 		return mousePos;
 	}
 
+	void restart();
+
 private:
 
 	static const int MAX_BULLET = 20;

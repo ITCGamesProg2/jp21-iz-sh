@@ -138,3 +138,11 @@ void Box::collisionBetweenPlayerAndBox(Player& t_player)
 		t_player.setPos(m_previousPosition);
 	}
 }
+
+void Box::restart()
+{
+	for (int i = 0; i < M_MAX_BOX; i++)
+	{
+		m_boxAlive[i] = true;
+	}
+}

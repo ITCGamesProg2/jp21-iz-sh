@@ -148,6 +148,9 @@ void Player::boundaryCheck()
 
 void Player::restart()
 {
-	m_health = 100;
-	m_alive = true;
+	 m_ammo = 0;
+	 m_hasGun = false;
+	 m_health = 100;
+	 m_alive = true;
+	 m_hidden = false;
 }
