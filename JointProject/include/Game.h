@@ -58,7 +58,7 @@ private:
 	sf::Sprite m_bgSpriteSheet;
 	bool m_clickedMouse = false;
 
-	static const int M_NUM_ENEMIES = 2;
+	static const int M_NUM_ENEMIES = 1;
 	bool m_enemiesAlive[M_NUM_ENEMIES];
 
 	bool m_playerAlive;

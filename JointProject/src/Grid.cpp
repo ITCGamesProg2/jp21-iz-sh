@@ -92,12 +92,23 @@ std::vector<int> Grid::breadthFirst(int t_startCellId, int t_destCellId)
 	}
 
 	path.push_back(cellIndex);
+
+	resetMarked();
+
 	return path;
 }
 
 void Grid::update()
 {
 	
+}
+
+void Grid::resetMarked()
+{
+	/*for (int i = 0; i < 100; i++)
+	{
+		m_grid.at(i).setMarked(false);
+	}*/
 }
 
 

@@ -10,11 +10,11 @@ void AI::init(Grid& t_grid)
 	m_enemySprite.setTexture(m_enemyTexture);
 	m_enemySprite.setOrigin(m_enemySprite.getGlobalBounds().width / 2, m_enemySprite.getGlobalBounds().height / 2);
 
-	randCell = std::rand() % 100;
+	destinationCell = std::rand() % 100;
 
-	while (!t_grid.getCells().at(randCell).isPassable())
+	while (!t_grid.getCells().at(destinationCell).isPassable())
 	{
-		randCell = std::rand() % 100;
+		destinationCell = std::rand() % 100;
 	}
 
 	m_rangeCircle.setRadius(m_spotPlayerRange);
@@ -24,7 +24,7 @@ void AI::init(Grid& t_grid)
 	m_rangeCircle.setOutlineThickness(2u);
 	m_rangeCircle.setOutlineColor(sf::Color::Green);
 
-	m_aiPath = t_grid.breadthFirst(5, randCell);
+	m_aiPath = t_grid.breadthFirst(5, destinationCell);
 	//std::cout << randCell << std::endl;
 
 	int x = t_grid.getCells().at(5).getCentreX();
@@ -52,34 +52,47 @@ bool AI::update(Grid &m_grid)
 	if (m_alive)
 	{
 
-		// NEEDS FUNCTION TO FIND WHAT CELL AI IS IN. AT(0) IS JUST THERE TO AVOID A CRASH
-		if (m_aiPath.empty())
-		{
-			m_aiPath = m_grid.breadthFirst(m_grid.getCells().at(0).id(), randCell);
-		}
+		//// NEEDS FUNCTION TO FIND WHAT CELL AI IS IN. AT(0) IS JUST THERE TO AVOID A CRASH
+		//if (m_aiPath.empty())
+		//{
+		//	m_aiPath = m_grid.breadthFirst(m_grid.getCells().at(0).id(), randCell);
+		//}
 
+		// get next cell destination in ai's stored path
 		int nextCell = m_aiPath.at(m_aiPath.size() - 1);
 		int nextX = m_grid.getCells().at(nextCell).getCentreX();
 		int nextY = m_grid.getCells().at(nextCell).getCentreY();
 
-		if (m_grid.getCells().at(nextCell).id() == randCell)
+		// ai has reached destination , next cell is now the last cell
+		if (m_grid.getCells().at(nextCell).id() == destinationCell)
 		{
 			std::cout << "done" << std::endl;
-			randCell = std::rand() % 100;
 
-			while (!m_grid.getCells().at(randCell).isPassable())
+			// make a new destination
+			destinationCell = std::rand() % 100;
+
+			// make sure destination is passable
+			while (!m_grid.getCells().at(destinationCell).isPassable())
 			{
-				randCell = std::rand() % 100;
+				destinationCell = std::rand() % 100;
 			}
 
-			m_aiPath = m_grid.breadthFirst(m_grid.getCells().at(nextCell).id(), randCell);
+			// generate new ai path, using the final "next" cell as its starting position
+			m_aiPath = m_grid.breadthFirst(m_grid.getCells().at(nextCell).id(), destinationCell);
 		}
 
-		if (m_enemySprite.getPosition().x == nextX && m_enemySprite.getPosition().y == nextY)
+		// get enemy pos
+		float x = m_enemySprite.getPosition().x;
+		float y = m_enemySprite.getPosition().y;
+
+
+		// enemy pos is the same as the middle of the cell its heading towards
+		if (x == nextX && y == nextY)
 		{
 			m_aiPath.pop_back();
 		}
 
+		// move towards the current destination
 		if (m_enemySprite.getPosition().x > nextX)
 		{
 			m_enemySprite.move(-1, 0);
@@ -144,13 +157,13 @@ void AI::restart(Grid & t_grid)
 	m_alive = true;
 	m_health = 100;
 	
-	randCell = std::rand() % 100;
+	destinationCell = std::rand() % 100;
 
-	m_aiPath = t_grid.breadthFirst(5, randCell);
+	m_aiPath = t_grid.breadthFirst(5, destinationCell);
 
-	while (!t_grid.getCells().at(randCell).isPassable())
+	while (!t_grid.getCells().at(destinationCell).isPassable())
 	{
-		randCell = std::rand() % 100;
+		destinationCell = std::rand() % 100;
 	}
 
 	int x = t_grid.getCells().at(5).getCentreX();

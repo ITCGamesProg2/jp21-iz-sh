@@ -1,24 +1,35 @@
-﻿  Game.cpp
+﻿  AI.cpp
 C:\Users\steph\Desktop\ahhhhhhhhhh\jp21-iz-sh\JointProject\include\AI.h(13,18): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
 C:\Users\steph\Desktop\ahhhhhhhhhh\jp21-iz-sh\JointProject\include\AI.h(61,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-  MainMenu.cpp
-C:\Users\steph\Desktop\ahhhhhhhhhh\jp21-iz-sh\JointProject\src\Game.cpp(34,36): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\steph\Desktop\ahhhhhhhhhh\jp21-iz-sh\JointProject\include\AI.h(13,18): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\Users\steph\Desktop\ahhhhhhhhhh\jp21-iz-sh\JointProject\include\AI.h(61,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\steph\Desktop\ahhhhhhhhhh\jp21-iz-sh\JointProject\src\MainMenu.cpp(30,32): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\steph\Desktop\ahhhhhhhhhh\jp21-iz-sh\JointProject\src\MainMenu.cpp(39,119): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\steph\Desktop\ahhhhhhhhhh\jp21-iz-sh\JointProject\src\MainMenu.cpp(39,49): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\steph\Desktop\ahhhhhhhhhh\jp21-iz-sh\JointProject\src\MainMenu.cpp(46,58): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\steph\Desktop\ahhhhhhhhhh\jp21-iz-sh\JointProject\src\MainMenu.cpp(46,58): warning C4244:         with
-C:\Users\steph\Desktop\ahhhhhhhhhh\jp21-iz-sh\JointProject\src\MainMenu.cpp(46,58): warning C4244:         [
-C:\Users\steph\Desktop\ahhhhhhhhhh\jp21-iz-sh\JointProject\src\MainMenu.cpp(46,58): warning C4244:             T=float
-C:\Users\steph\Desktop\ahhhhhhhhhh\jp21-iz-sh\JointProject\src\MainMenu.cpp(46,58): warning C4244:         ]
-C:\Users\steph\Desktop\ahhhhhhhhhh\jp21-iz-sh\JointProject\src\MainMenu.cpp(64,188): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\steph\Desktop\ahhhhhhhhhh\jp21-iz-sh\JointProject\src\MainMenu.cpp(69,14): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-  main.cpp
-C:\Users\steph\Desktop\ahhhhhhhhhh\jp21-iz-sh\JointProject\src\MainMenu.cpp(70,14): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Users\steph\Desktop\ahhhhhhhhhh\jp21-iz-sh\JointProject\include\AI.h(13,18): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\Users\steph\Desktop\ahhhhhhhhhh\jp21-iz-sh\JointProject\include\AI.h(61,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\steph\Desktop\ahhhhhhhhhh\jp21-iz-sh\JointProject\src\AI.cpp(33,31): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\steph\Desktop\ahhhhhhhhhh\jp21-iz-sh\JointProject\src\AI.cpp(33,28): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\steph\Desktop\ahhhhhhhhhh\jp21-iz-sh\JointProject\src\AI.cpp(172,31): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Grid.cpp
+C:\Users\steph\Desktop\ahhhhhhhhhh\jp21-iz-sh\JointProject\src\AI.cpp(172,28): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\steph\Desktop\ahhhhhhhhhh\jp21-iz-sh\JointProject\src\Grid.cpp(27,50): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+C:\Users\steph\Desktop\ahhhhhhhhhh\jp21-iz-sh\JointProject\src\Grid.cpp(27,50): warning C4244:         with
+C:\Users\steph\Desktop\ahhhhhhhhhh\jp21-iz-sh\JointProject\src\Grid.cpp(27,50): warning C4244:         [
+C:\Users\steph\Desktop\ahhhhhhhhhh\jp21-iz-sh\JointProject\src\Grid.cpp(27,50): warning C4244:             T=float
+C:\Users\steph\Desktop\ahhhhhhhhhh\jp21-iz-sh\JointProject\src\Grid.cpp(27,50): warning C4244:         ]
+C:\Users\steph\Desktop\ahhhhhhhhhh\jp21-iz-sh\JointProject\src\Grid.cpp(28,49): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+C:\Users\steph\Desktop\ahhhhhhhhhh\jp21-iz-sh\JointProject\src\Grid.cpp(28,49): warning C4244:         with
+C:\Users\steph\Desktop\ahhhhhhhhhh\jp21-iz-sh\JointProject\src\Grid.cpp(28,49): warning C4244:         [
+C:\Users\steph\Desktop\ahhhhhhhhhh\jp21-iz-sh\JointProject\src\Grid.cpp(28,49): warning C4244:             T=float
+C:\Users\steph\Desktop\ahhhhhhhhhh\jp21-iz-sh\JointProject\src\Grid.cpp(28,49): warning C4244:         ]
+C:\Users\steph\Desktop\ahhhhhhhhhh\jp21-iz-sh\JointProject\src\Grid.cpp(29,51): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+C:\Users\steph\Desktop\ahhhhhhhhhh\jp21-iz-sh\JointProject\src\Grid.cpp(29,51): warning C4244:         with
+C:\Users\steph\Desktop\ahhhhhhhhhh\jp21-iz-sh\JointProject\src\Grid.cpp(29,51): warning C4244:         [
+C:\Users\steph\Desktop\ahhhhhhhhhh\jp21-iz-sh\JointProject\src\Grid.cpp(29,51): warning C4244:             T=float
+C:\Users\steph\Desktop\ahhhhhhhhhh\jp21-iz-sh\JointProject\src\Grid.cpp(29,51): warning C4244:         ]
+C:\Users\steph\Desktop\ahhhhhhhhhh\jp21-iz-sh\JointProject\src\Grid.cpp(30,52): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+C:\Users\steph\Desktop\ahhhhhhhhhh\jp21-iz-sh\JointProject\src\Grid.cpp(30,52): warning C4244:         with
+C:\Users\steph\Desktop\ahhhhhhhhhh\jp21-iz-sh\JointProject\src\Grid.cpp(30,52): warning C4244:         [
+C:\Users\steph\Desktop\ahhhhhhhhhh\jp21-iz-sh\JointProject\src\Grid.cpp(30,52): warning C4244:             T=float
+C:\Users\steph\Desktop\ahhhhhhhhhh\jp21-iz-sh\JointProject\src\Grid.cpp(30,52): warning C4244:         ]
+C:\Users\steph\Desktop\ahhhhhhhhhh\jp21-iz-sh\JointProject\src\Grid.cpp(33,14): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\steph\Desktop\ahhhhhhhhhh\jp21-iz-sh\JointProject\src\Grid.cpp(36,61): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\steph\Desktop\ahhhhhhhhhh\jp21-iz-sh\JointProject\src\Grid.cpp(39,47): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\steph\Desktop\ahhhhhhhhhh\jp21-iz-sh\JointProject\src\Grid.cpp(42,61): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
   Generating Code...
-C:\Users\steph\Desktop\ahhhhhhhhhh\jp21-iz-sh\JointProject\src\main.cpp(28,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\steph\Desktop\ahhhhhhhhhh\jp21-iz-sh\JointProject\src\Grid.cpp(57,21): warning C4018: '<': signed/unsigned mismatch
   JointProject.vcxproj -> C:\Users\steph\Desktop\ahhhhhhhhhh\jp21-iz-sh\Debug\JointProject.exe

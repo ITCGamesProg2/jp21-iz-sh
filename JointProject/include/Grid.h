@@ -22,6 +22,8 @@ public:
 
 	void update();
 
+	void resetMarked();
+
 	std::vector<Cell> getCells()
 	{
 		return m_grid;
