@@ -1,8 +1,60 @@
-﻿  AI.cpp
-C:\Users\steph\Desktop\ahhhhhhhhhh\jp21-iz-sh\JointProject\include\AI.h(13,18): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\Users\steph\Desktop\ahhhhhhhhhh\jp21-iz-sh\JointProject\include\AI.h(61,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\steph\Desktop\ahhhhhhhhhh\jp21-iz-sh\JointProject\src\AI.cpp(33,31): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\steph\Desktop\ahhhhhhhhhh\jp21-iz-sh\JointProject\src\AI.cpp(33,28): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\steph\Desktop\ahhhhhhhhhh\jp21-iz-sh\JointProject\src\AI.cpp(172,31): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\steph\Desktop\ahhhhhhhhhh\jp21-iz-sh\JointProject\src\AI.cpp(172,28): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-  JointProject.vcxproj -> C:\Users\steph\Desktop\ahhhhhhhhhh\jp21-iz-sh\Debug\JointProject.exe
+﻿  Game.cpp
+C:\Users\viole\Desktop\project\jp21-iz-sh\JointProject\include\Cell.h(12,49): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\viole\Desktop\project\jp21-iz-sh\JointProject\include\Cell.h(12,36): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\viole\Desktop\project\jp21-iz-sh\JointProject\include\Cell.h(14,38): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\viole\Desktop\project\jp21-iz-sh\JointProject\include\Cell.h(14,27): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\viole\Desktop\project\jp21-iz-sh\JointProject\include\AI.h(13,18): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\viole\Desktop\project\jp21-iz-sh\JointProject\include\AI.h(61,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\viole\Desktop\project\jp21-iz-sh\JointProject\src\Game.cpp(34,36): warning C4305: 'argument': truncation from 'double' to 'float'
+  MainMenu.cpp
+C:\Users\viole\Desktop\project\jp21-iz-sh\JointProject\include\Cell.h(12,49): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\viole\Desktop\project\jp21-iz-sh\JointProject\include\Cell.h(12,36): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\viole\Desktop\project\jp21-iz-sh\JointProject\include\Cell.h(14,38): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\viole\Desktop\project\jp21-iz-sh\JointProject\include\Cell.h(14,27): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\viole\Desktop\project\jp21-iz-sh\JointProject\include\AI.h(13,18): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\viole\Desktop\project\jp21-iz-sh\JointProject\include\AI.h(61,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\viole\Desktop\project\jp21-iz-sh\JointProject\src\MainMenu.cpp(30,32): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\viole\Desktop\project\jp21-iz-sh\JointProject\src\MainMenu.cpp(39,119): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\viole\Desktop\project\jp21-iz-sh\JointProject\src\MainMenu.cpp(39,49): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\viole\Desktop\project\jp21-iz-sh\JointProject\src\MainMenu.cpp(46,58): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\viole\Desktop\project\jp21-iz-sh\JointProject\src\MainMenu.cpp(64,188): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\viole\Desktop\project\jp21-iz-sh\JointProject\src\MainMenu.cpp(69,14): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\viole\Desktop\project\jp21-iz-sh\JointProject\src\MainMenu.cpp(70,14): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  main.cpp
+C:\Users\viole\Desktop\project\jp21-iz-sh\JointProject\include\Cell.h(12,49): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\viole\Desktop\project\jp21-iz-sh\JointProject\include\Cell.h(12,36): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\viole\Desktop\project\jp21-iz-sh\JointProject\include\Cell.h(14,38): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\viole\Desktop\project\jp21-iz-sh\JointProject\include\Cell.h(14,27): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\viole\Desktop\project\jp21-iz-sh\JointProject\include\AI.h(13,18): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\viole\Desktop\project\jp21-iz-sh\JointProject\include\AI.h(61,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\viole\Desktop\project\jp21-iz-sh\JointProject\src\main.cpp(28,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  Generating Code...
+  JointProject.vcxproj -> C:\Users\viole\Desktop\project\jp21-iz-sh\Debug\JointProject.exe

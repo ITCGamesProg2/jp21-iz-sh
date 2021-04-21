@@ -47,7 +47,7 @@ void Bullet::input(sf::Vector2f t_shooterPos, sf::RenderWindow& t_window)
 	}
 }
 
-void Bullet::update(Box& t_box,AI &t_enemy)
+void Bullet::update(Box& t_box,AI &t_enemy, sf::Sound& t_boxShoot, sf::Sound& t_enemyShot)
 {
 	boundaryCheck();
 
@@ -62,9 +62,9 @@ void Bullet::update(Box& t_box,AI &t_enemy)
 
 			for (int j = 0; j < t_box.getMaxBox(); j++)
 			{
-				checkBoxIntersect(t_box.getSprite(j),t_box.getAlive(j));
+				checkBoxIntersect(t_box.getSprite(j),t_box.getAlive(j),t_boxShoot);
 			}
-			checkIntersect(t_enemy);
+			checkIntersect(t_enemy,t_enemyShot);
 		}
 	}
 }
@@ -93,7 +93,7 @@ void Bullet::boundaryCheck()
 	}
 }
 
-void Bullet::checkBoxIntersect(sf::Sprite t_box, bool m_isAlive)
+void Bullet::checkBoxIntersect(sf::Sprite t_box, bool m_isAlive,sf::Sound & t_boxShoot)
 {
 	for (int i = 0; i < MAX_BULLET; i++)
 	{
@@ -101,6 +101,7 @@ void Bullet::checkBoxIntersect(sf::Sprite t_box, bool m_isAlive)
 		{
 			if (m_bulletAlive[i] && m_isAlive)
 			{
+				t_boxShoot.play();
 				m_explosionParticles.spawnExplosion(m_bulletSprite[i].getPosition(), sf::Color(132, 112, 62));
 				m_bulletAlive[i] = false;
 			}
@@ -108,7 +109,7 @@ void Bullet::checkBoxIntersect(sf::Sprite t_box, bool m_isAlive)
 	}
 }
 
-void Bullet::checkIntersect(AI& t_enemy)
+void Bullet::checkIntersect(AI& t_enemy,sf::Sound & t_enemyShot)
 {
 	for (int i = 0; i < MAX_BULLET; i++)
 	{
@@ -116,7 +117,7 @@ void Bullet::checkIntersect(AI& t_enemy)
 		{
 			if (m_bulletAlive[i] && t_enemy.isAlive())
 			{
-
+				t_enemyShot.play();
 				m_explosionParticles.spawnExplosion(t_enemy.getSprite().getPosition(), sf::Color::Black);
 				m_bulletAlive[i] = false;
 				t_enemy.dealDamage();

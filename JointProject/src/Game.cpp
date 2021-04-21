@@ -54,6 +54,8 @@ void Game::init()
 	//int y = m_grid.getCells().at(5).getCentreY();
 
 	m_enemy.init(m_grid);
+
+	initSound();
 }
 
 void Game::run()
@@ -79,6 +81,20 @@ void Game::run()
 			if (event.type == sf::Event::MouseButtonReleased)
 			{
 				processMouseInput(event);
+			}
+			if (event.type == sf::Event::KeyReleased)
+			{
+				if (sf::Keyboard::T == event.key.code)
+				{
+					if (m_showGrid)
+					{
+						m_showGrid = false;
+					}
+					else if (!m_showGrid)
+					{
+						m_showGrid = true;
+					}
+				}
 			}
 		}
 
@@ -144,12 +160,13 @@ void Game::processMouseInput(sf::Event t_event)
 			{
 				m_player.giveAmmo(-1);
 				m_clickedMouse = true;
+				m_playerAttack.play();
 				m_bullet.input(m_player.getSprite().getPosition(), m_window);
 			}
 		}
 		break;
 
-	case GameState::Loose:
+	case GameState::Lose:
 
 		if (sf::Mouse::Left == t_event.key.code)
 		{
@@ -201,18 +218,21 @@ void Game::draw()
 
 		m_window.draw(m_bgSpriteSheet);
 
+		if (m_showGrid)
+		{
+			m_grid.draw(m_window);
+		}
 		
 		m_enemy.draw(m_window);
 		m_AIBullet.draw(m_window);
-		
-		m_box.draw(m_window);
 		m_pickups.draw(m_window);
+		m_box.draw(m_window);
 		m_player.draw(m_window);
 		m_bullet.draw(m_window);
 		m_HUD.draw(m_window);
 		break;
 
-	case GameState::Loose:
+	case GameState::Lose:
 	{
 		m_gameOverScreen.render(m_window);
 		break;
@@ -235,6 +255,10 @@ void Game::update()
 	case GameState::None:
 		break;
 	case GameState::MainMenu:
+		if (sf::Sound::Playing != m_menuSong.getStatus()) //plays music in main menu
+		{
+			m_menuSong.play();
+		}
 		m_menu.update(m_window);
 		break;
 	case GameState::Help:
@@ -248,11 +272,22 @@ void Game::update()
 		break;
 	case GameState::Game:
 
+		if (sf::Sound::Playing == m_menuSong.getStatus())
+		{
+			m_menuSong.stop(); //stops playing music if mode is changed
+		}
+		if (sf::Sound::Playing != m_warehouse.getStatus()) //plays music in main menu
+		{
+			m_warehouse.play();
+		}
+		m_grid.markImpassableCells(m_box);
+		m_grid.update();
+
 		m_playerAlive = m_player.update(m_bullet.getMousePos(), m_clickedMouse);
 
 		if (m_playerAlive == false)
 		{
-			m_currentState = GameState::Loose;
+			m_currentState = GameState::Lose;
 		}
 		else
 		{
@@ -266,16 +301,16 @@ void Game::update()
 				}
 			}
 
-			m_bullet.update(m_box, m_enemy);
-			m_AIBullet.update(m_box, m_enemy, m_player);
+			m_bullet.update(m_box, m_enemy,m_boxShot,m_enemyShot);
+			m_AIBullet.update(m_box, m_enemy, m_player,m_boxShot,m_playerShot,m_enemyAttack);
 		}
 
-		m_box.update(m_player);
+		m_box.update(m_player,m_boxOpen);
 		m_HUD.update(m_player);
-		m_pickups.update(m_player, m_box.getActiveBox());
+		m_pickups.update(m_player, m_box.getActiveBox(),m_itemGet);
 		break;
 
-	case GameState::Loose:
+	case GameState::Lose:
 
 		m_gameOverScreen.update(m_window, false);
 		break;
@@ -303,4 +338,75 @@ void Game::restart()
 	m_grid.restart();
 	m_pickups.restart();
 	m_currentState = GameState::Game;
+}
+
+void Game::initSound()
+{
+	if (!m_menuBuffer.loadFromFile("./resources/sound/menuSong.wav"))
+	{
+		std::cout << "Problem with song file" << std::endl;
+	}
+
+	m_menuSong.setBuffer(m_menuBuffer);
+	m_menuSong.setVolume(37);
+
+	if (!m_warehouseBuffer.loadFromFile("./resources/sound/warehouse.wav"))
+	{
+		std::cout << "Problem with warehouse audio file" << std::endl;
+	}
+
+	m_warehouse.setBuffer(m_warehouseBuffer);
+	m_warehouse.setVolume(37);
+
+	if (!m_boxOpenBuffer.loadFromFile("./resources/sound/box.wav"))
+	{
+		std::cout << "Problem with box sound file" << std::endl;
+	}
+
+	m_boxOpen.setBuffer(m_boxOpenBuffer);;
+
+	if (!m_boxShotBuffer.loadFromFile("./resources/sound/hitBox.wav"))
+	{
+		std::cout << "Problem with box hit sound file" << std::endl;
+	}
+
+	m_boxShot.setBuffer(m_boxShotBuffer);
+	m_boxShot.setVolume(73);
+
+	if (!m_playerShotBuffer.loadFromFile("./resources/sound/hitPlayer.wav"))
+	{
+		std::cout << "Problem with player hit sound file" << std::endl;
+	}
+
+	m_playerShot.setBuffer(m_playerShotBuffer);
+
+	if (!m_enemyShotBuffer.loadFromFile("./resources/sound/hitRobot.wav"))
+	{
+		std::cout << "Problem with robot hit sound file" << std::endl;
+	}
+
+	m_enemyShot.setBuffer(m_enemyShotBuffer);
+
+	if (!m_playerAttackBuffer.loadFromFile("./resources/sound/playerShoots.wav"))
+	{
+		std::cout << "Problem with player shooting sound file" << std::endl;
+	}
+
+	m_playerAttack.setBuffer(m_playerAttackBuffer);
+
+	
+	if (!m_enemyAttackBuffer.loadFromFile("./resources/sound/robotShoots.wav"))
+	{
+		std::cout << "Problem with enemy shooting sound file" << std::endl;
+	}
+
+	m_enemyAttack.setBuffer(m_enemyAttackBuffer);
+
+
+	if (!m_itemGetBuffer.loadFromFile("./resources/sound/itemGet.wav"))
+	{
+		std::cout << "Problem with item collect sound file" << std::endl;
+	}
+
+	m_itemGet.setBuffer(m_itemGetBuffer);
 }

@@ -22,7 +22,7 @@ public:
 	/// <summary>
 	/// will possibily be used for animations
 	/// </summary>
-	void update(Player &t_player);
+	void update(Player &t_player, sf::Sound& t_boxOpen);
 
 	/// <summary>
 	/// give the box its inital sprite, and the text

@@ -97,7 +97,7 @@ bool Player::update(sf::Vector2f t_mousePos, bool& t_clickedMouse)
 	return m_alive;
 }
 
-void Player::interactWithBox()
+void Player::interactWithBox(sf::Sound& t_boxOpen)
 {
 	// check if E press delay is finished
 	if (m_canPressE)
@@ -105,6 +105,7 @@ void Player::interactWithBox()
 		// check if player pressed E
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::E))
 		{
+			t_boxOpen.play();
 			// m_hidden bool flip flop
 			if (m_hidden)
 			{

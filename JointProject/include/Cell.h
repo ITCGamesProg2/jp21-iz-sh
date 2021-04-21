@@ -1,17 +1,25 @@
 #pragma once
 #include <iostream>
+#include <SFML/Graphics.hpp>
 #include <queue>
 class Cell
 {
 public:
-	Cell(int t_cellWidth, int t_cellHeight, int t_cellId = -1 ) : m_id(t_cellId)
+	Cell(int t_cellWidth, int t_cellHeight, int t_cellId = -1) : m_id(t_cellId)
 	{
 		m_isPassable = true;
-		findCentreXandCentreY(t_cellWidth,t_cellHeight);
+		findCentreXandCentreY(t_cellWidth, t_cellHeight);
+		m_cellShape.setSize(sf::Vector2f(t_cellWidth, t_cellHeight));
+		m_cellShape.setOrigin(m_cellShape.getGlobalBounds().width / 2, m_cellShape.getGlobalBounds().height / 2);
+		m_cellShape.setPosition(m_centreX, m_centreY);
+		m_cellShape.setFillColor(sf::Color::Transparent);
+		m_cellShape.setOutlineThickness(0.5);
+		m_cellShape.setOutlineColor(sf::Color::Green);
 	}
 
-	void findCentreXandCentreY(int t_cellWidth, int t_cellHeight );
-
+	void findCentreXandCentreY(int t_cellWidth, int t_cellHeight);
+	void draw(sf::RenderWindow& t_window);
+	void update();
 	static void neighbours(std::vector<Cell>& t_grid);
 
 	/// <summary>
@@ -44,7 +52,7 @@ public:
 	{
 		return m_neighbours;
 	}
-	
+
 	void setMarked(bool t_marked)
 	{
 		m_isMarked = t_marked;
@@ -80,13 +88,20 @@ public:
 		return m_centreY;
 	}
 
+	void colourPath(bool t_onpath)
+	{
+		m_onPath = t_onpath;
+	}
+
 private:
 	int m_id;
 	int m_centreX;
 	int m_centreY;
 	bool m_isMarked{ false };
 	bool m_isPassable;
+	bool m_onPath = false;
 	std::vector<int> m_neighbours;
 	int m_parentCellId = -1;
+	sf::RectangleShape m_cellShape;
 };
 

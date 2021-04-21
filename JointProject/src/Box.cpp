@@ -17,7 +17,7 @@ void Box::draw(sf::RenderWindow& t_win)
 	}
 }
 
-void Box::update(Player& t_player)
+void Box::update(Player& t_player, sf::Sound& t_boxOpen)
 {
 	for (int i = 0; i < M_MAX_BOX; i++)
 	{
@@ -51,7 +51,7 @@ void Box::update(Player& t_player)
 					m_boxSprite[m_activeBox].getPosition().y - m_interactPromptText.getGlobalBounds().height);
 
 				// check if player interacts with the box
-				t_player.interactWithBox();
+				t_player.interactWithBox(t_boxOpen);
 
 				break;
 			}

@@ -66,7 +66,7 @@ void AIBullet::shootAtPlayer(sf::Vector2f t_playerPos, sf::Vector2f t_aiPos)
 	}
 }
 
-void AIBullet::update(Box& t_box, AI& t_ai, Player& t_player)
+void AIBullet::update(Box& t_box, AI& t_ai, Player& t_player, sf::Sound& t_boxShoot, sf::Sound& t_playerShot,sf::Sound& t_enemyAttack)
 {
 	m_explosionParticles.update();
 
@@ -82,10 +82,10 @@ void AIBullet::update(Box& t_box, AI& t_ai, Player& t_player)
 
 			for (int j = 0; j < t_box.getMaxBox(); j++)
 			{
-				checkBoxIntersect(t_box, j);
+				checkBoxIntersect(t_box, j,t_boxShoot);
 			}
 
-			checkPlayerIntersect(t_player);
+			checkPlayerIntersect(t_player,t_playerShot);
 		}
 	}
 
@@ -135,6 +135,7 @@ void AIBullet::update(Box& t_box, AI& t_ai, Player& t_player)
 						}
 					}
 					// shoot at that box
+					t_enemyAttack.play();
 					shootAtBox(t_box.getSprite(closestBoxIndex).getPosition(), t_ai.getSprite().getPosition());
 
 					if (t_box.getSprite(closestBoxIndex).getPosition().x < t_ai.getSprite().getPosition().x)
@@ -159,6 +160,7 @@ void AIBullet::update(Box& t_box, AI& t_ai, Player& t_player)
 				m_firingTimer.reset(sf::Time(sf::seconds(PLAYER_FIRING_COOLDOWN)));
 				m_firingTimer.start();
 
+				t_enemyAttack.play();
 				shootAtPlayer(t_player.getSprite().getPosition(), t_ai.getSprite().getPosition());
 			}
 		}
@@ -166,7 +168,7 @@ void AIBullet::update(Box& t_box, AI& t_ai, Player& t_player)
 	
 }
 
-void AIBullet::checkBoxIntersect(Box& t_box, int t_arrayCell)
+void AIBullet::checkBoxIntersect(Box& t_box, int t_arrayCell, sf::Sound& t_boxShoot)
 {
 	for (int i = 0; i < MAX_BULLET; i++)
 	{
@@ -174,6 +176,7 @@ void AIBullet::checkBoxIntersect(Box& t_box, int t_arrayCell)
 		{
 			if (m_bulletAlive[i] && t_box.getAlive(t_arrayCell))
 			{
+				t_boxShoot.play();
 				t_box.reduceNumOfBoxes();
 				t_box.setAlive(t_arrayCell);
 
@@ -185,7 +188,7 @@ void AIBullet::checkBoxIntersect(Box& t_box, int t_arrayCell)
 	}
 }
 
-void AIBullet::checkPlayerIntersect(Player& t_player)
+void AIBullet::checkPlayerIntersect(Player& t_player,sf::Sound& t_playerShot)
 {
 	for (int i = 0; i < MAX_BULLET; i++)
 	{
@@ -193,6 +196,7 @@ void AIBullet::checkPlayerIntersect(Player& t_player)
 		{
 			if (m_bulletAlive[i] && t_player.isAlive() && t_player.isHidden() == false)
 			{
+				t_playerShot.play();
 				m_bulletAlive[i] = false;
 
 				// spawn particles at player

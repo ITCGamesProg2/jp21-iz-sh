@@ -31,17 +31,17 @@ public:
 	/// <summary>
 	/// moves bullets 
 	/// </summary>
-	void update(Box& t_box, AI& t_ai, Player& t_player);
+	void update(Box& t_box, AI& t_ai, Player& t_player, sf::Sound& t_boxShoot, sf::Sound& t_playerShot, sf::Sound& t_enemyAttack);
 	/// <summary>
 	/// disappears bullets when they hit box, also destroys box it hits
 	/// </summary>
 	/// <param name="t_box"></param>
-	void checkBoxIntersect(Box& t_box, int t_arrayCell);
+	void checkBoxIntersect(Box& t_box, int t_arrayCell, sf::Sound& t_boxShoot);
 
 	/// <summary>
 	/// disappears bullets when they hit player, deals damage to player
 	/// </summary>
-	void checkPlayerIntersect(Player& t_player);
+	void checkPlayerIntersect(Player& t_player, sf::Sound& t_playerShot);
 
 	/// <summary>
 	/// disappears bullets once they leave screen

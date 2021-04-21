@@ -12,6 +12,8 @@ public:
 	/// </summary>
 	void makeGrid();
 
+	void draw(sf::RenderWindow& t_window);
+
 	/// <summary>
 	/// gets coords of corners of sprites and marks the cells as impassable
 	/// </summary>
@@ -22,7 +24,6 @@ public:
 
 	void update();
 
-	void resetMarked();
 
 	std::vector<Cell> getCells()
 	{

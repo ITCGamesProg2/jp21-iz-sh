@@ -21,7 +21,7 @@ public:
 	/// <summary>
 	/// moves bullets towards mouse click
 	/// </summary>
-	void update(Box& t_box, AI& t_enemy);
+	void update(Box& t_box, AI& t_enemy, sf::Sound& t_boxShoot, sf::Sound& t_enemyShot);
 	/// <summary>
 	/// disappears bullets once they leave screen
 	/// </summary>
@@ -30,12 +30,12 @@ public:
 	/// disappears bullets when they hit box
 	/// </summary>
 	/// <param name="t_box"></param>
-	void checkBoxIntersect(sf::Sprite t_box, bool m_isAlive);
+	void checkBoxIntersect(sf::Sprite t_box, bool m_isAlive, sf::Sound& t_boxShoot);
 
 	/// <summary>
 	/// disappears bullets when they hit enemy, deals damage
 	/// </summary>
-	void checkIntersect(AI& t_enemy);
+	void checkIntersect(AI& t_enemy, sf::Sound& t_enemyShot);
 
 	sf::Vector2f getMousePos()
 	{

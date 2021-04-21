@@ -60,8 +60,6 @@ bool AI::update(Grid &m_grid)
 		// ai has reached destination , next cell is now the last cell
 		if (m_grid.getCells().at(nextCell).id() == destinationCell)
 		{
-			std::cout << "done" << std::endl;
-
 			// make a new destination
 			destinationCell = std::rand() % 100;
 

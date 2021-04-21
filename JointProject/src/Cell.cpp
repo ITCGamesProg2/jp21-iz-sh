@@ -23,6 +23,27 @@ void Cell::findCentreXandCentreY(int t_cellWidth, int t_cellHeight)
 	std::cout << m_centreY << std::endl;*/
 }
 
+void Cell::draw(sf::RenderWindow& t_window)
+{
+	t_window.draw(m_cellShape);
+}
+
+void Cell::update()
+{
+	if (!m_isPassable)
+	{
+		m_cellShape.setFillColor(sf::Color::Red);
+	}
+	else if (m_onPath)
+	{
+		m_cellShape.setFillColor(sf::Color::Cyan);
+	}
+	else
+	{
+		m_cellShape.setFillColor(sf::Color::Transparent);
+	}
+}
+
 void Cell::neighbours(std::vector<Cell>& t_grid)
 {
 	int t_ROWS = 10;

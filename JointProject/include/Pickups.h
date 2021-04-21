@@ -20,7 +20,7 @@ public:
 
 	void draw(sf::RenderWindow& t_win);
 
-	void update(Player& t_player, int t_activeBox);
+	void update(Player& t_player, int t_activeBox,sf::Sound& t_itemGet);
 
 	void initPickups(Box& t_box);
 

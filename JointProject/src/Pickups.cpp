@@ -18,7 +18,7 @@ void Pickups::draw(sf::RenderWindow& t_win)
 	
 }
 
-void Pickups::update(Player& t_player, int t_activeBox)
+void Pickups::update(Player& t_player, int t_activeBox,sf::Sound& t_itemGet)
 {
 	if (t_player.isHidden() == true)
 	{
@@ -26,6 +26,7 @@ void Pickups::update(Player& t_player, int t_activeBox)
 		{
 			if (m_gunPickupAlive)
 			{
+				t_itemGet.play();
 				t_player.giveGun();
 				m_gunPickupAlive = false;
 			}
@@ -38,6 +39,7 @@ void Pickups::update(Player& t_player, int t_activeBox)
 			{
 				if (t_activeBox == m_usedAmmoBoxIndex[i])
 				{
+					t_itemGet.play();
 					t_player.giveAmmo(5);
 					m_bulletPickUpAlive[i] = false;
 				}
@@ -51,6 +53,7 @@ void Pickups::update(Player& t_player, int t_activeBox)
 		{
 			if (t_player.getSprite().getGlobalBounds().intersects((m_gunSprite.getGlobalBounds())))
 			{
+				t_itemGet.play();
 				t_player.giveGun();
 				m_gunPickupAlive = false;
 			}
@@ -62,6 +65,7 @@ void Pickups::update(Player& t_player, int t_activeBox)
 			{
 				if (t_player.getSprite().getGlobalBounds().intersects((m_ammoSprite[i].getGlobalBounds())))
 				{
+					t_itemGet.play();
 					t_player.giveAmmo(5);
 					m_bulletPickUpAlive[i] = false;
 				}

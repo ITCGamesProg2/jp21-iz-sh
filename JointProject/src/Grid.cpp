@@ -15,6 +15,14 @@ void Grid::makeGrid()
 	Cell::neighbours(m_grid);
 }
 
+void Grid::draw(sf::RenderWindow& t_window)
+{
+	for (int index = 0; index < 100; index++)
+	{
+		m_grid.at(index).draw(t_window);
+	}
+}
+
 void Grid::markImpassableCells(Box& t_box)
 {
 	int tempLeft;
@@ -31,21 +39,54 @@ void Grid::markImpassableCells(Box& t_box)
 
 		//marking top left corner of sprite
 		int cellId = std::floor(tempLeft / m_cellWidth) + (std::floor(tempTop / m_cellHeight) * COLS);
-		m_grid.at(cellId).setPassable(false);
+		if (t_box.getAlive(i))
+		{
+			m_grid.at(cellId).setPassable(false);
+		}
+		else
+		{
+			m_grid.at(cellId).setPassable(true);
+		}
 		//marking top right corner of sprite
 		cellId = std::floor((tempLeft + tempWidth) / m_cellWidth) + (std::floor(tempTop / m_cellHeight) * COLS);
-		m_grid.at(cellId).setPassable(false);
+		if (t_box.getAlive(i))
+		{
+			m_grid.at(cellId).setPassable(false);
+		}
+		else
+		{
+			m_grid.at(cellId).setPassable(true);
+		}
 		//marking bottom left corner of sprite
 		cellId = std::floor(tempLeft / m_cellWidth) + (std::floor((tempTop + tempHeight) / m_cellHeight) * COLS);
-		m_grid.at(cellId).setPassable(false);
+		if (t_box.getAlive(i))
+		{
+			m_grid.at(cellId).setPassable(false);
+		}
+		else
+		{
+			m_grid.at(cellId).setPassable(true);
+		}
 		//marking top right corner of sprite
 		cellId = std::floor((tempLeft + tempWidth) / m_cellWidth) + (std::floor((tempTop + tempHeight) / m_cellHeight) * COLS);
-		m_grid.at(cellId).setPassable(false);
+		if (t_box.getAlive(i))
+		{
+			m_grid.at(cellId).setPassable(false);
+		}
+		else
+		{
+			m_grid.at(cellId).setPassable(true);
+		}
 	}
 }
 
 std::vector<int> Grid::breadthFirst(int t_startCellId, int t_destCellId)
 {
+	for (int i = 0; i < 100; i++)
+	{
+		m_grid.at(i).colourPath(false);
+	}
+
 	bool goalReached = false;
 	std::queue<Cell> cellQueue;
 	Cell startCell = m_grid.at(t_startCellId);
@@ -86,6 +127,7 @@ std::vector<int> Grid::breadthFirst(int t_startCellId, int t_destCellId)
 
 	while (m_grid.at(cellIndex).getParentCellId() != -1)
 	{
+		m_grid.at(cellIndex).colourPath(true);
 		path.push_back(cellIndex);
 
 		cellIndex = m_grid.at(cellIndex).getParentCellId();
@@ -93,22 +135,15 @@ std::vector<int> Grid::breadthFirst(int t_startCellId, int t_destCellId)
 
 	path.push_back(cellIndex);
 
-	resetMarked();
-
 	return path;
 }
 
 void Grid::update()
 {
-	
-}
-
-void Grid::resetMarked()
-{
-	/*for (int i = 0; i < 100; i++)
+	for (int index = 0; index < 100; index++)
 	{
-		m_grid.at(i).setMarked(false);
-	}*/
+		m_grid.at(index).update();
+	}
 }
 
 void Grid::restart()

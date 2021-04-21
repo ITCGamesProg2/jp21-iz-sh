@@ -14,6 +14,8 @@
 #include "Help.h"
 #include "Cutscene.h"
 #include "GameOverScreen.h"
+#include <SFML/Audio.hpp>
+
 
 enum class
 	GameState
@@ -24,7 +26,7 @@ enum class
 	Cutscene,
 	Game,
 	Win,
-	Loose,
+	Lose,
 };
 
 class Game
@@ -45,6 +47,11 @@ public:
 
 	void restart();
 
+	/// <summary>
+	/// loads the menu song and object sounds
+	/// </summary>
+	void initSound();
+
 private:
 	//create Window
 	sf::RenderWindow m_window;
@@ -62,6 +69,8 @@ private:
 
 	bool m_playerAlive;
 
+	bool m_showGrid = false;
+
 	Box m_box;
 	Bullet m_bullet;
 	AIBullet m_AIBullet;
@@ -73,5 +82,25 @@ private:
 	Cutscene m_cut;
 	Grid m_grid;
 	GameOverScreen m_gameOverScreen;
-	GameState m_currentState = GameState::Game;
+	GameState m_currentState = GameState::MainMenu;
+
+	sf::SoundBuffer m_menuBuffer;
+	sf::Sound m_menuSong;
+	sf::SoundBuffer m_warehouseBuffer;
+	sf::Sound m_warehouse;
+	sf::SoundBuffer m_boxOpenBuffer;
+	sf::Sound m_boxOpen;
+	sf::SoundBuffer m_boxShotBuffer;
+	sf::Sound m_boxShot;
+	sf::SoundBuffer m_playerShotBuffer;
+	sf::Sound m_playerShot;
+	sf::SoundBuffer m_enemyShotBuffer;
+	sf::Sound m_enemyShot;
+	sf::SoundBuffer m_playerAttackBuffer;
+	sf::Sound m_playerAttack;
+	sf::SoundBuffer m_enemyAttackBuffer;
+	sf::Sound m_enemyAttack;
+	sf::SoundBuffer m_itemGetBuffer;
+	sf::Sound m_itemGet;
+
 };

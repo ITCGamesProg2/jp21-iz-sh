@@ -3,6 +3,7 @@
 #include "Animation.h"
 #include "ScreenSize.h"
 #include <iostream>
+#include <SFML/Audio.hpp>
 
 class Player
 {
@@ -29,7 +30,7 @@ public:
 	/// <summary>
 	/// checks if player inputs to hide in or get out of a box
 	/// </summary>
-	void interactWithBox();
+	void interactWithBox(sf::Sound& t_boxOpen);
 
 	/// <summary>
 	/// Stops the player from leaving the screen
