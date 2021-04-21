@@ -153,4 +153,6 @@ void Player::restart()
 	 m_health = 100;
 	 m_alive = true;
 	 m_hidden = false;
+
+	 m_playerSprite.setPosition(100, 100);
 }

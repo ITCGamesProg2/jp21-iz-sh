@@ -63,7 +63,7 @@ private:
 	sf::Sprite m_bulletSprite[MAX_BULLET];
 	sf::Vector2f m_shotDirection[MAX_BULLET];
 
-	int m_damageToPlayer = 100;
+	int m_damageToPlayer = 34;
 
 	// bools controlling what shoot mode AI is in
 	bool m_shootAtBoxMode = true;
