@@ -67,5 +67,5 @@ private:
 	HelpScreen m_help;
 	Cutscene m_cut;
 	Grid m_grid;
-	GameState m_currentState = GameState::Game;
+	GameState m_currentState = GameState::MainMenu;
 };

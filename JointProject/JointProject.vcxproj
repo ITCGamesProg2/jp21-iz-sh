@@ -150,13 +150,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Cutscene.h" />
     <ClInclude Include="include\AI.h" />
     <ClInclude Include="include\AIBullet.h" />
     <ClInclude Include="include\Animation.h" />
     <ClInclude Include="include\Box.h" />
     <ClInclude Include="include\Bullet.h" />
     <ClInclude Include="include\Cell.h" />
+    <ClInclude Include="include\Cutscene.h" />
     <ClInclude Include="include\Game.h" />
     <ClInclude Include="include\Grid.h" />
     <ClInclude Include="include\Help.h" />
@@ -169,13 +169,13 @@
     <ClInclude Include="include\ScreenSize.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Cutscene.cpp" />
     <ClCompile Include="include\Help.cpp" />
     <ClCompile Include="src\AI.cpp" />
     <ClCompile Include="src\AIBullet.cpp" />
     <ClCompile Include="src\Box.cpp" />
     <ClCompile Include="src\Bullet.cpp" />
     <ClCompile Include="src\Cell.cpp" />
+    <ClCompile Include="src\Cutscene.cpp" />
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\Grid.cpp" />
     <ClCompile Include="src\HUD.cpp" />
