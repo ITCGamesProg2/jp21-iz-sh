@@ -13,6 +13,7 @@
 #include "MainMenu.h"
 #include "Help.h"
 #include "Cutscene.h"
+#include "GameOverScreen.h"
 
 enum class
 	GameState
@@ -42,6 +43,8 @@ public:
 
 	void update();
 
+	void restart();
+
 private:
 	//create Window
 	sf::RenderWindow m_window;
@@ -56,6 +59,9 @@ private:
 	bool m_clickedMouse = false;
 
 	static const int M_NUM_ENEMIES = 2;
+	bool m_enemiesAlive[M_NUM_ENEMIES];
+
+	bool m_playerAlive;
 
 	Box m_box;
 	Bullet m_bullet;
@@ -67,5 +73,6 @@ private:
 	HelpScreen m_help;
 	Cutscene m_cut;
 	Grid m_grid;
-	GameState m_currentState = GameState::MainMenu;
+	GameOverScreen m_gameOverScreen;
+	GameState m_currentState = GameState::Game;
 };

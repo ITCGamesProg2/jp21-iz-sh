@@ -158,6 +158,7 @@
     <ClInclude Include="include\Cell.h" />
     <ClInclude Include="include\Cutscene.h" />
     <ClInclude Include="include\Game.h" />
+    <ClInclude Include="include\GameOverScreen.h" />
     <ClInclude Include="include\Grid.h" />
     <ClInclude Include="include\Help.h" />
     <ClInclude Include="include\HUD.h" />
@@ -169,6 +170,7 @@
     <ClInclude Include="include\ScreenSize.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="include\GameOverScreen.cpp" />
     <ClCompile Include="include\Help.cpp" />
     <ClCompile Include="src\AI.cpp" />
     <ClCompile Include="src\AIBullet.cpp" />

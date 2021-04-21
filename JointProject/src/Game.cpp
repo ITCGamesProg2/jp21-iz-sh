@@ -47,6 +47,7 @@ void Game::init()
 	m_menu.initialise(m_font);
 	m_help.initialise(m_font);
 	m_cut.init(m_font);
+	m_gameOverScreen.initialise(m_font);
 
 	//std::vector<int> aiPath;
 	//aiPath = m_grid.breadthFirst(5,30);
@@ -104,6 +105,7 @@ void Game::processMouseInput(sf::Event t_event)
 {
 	int state = 0;
 	bool backToMenu = false;
+	bool restartGame = false;
 
 	switch (m_currentState)
 	{
@@ -152,6 +154,33 @@ void Game::processMouseInput(sf::Event t_event)
 			}
 		}
 		break;
+
+	case GameState::Loose:
+
+		if (sf::Mouse::Left == t_event.key.code)
+		{
+			restartGame = m_gameOverScreen.processInput(m_window, t_event);
+
+			if (restartGame)
+			{
+				restart();
+			}
+		}
+		break;
+
+	case GameState::Win:
+
+		if (sf::Mouse::Left == t_event.key.code)
+		{
+			restartGame = m_gameOverScreen.processInput(m_window, t_event);
+
+			if (restartGame)
+			{
+				restart();
+			}
+		}
+		break;
+
 	default:
 		break;
 	}
@@ -193,7 +222,13 @@ void Game::draw()
 
 	case GameState::Loose:
 	{
-
+		m_gameOverScreen.render(m_window);
+		break;
+	}
+	case GameState::Win:
+	{
+		m_gameOverScreen.render(m_window);
+		break;
 	}
 	default:
 		break;
@@ -203,9 +238,6 @@ void Game::draw()
 
 void Game::update()
 {
-	bool playerAlive;
-	bool enemiesRemaining;
-
 	switch (m_currentState)
 	{
 	case GameState::None:
@@ -224,22 +256,23 @@ void Game::update()
 		break;
 	case GameState::Game:
 
-		playerAlive = m_player.update(m_bullet.getMousePos(), m_clickedMouse);
+		m_playerAlive = m_player.update(m_bullet.getMousePos(), m_clickedMouse);
 
-		if (playerAlive == false)
+		if (m_playerAlive == false)
 		{
 			m_currentState = GameState::Loose;
-
 		}
 		else
 		{
 			for (int i = 0; i < M_NUM_ENEMIES; i++)
 			{
-				enemiesRemaining = m_enemy[i].update(m_grid);
+				m_enemiesAlive[i] = m_enemy[i].update(m_grid);
 
-				if (enemiesRemaining == false)
+				if (m_enemiesAlive[0] == false && m_enemiesAlive[1] == false)
 				{
-					m_currentState = GameState::Win;
+					{
+						m_currentState = GameState::Win;
+					}
 				}
 
 				m_bullet.update(m_box, m_enemy[i]);
@@ -251,8 +284,24 @@ void Game::update()
 			m_pickups.update(m_player, m_box.getActiveBox());
 		}
 		break;
+	case GameState::Loose:
+	{
+		m_gameOverScreen.update(m_window, false);
+		break;
+	}
+	case GameState::Win:
+	{
+		m_gameOverScreen.update(m_window, true);
+		break;
+	}
 	default:
 		break;
 	}
 
+}
+
+void Game::restart()
+{
+	m_player.restart();
+	m_currentState = GameState::Game;
 }

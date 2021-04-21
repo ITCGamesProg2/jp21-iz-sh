@@ -145,3 +145,9 @@ void Player::boundaryCheck()
 		m_playerSprite.setPosition(m_playerSprite.getPosition().x,m_playerSprite.getGlobalBounds().height / 2);
 	}
 }
+
+void Player::restart()
+{
+	m_health = 100;
+	m_alive = true;
+}

@@ -1,7 +1,12 @@
-﻿  Cutscene.cpp
-C:\Users\viole\Desktop\join\jp21-iz-sh\JointProject\src\Cutscene.cpp(46,34): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\viole\Desktop\join\jp21-iz-sh\JointProject\src\Cutscene.cpp(48,49): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\viole\Desktop\join\jp21-iz-sh\JointProject\src\Cutscene.cpp(51,34): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\viole\Desktop\join\jp21-iz-sh\JointProject\src\Cutscene.cpp(61,55): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-  LINK : C:\Users\viole\Desktop\join\jp21-iz-sh\Debug\JointProject.exe not found or not built by the last incremental link; performing full link
-  JointProject.vcxproj -> C:\Users\viole\Desktop\join\jp21-iz-sh\Debug\JointProject.exe
+﻿  Player.cpp
+C:\Users\steph\Desktop\ahhhhhhhhhh\jp21-iz-sh\JointProject\src\Player.cpp(13,91): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+C:\Users\steph\Desktop\ahhhhhhhhhh\jp21-iz-sh\JointProject\src\Player.cpp(13,91): warning C4244:         with
+C:\Users\steph\Desktop\ahhhhhhhhhh\jp21-iz-sh\JointProject\src\Player.cpp(13,91): warning C4244:         [
+C:\Users\steph\Desktop\ahhhhhhhhhh\jp21-iz-sh\JointProject\src\Player.cpp(13,91): warning C4244:             T=float
+C:\Users\steph\Desktop\ahhhhhhhhhh\jp21-iz-sh\JointProject\src\Player.cpp(13,91): warning C4244:         ]
+C:\Users\steph\Desktop\ahhhhhhhhhh\jp21-iz-sh\JointProject\src\Player.cpp(13,51): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+C:\Users\steph\Desktop\ahhhhhhhhhh\jp21-iz-sh\JointProject\src\Player.cpp(13,51): warning C4244:         with
+C:\Users\steph\Desktop\ahhhhhhhhhh\jp21-iz-sh\JointProject\src\Player.cpp(13,51): warning C4244:         [
+C:\Users\steph\Desktop\ahhhhhhhhhh\jp21-iz-sh\JointProject\src\Player.cpp(13,51): warning C4244:             T=float
+C:\Users\steph\Desktop\ahhhhhhhhhh\jp21-iz-sh\JointProject\src\Player.cpp(13,51): warning C4244:         ]
+  JointProject.vcxproj -> C:\Users\steph\Desktop\ahhhhhhhhhh\jp21-iz-sh\Debug\JointProject.exe

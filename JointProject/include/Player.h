@@ -101,6 +101,8 @@ public:
 		m_playerSprite.setColor(t_color);
 	}
 
+	void restart();
+
 private:
 
 	PlayerAnimationState m_animationState = PlayerAnimationState::walk;
