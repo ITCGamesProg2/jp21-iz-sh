@@ -111,4 +111,12 @@ void Grid::resetMarked()
 	}*/
 }
 
+void Grid::restart()
+{
+	for (int i = 0; i < 100; i++)
+	{
+		m_grid.at(i).setParentCellId(-1);
+	}
+}
+
 

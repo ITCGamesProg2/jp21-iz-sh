@@ -52,12 +52,6 @@ bool AI::update(Grid &m_grid)
 	if (m_alive)
 	{
 
-		//// NEEDS FUNCTION TO FIND WHAT CELL AI IS IN. AT(0) IS JUST THERE TO AVOID A CRASH
-		//if (m_aiPath.empty())
-		//{
-		//	m_aiPath = m_grid.breadthFirst(m_grid.getCells().at(0).id(), randCell);
-		//}
-
 		// get next cell destination in ai's stored path
 		int nextCell = m_aiPath.at(m_aiPath.size() - 1);
 		int nextX = m_grid.getCells().at(nextCell).getCentreX();
@@ -123,33 +117,6 @@ bool AI::update(Grid &m_grid)
 		return false;
 	}
 	
-	
-	/*if (m_enemySprite.getPosition().x == randX && m_enemySprite.getPosition().y == randY)
-	{
-		randX = std::rand() % (ScreenSize::s_width - 200) + 100;
-		randY = std::rand() % (ScreenSize::s_height - 200) + 100;
-	}
-
-	if (m_enemySprite.getPosition().x > randX)
-	{
-		
-		m_enemySprite.move(-1, 0);
-	}
-	else if (m_enemySprite.getPosition().x < randX)
-	{
-		
-		m_enemySprite.move(1, 0);
-	}
-
-	if (m_enemySprite.getPosition().y > randY)
-	{
-		m_enemySprite.move(0, -1);
-	}
-	else if (m_enemySprite.getPosition().y < randY)
-	{
-		m_enemySprite.move(0, 1);
-	}*/
-
 }
 
 void AI::restart(Grid & t_grid)
@@ -159,12 +126,12 @@ void AI::restart(Grid & t_grid)
 	
 	destinationCell = std::rand() % 100;
 
-	m_aiPath = t_grid.breadthFirst(5, destinationCell);
-
 	while (!t_grid.getCells().at(destinationCell).isPassable())
 	{
 		destinationCell = std::rand() % 100;
 	}
+
+	m_aiPath = t_grid.breadthFirst(5, destinationCell);
 
 	int x = t_grid.getCells().at(5).getCentreX();
 	int y = t_grid.getCells().at(5).getCentreY();

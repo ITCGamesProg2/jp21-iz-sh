@@ -106,7 +106,7 @@ public:
 private:
 
 	PlayerAnimationState m_animationState = PlayerAnimationState::walk;
-	Animation m_animations[4];
+	Animation m_animations[2];
 	AnimationSheet m_animSheet;
 	sf::Vector2f m_position;
 	sf::Sprite& m_playerSprite;

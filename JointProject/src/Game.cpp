@@ -9,7 +9,7 @@ void Game::init()
 {
 	m_view = m_window.getDefaultView();
 
-	if (!m_playerTextureSheet.loadFromFile("./resources/character_robot_sheet.png"))
+	if (!m_playerTextureSheet.loadFromFile("./resources/playerSpriteSheet.png"))
 	{
 		// error...
 	}
@@ -36,10 +36,8 @@ void Game::init()
 	m_box.init(m_font);
 	m_bullet.init();
 
-	for (int i = 0; i < M_NUM_ENEMIES; i++)
-	{
-		m_AIBullet[i].init();
-	}
+	m_AIBullet.init();
+
 	m_HUD.init(m_font);
 	m_pickups.initPickups(m_box);
 	m_grid.makeGrid();
@@ -55,11 +53,7 @@ void Game::init()
 	//int x = m_grid.getCells().at(5).getCentreX();
 	//int y = m_grid.getCells().at(5).getCentreY();
 
-	for (int i = 0; i < M_NUM_ENEMIES; i++)
-	{
-		m_enemy[i].init(m_grid);
-	}
-
+	m_enemy.init(m_grid);
 }
 
 void Game::run()
@@ -207,11 +201,9 @@ void Game::draw()
 
 		m_window.draw(m_bgSpriteSheet);
 
-		for (int i = 0; i < M_NUM_ENEMIES; i++)
-		{
-			m_enemy[i].draw(m_window);
-			m_AIBullet[i].draw(m_window);
-		}
+		
+		m_enemy.draw(m_window);
+		m_AIBullet.draw(m_window);
 		
 		m_box.draw(m_window);
 		m_pickups.draw(m_window);
@@ -264,39 +256,39 @@ void Game::update()
 		}
 		else
 		{
-			for (int i = 0; i < M_NUM_ENEMIES; i++)
+
+			m_enemyAlive = m_enemy.update(m_grid);
+
+			if (m_enemyAlive == false)
 			{
-				m_enemiesAlive[i] = m_enemy[i].update(m_grid);
-
-				if (m_enemiesAlive[0] == false && m_enemiesAlive[1] == false)
 				{
-					{
-						m_currentState = GameState::Win;
-					}
+					m_currentState = GameState::Win;
 				}
-
-				m_bullet.update(m_box, m_enemy[i]);
-				m_AIBullet[i].update(m_box, m_enemy[i], m_player);
 			}
 
-			m_box.update(m_player);
-			m_HUD.update(m_player);
-			m_pickups.update(m_player, m_box.getActiveBox());
+			m_bullet.update(m_box, m_enemy);
+			m_AIBullet.update(m_box, m_enemy, m_player);
 		}
+
+		m_box.update(m_player);
+		m_HUD.update(m_player);
+		m_pickups.update(m_player, m_box.getActiveBox());
 		break;
+
 	case GameState::Loose:
-	{
+
 		m_gameOverScreen.update(m_window, false);
 		break;
-	}
+
 	case GameState::Win:
-	{
+
 		m_gameOverScreen.update(m_window, true);
 		break;
-	}
+
 	default:
 		break;
 	}
+
 
 }
 
@@ -305,13 +297,10 @@ void Game::restart()
 	m_player.restart();
 	m_box.restart();
 	m_bullet.restart();
+	m_enemy.restart(m_grid);
+	m_AIBullet.restart();
 
-	for (int i = 0; i < M_NUM_ENEMIES; i++)
-	{
-		m_enemy[i].restart(m_grid);
-		m_AIBullet[i].restart();
-	}
-
+	m_grid.restart();
 	m_pickups.restart();
 	m_currentState = GameState::Game;
 }

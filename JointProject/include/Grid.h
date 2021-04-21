@@ -29,6 +29,8 @@ public:
 		return m_grid;
 	}
 
+	void restart();
+
 private:
 
 	static int const ROWS = 10;

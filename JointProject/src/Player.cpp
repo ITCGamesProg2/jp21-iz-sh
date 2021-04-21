@@ -6,13 +6,14 @@ Player::Player(sf::Sprite& t_spheet) : m_playerSprite(t_spheet)
 
 void Player::initAnimationData()
 {
-	m_animations[int(PlayerAnimationState::walk)] = { 8, 36,5,true };
-	m_animations[int(PlayerAnimationState::idle)] = { 3,21,80,true };
+	m_animations[int(PlayerAnimationState::walk)] = { 8, 0, 10, true };
+	m_animations[int(PlayerAnimationState::idle)] = { 1, 0, 80, true };
 	m_animationState = PlayerAnimationState::walk;
 
-	m_animSheet.init(m_playerSprite.getGlobalBounds().width, m_playerSprite.getGlobalBounds().height, 5, 9);
+	m_animSheet.init(m_playerSprite.getGlobalBounds().width, m_playerSprite.getGlobalBounds().height, 1, 8);
 	m_playerSprite.setTextureRect(m_animSheet.getFrame());
-	m_playerSprite.setOrigin(m_playerSprite.getGlobalBounds().width / 2, (m_playerSprite.getGlobalBounds().height / 2) + 15);
+	m_playerSprite.setOrigin(m_playerSprite.getGlobalBounds().width / 2, (m_playerSprite.getGlobalBounds().height / 2));
+	m_playerSprite.setPosition(400, 400);
 }
 
 void Player::startAnimaton(PlayerAnimationState t_animationState)
@@ -86,6 +87,11 @@ bool Player::update(sf::Vector2f t_mousePos, bool& t_clickedMouse)
 			m_playerSprite.setScale(1, 1);
 			t_clickedMouse = false;
 		}
+	}
+
+	if (m_animationState == PlayerAnimationState::walk)
+	{
+
 	}
 	
 	return m_alive;

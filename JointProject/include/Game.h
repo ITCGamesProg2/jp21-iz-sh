@@ -58,17 +58,16 @@ private:
 	sf::Sprite m_bgSpriteSheet;
 	bool m_clickedMouse = false;
 
-	static const int M_NUM_ENEMIES = 1;
-	bool m_enemiesAlive[M_NUM_ENEMIES];
+	bool m_enemyAlive;
 
 	bool m_playerAlive;
 
 	Box m_box;
 	Bullet m_bullet;
-	AIBullet m_AIBullet[M_NUM_ENEMIES];
+	AIBullet m_AIBullet;
 	HUD m_HUD;
 	Pickups m_pickups;
-	AI m_enemy[M_NUM_ENEMIES];
+	AI m_enemy;
 	MainMenu m_menu;
 	HelpScreen m_help;
 	Cutscene m_cut;

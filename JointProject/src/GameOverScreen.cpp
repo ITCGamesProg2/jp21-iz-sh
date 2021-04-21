@@ -32,7 +32,7 @@ void GameOverScreen::initialise(sf::Font& t_font)
 	m_gameOverText.setOutlineThickness(2u);
 	m_gameOverText.setOutlineColor(sf::Color::White);
 	m_gameOverText.setFont(m_font);
-	m_gameOverText.setFillColor(sf::Color::Red);
+	m_gameOverText.setFillColor(sf::Color::Black);
 	m_gameOverText.setOrigin(m_gameOverText.getGlobalBounds().width / 2, m_gameOverText.getGlobalBounds().height / 2);
 	m_gameOverText.setPosition(ScreenSize::s_width / 2, ScreenSize::s_height / 2);
 }
