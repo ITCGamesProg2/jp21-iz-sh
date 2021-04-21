@@ -33,13 +33,14 @@ void Player::draw(sf::RenderWindow& t_win)
 	
 }
 
-void Player::update(sf::Vector2f t_mousePos, bool& t_clickedMouse)
+bool Player::update(sf::Vector2f t_mousePos, bool& t_clickedMouse)
 {
 	if (m_health <= 0)
 	{
 		m_alive = false;
-	}
 
+		return m_alive;
+	}
 
 	if (m_alive)
 	{
@@ -87,6 +88,7 @@ void Player::update(sf::Vector2f t_mousePos, bool& t_clickedMouse)
 		}
 	}
 	
+	return m_alive;
 }
 
 void Player::interactWithBox()

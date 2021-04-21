@@ -1,24 +1,5 @@
 ﻿  Game.cpp
 C:\Users\steph\Desktop\joiiiiiiint\jp21-iz-sh\JointProject\include\AI.h(13,18): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
 C:\Users\steph\Desktop\joiiiiiiint\jp21-iz-sh\JointProject\include\AI.h(61,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-  MainMenu.cpp
 C:\Users\steph\Desktop\joiiiiiiint\jp21-iz-sh\JointProject\src\Game.cpp(34,36): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\steph\Desktop\joiiiiiiint\jp21-iz-sh\JointProject\include\AI.h(13,18): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\Users\steph\Desktop\joiiiiiiint\jp21-iz-sh\JointProject\include\AI.h(61,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\steph\Desktop\joiiiiiiint\jp21-iz-sh\JointProject\src\MainMenu.cpp(30,32): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\steph\Desktop\joiiiiiiint\jp21-iz-sh\JointProject\src\MainMenu.cpp(40,118): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\steph\Desktop\joiiiiiiint\jp21-iz-sh\JointProject\src\MainMenu.cpp(40,49): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\steph\Desktop\joiiiiiiint\jp21-iz-sh\JointProject\src\MainMenu.cpp(47,58): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\steph\Desktop\joiiiiiiint\jp21-iz-sh\JointProject\src\MainMenu.cpp(47,58): warning C4244:         with
-C:\Users\steph\Desktop\joiiiiiiint\jp21-iz-sh\JointProject\src\MainMenu.cpp(47,58): warning C4244:         [
-C:\Users\steph\Desktop\joiiiiiiint\jp21-iz-sh\JointProject\src\MainMenu.cpp(47,58): warning C4244:             T=float
-C:\Users\steph\Desktop\joiiiiiiint\jp21-iz-sh\JointProject\src\MainMenu.cpp(47,58): warning C4244:         ]
-C:\Users\steph\Desktop\joiiiiiiint\jp21-iz-sh\JointProject\src\MainMenu.cpp(65,188): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\steph\Desktop\joiiiiiiint\jp21-iz-sh\JointProject\src\MainMenu.cpp(70,14): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-  main.cpp
-C:\Users\steph\Desktop\joiiiiiiint\jp21-iz-sh\JointProject\src\MainMenu.cpp(71,14): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Users\steph\Desktop\joiiiiiiint\jp21-iz-sh\JointProject\include\AI.h(13,18): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\Users\steph\Desktop\joiiiiiiint\jp21-iz-sh\JointProject\include\AI.h(61,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-  Generating Code...
-C:\Users\steph\Desktop\joiiiiiiint\jp21-iz-sh\JointProject\src\main.cpp(28,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
   JointProject.vcxproj -> C:\Users\steph\Desktop\joiiiiiiint\jp21-iz-sh\Debug\JointProject.exe

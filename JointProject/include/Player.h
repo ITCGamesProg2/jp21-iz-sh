@@ -20,7 +20,10 @@ public:
 	/// <summary>
 	/// gets player input and moves the character
 	/// </summary>
-	void update(sf::Vector2f t_mousePos, bool& t_clickedMouse);
+	/// <param name="t_mousePos"></param>
+	/// <param name="t_clickedMouse"></param>
+	/// <returns>bool determining if player is still alive in order to change gamestates</returns>
+	bool update(sf::Vector2f t_mousePos, bool& t_clickedMouse);
 
 
 	/// <summary>

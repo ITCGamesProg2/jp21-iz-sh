@@ -14,7 +14,7 @@ public:
 	};
 	void init(Grid &t_grid);
 	void draw(sf::RenderWindow& t_window);
-	void update(Grid& m_grid);
+	bool update(Grid& m_grid);
 
 	/// <summary>
 	/// returns the enemy sprite

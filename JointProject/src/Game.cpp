@@ -175,7 +175,9 @@ void Game::draw()
 		m_cut.draw(m_window);
 		break;
 	case GameState::Game:
+
 		m_window.draw(m_bgSpriteSheet);
+
 		for (int i = 0; i < M_NUM_ENEMIES; i++)
 		{
 			m_enemy[i].draw(m_window);
@@ -188,6 +190,11 @@ void Game::draw()
 		m_bullet.draw(m_window);
 		m_HUD.draw(m_window);
 		break;
+
+	case GameState::Loose:
+	{
+
+	}
 	default:
 		break;
 	}
@@ -196,6 +203,9 @@ void Game::draw()
 
 void Game::update()
 {
+	bool playerAlive;
+	bool enemiesRemaining;
+
 	switch (m_currentState)
 	{
 	case GameState::None:
@@ -213,24 +223,36 @@ void Game::update()
 		}
 		break;
 	case GameState::Game:
-		// update player movement
-		m_player.update(m_bullet.getMousePos(), m_clickedMouse);
 
-		for (int i = 0; i < M_NUM_ENEMIES; i++)
+		playerAlive = m_player.update(m_bullet.getMousePos(), m_clickedMouse);
+
+		if (playerAlive == false)
 		{
-			m_enemy[i].update(m_grid);
-			m_bullet.update(m_box, m_enemy[i]);
-			m_AIBullet[i].update(m_box, m_enemy[i], m_player);
-		}
-		m_box.update(m_player);
-		
-		m_HUD.update(m_player);
+			m_currentState = GameState::Loose;
 
-		m_pickups.update(m_player, m_box.getActiveBox());
+		}
+		else
+		{
+			for (int i = 0; i < M_NUM_ENEMIES; i++)
+			{
+				enemiesRemaining = m_enemy[i].update(m_grid);
+
+				if (enemiesRemaining == false)
+				{
+					m_currentState = GameState::Win;
+				}
+
+				m_bullet.update(m_box, m_enemy[i]);
+				m_AIBullet[i].update(m_box, m_enemy[i], m_player);
+			}
+
+			m_box.update(m_player);
+			m_HUD.update(m_player);
+			m_pickups.update(m_player, m_box.getActiveBox());
+		}
 		break;
 	default:
 		break;
 	}
-	
-	
+
 }

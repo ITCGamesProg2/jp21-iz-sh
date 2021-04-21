@@ -56,6 +56,7 @@ private:
 	bool m_clickedMouse = false;
 
 	static const int M_NUM_ENEMIES = 2;
+
 	Box m_box;
 	Bullet m_bullet;
 	AIBullet m_AIBullet[M_NUM_ENEMIES];

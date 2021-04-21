@@ -10,7 +10,9 @@ void HelpScreen::initialise(sf::Font& t_font)
 	}
 	
 	m_controlsSprite.setTexture(m_controlsTexture);
-	m_controlsSprite.setPosition(ScreenSize::s_width / 2, ScreenSize::s_height / 2);
+	m_controlsSprite.setScale(2, 2);
+	m_controlsSprite.setOrigin(m_controlsSprite.getGlobalBounds().width / 2, m_controlsSprite.getGlobalBounds().height / 2);
+	m_controlsSprite.setPosition(ScreenSize::s_width / 2, ScreenSize::s_height / 4);
 
 	if (!m_buttonTexture.loadFromFile("./resources/button.png"))
 	{
