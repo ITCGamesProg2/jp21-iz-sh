@@ -61,3 +61,4 @@ Game -> MainMenu
 Cutscene -> Game
 @enduml
 
+![menu_diagram](https://user-images.githubusercontent.com/58521962/115789702-71e65900-a3bd-11eb-8de5-6b1bcb36b5ae.png)
