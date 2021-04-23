@@ -1,4 +1,5 @@
 @startuml
+@startuml
 package "Menu System"{
 
 class Game 
@@ -51,14 +52,13 @@ class MainMenu {
 	void update(sf::Window& t_window);
 
 }
-}
 
-note "All classes dependant on SFML " as N1
-MainMenu -> Cutscene
-MainMenu -> HelpScreen
-Game -> GameOverScreen
-Game -> MainMenu
-Cutscene -> Game
+SFML <.. Game
+WindowsOS <.. Game
+Game <- GameOverScreen
+Game <- MainMenu
+Game <- HelpScreen
+Game <- Cutscene
 @enduml
 
-![menu_diagram](https://user-images.githubusercontent.com/58521962/115789702-71e65900-a3bd-11eb-8de5-6b1bcb36b5ae.png)
+![menu_diagram](https://user-images.githubusercontent.com/58521962/115807610-debf1a80-a3e0-11eb-8ad0-edd710a2deea.png)
