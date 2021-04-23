@@ -249,5 +249,6 @@ AIBullet -> Player
 Grid -> AI
 @enduml
 
-![ai_interaction](https://user-images.githubusercontent.com/58521962/115793782-a1e52a80-a3c4-11eb-9598-7ab4e46b9c58.png)
+![ai_interaction_diagram](https://user-images.githubusercontent.com/58521962/115808594-a587aa00-a3e2-11eb-85b4-56330be0a7f3.png)
+
 
